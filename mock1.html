@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🎯 CAIA Level 1 本番予行演習 1</title>
+<style>
+body{font-family:-apple-system,'Hiragino Sans','Noto Sans JP',sans-serif;max-width:860px;margin:0 auto;padding:16px;background:#f7f7f9;color:#222;line-height:1.65;}
+header{background:#1a2f5e;color:#fff;padding:18px 20px;border-radius:12px;margin-bottom:14px;}
+header h1{margin:0 0 6px;font-size:22px;} header p{margin:0;opacity:.85;font-size:14px;}
+.topic{background:#e8eefc;border-left:5px solid #1a2f5e;padding:8px 14px;margin:26px 0 10px;font-weight:700;border-radius:6px;}
+.q{background:#fff;border:1px solid #ddd;border-radius:10px;padding:14px 16px;margin:12px 0;}
+.q h3{margin:0 0 8px;font-size:14px;color:#888;font-weight:600;}
+.q .body{white-space:pre-wrap;font-size:15px;}
+.opts{margin:10px 0 0;padding:0;list-style:none;}
+.opts li{padding:7px 10px;border:1px solid #eee;border-radius:8px;margin:5px 0;cursor:pointer;}
+.opts li:hover{background:#f0f4ff;}
+.opts li.sel{border-color:#1a2f5e;background:#e8eefc;font-weight:600;}
+.opts li.correct{border-color:#2e7d32;background:#e6f4ea;font-weight:700;}
+.opts li.wrong{border-color:#c62828;background:#fdecea;}
+.ansbox{display:none;margin-top:12px;padding:12px;background:#f4f8f4;border-left:4px solid #2e7d32;border-radius:8px;}
+.ansbox.show{display:block;}
+.ansbox .corr{font-size:16px;font-weight:800;color:#2e7d32;margin-bottom:6px;}
+.ansbox .trick{background:#fff8e1;padding:8px 10px;border-radius:6px;margin-bottom:8px;font-size:14px;}
+.ansbox .ba2{background:#eef2f7;padding:8px 10px;border-radius:6px;margin-top:8px;font-size:13px;font-family:monospace;white-space:pre-wrap;}
+.btn{display:inline-block;margin-top:10px;padding:6px 14px;background:#1a2f5e;color:#fff;border:none;border-radius:6px;font-size:13px;cursor:pointer;}
+.scorebar{position:sticky;top:0;background:#fff;border-bottom:2px solid #1a2f5e;padding:10px 14px;border-radius:0 0 10px 10px;margin-bottom:10px;display:flex;gap:14px;align-items:center;font-size:14px;z-index:9;}
+.reset{background:#eee;color:#333;border:1px solid #ccc;border-radius:6px;padding:5px 10px;font-size:12px;cursor:pointer;}
+@media print{.scorebar,.btn{display:none} .ansbox{display:block!important}}
+</style></head><body>
+<header><h1>🎯 CAIA Level 1 本番予行演習 1</h1><p>合格ライン(70%)超えを狙う基本・頻出セット | 100問・130分 | 選択肢をタップ → 採点・解説表示</p></header>
+<div class="scorebar">✅ 正解: <b id="ok">0</b> / ❌ 誤答: <b id="ng">0</b> / ⬜ 未回答: <b id="skip">100</b>
+<button class="reset" onclick="resetAll()">リセット</button></div>
+<div id="quiz">
+<div class="topic">Ethics（倫理）</div>
+<div class="q" id="q1"><h3>Q001 · L1-1.1.1-002</h3><div class="body">Which of the following is least likely to be considered a typical characteristic of alternative investments?</div><ul class="opts"><li data-letter=" " onclick="pick(this,1)"><b> .</b> Potentially high levels of concentration in a single position or strategy.</li><li data-letter=" " onclick="pick(this,1)"><b> .</b> Lower levels of liquidity compared with traditional publicly traded securities.</li><li data-letter=" " onclick="pick(this,1)"><b> .</b> The use of leverage, short selling, and derivatives.</li><li data-letter=" " onclick="pick(this,1)"><b> .</b> Mandatory daily pricing and continuous secondary-market trading.</li></ul>
+<div class="ansbox" id="ans1"><div class="corr">正解: D</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器2「least likely問題は『明らかに正しい・当たり前の選択肢』が答え」: Dの「日次評価・継続的な流通市場取引が必須」は伝統的投資の常識であって、代替投資には当てはまらない→これが答え
+- A（高集中）B（低流動性）C（レバレッジ・空売り・デリバティブ）は代替投資の典型特徴そのもの→正しいので絶対に選ばない
+- 代替投資＝「流動性が低く、評価頻度が低い（四半期・月次）」と対比で覚えるとDが一瞬で浮かぶ</div><div>「日次評価・継続的な流通市場での取引が必須」は代替投資には当てはまりません。多くの代替投資（PEファンド、プライベートデット、不動産など）は流動性が低く、評価も頻度が低い（四半期・月次）。A（高集中）、B（低流動性）、C（レバレッジ・空売り・デリバティブの活用）は代替投資の典型的な特徴です。本問はleast likely型。</div></div><button class="btn" onclick="toggleAns(1)">解答・解説を表示</button></div>
+<div class="q" id="q2"><h3>Q002 · L1-1.2.3-004</h3><div class="body">Case Study 7. A CAIA member is a consultant to a large pension fund. A hedge fund manager who is currently being evaluated for a potential allocation sends the consultant an expensive gift and an offer of a paid trip to an exclusive resort during the evaluation period. Which of the following best describes the appropriate response under the CAIA ethical principles?</div><ul class="opts"><li data-letter=" " onclick="pick(this,2)"><b> .</b> Accept the gift but decline the trip, because the gift is a customary business courtesy.</li><li data-letter=" " onclick="pick(this,2)"><b> .</b> Accept both, but disclose them in a post-award report after the allocation decision is made.</li><li data-letter=" " onclick="pick(this,2)"><b> .</b> Accept both and keep them confidential to avoid embarrassment for the fund manager.</li><li data-letter=" " onclick="pick(this,2)"><b> .</b> Decline both and notify the appropriate parties, because accepting them during an active evaluation creates a conflict that could compromise objectivity.</li></ul>
+<div class="ansbox" id="ans2"><div class="corr">正解: D</div><div class="trick">🎯 <b>秒殺テク</b><br>- 評価中の高額贈答・接待→「辞退＋報告」するDが正解
+- A（慣例と軽視）、B（決定後開示では手遅れ）、C（非開示）はすべて客観性を損なう→消去
+- 贈答・接待問題は「断る」選択肢がほぼ正解。「慣例だからOK」は高額贈答には当てはまらない</div><div>評価（割当決定）の最中に送られる高額な贈答・接待は、客観性を損ない得る利益相反を生じさせます。CAIAの原則では、そのような恩恵を辞退し、必要に応じて適切な関係者に報告することが求められます。Aの「慣習的なビジネス儀礼」は高額な贈答には当てはまらない。Bの決定後開示では評価の公平性を既に損なっている。Cの非開示は利益相反の管理として不適切です。</div></div><button class="btn" onclick="toggleAns(2)">解答・解説を表示</button></div>
+<div class="q" id="q3"><h3>Q003 · L1-1.2.4-002</h3><div class="body">A newly hired CAIA member is asked to review the firm&#x27;s compliance program. Which of the following elements is most central to an effective ethics and compliance program under the CAIA framework?</div><ul class="opts"><li data-letter=" " onclick="pick(this,3)"><b> .</b> A policy of never recording investment decisions to preserve flexibility.</li><li data-letter=" " onclick="pick(this,3)"><b> .</b> A single annual certification signed by the CEO, with no other controls.</li><li data-letter=" " onclick="pick(this,3)"><b> .</b> Periodic legal opinions confirming that no lawsuits have been filed against the firm.</li><li data-letter=" " onclick="pick(this,3)"><b> .</b> A documented code of conduct, ongoing training, monitoring and enforcement, and a mechanism for reporting potential violations.</li></ul>
+<div class="ansbox" id="ans3"><div class="corr">正解: D</div><div class="trick">🎯 <b>秒殺テク</b><br>- コンプライアンス体制は「複数の要素が揃った選択肢」が正解→Dの「code of conduct＋training＋monitoring＋reporting」のフルセット
+- A（記録しない）・B（年1回の証明書のみ）・C（訴訟不存在のみ）は単一要素で不十分→消去
+- 「複数の仕組みが並んだ選択肢」を選ぶ。単一の安心材料だけの選択肢は不正解</div><div>効果的な倫理・コンプライアンス体制には、文書化された行動規範、継続的な研修、モニタリングと執行、違反報告の仕組みが不可欠です。Dが正解。Bの単年次証明書のみ、Cの訴訟不存在の確認のみでは不十分。Aの投資判断の記録を残さない方針は監査可能性を損ない、コンプライアンス違反につながります。</div></div><button class="btn" onclick="toggleAns(3)">解答・解説を表示</button></div>
+<div class="q" id="q4"><h3>Q004 · L1-1.1.5-027</h3><div class="body">Which of the following is the most accurate statement regarding the distribution of returns for alternative investments?</div><ul class="opts"><li data-letter=" " onclick="pick(this,4)"><b> .</b> The return distributions of most alternative investments are approximately normal.</li><li data-letter=" " onclick="pick(this,4)"><b> .</b> Skewness and kurtosis are irrelevant to the performance evaluation of alternatives.</li><li data-letter=" " onclick="pick(this,4)"><b> .</b> Many alternative investment return distributions exhibit skewness and fat tails, and historical averages may be misleading.</li><li data-letter=" " onclick="pick(this,4)"><b> .</b> Alternative investments always exhibit negative skewness.</li></ul>
+<div class="ansbox" id="ans4"><div class="corr">正解: C</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器1「絶対表現」: A「approximately normal（ほぼ正規）」D「always exhibit negative skewness（常に負の歪度）」→誇張で消去
+- B「skewness and kurtosis are irrelevant（無関係）」は統計の常識と逆→消去
+- 残るC「歪度とファットテールがあり、歴史平均は誤解を招く」が正しい定番記述。代替投資＝正規分布から乖離、と暗記</div><div>代替投資のリターン分布は正規分布から乖離することが多く、歪度（skewness）と尖度（kurtosis、ファットテール）が顕著です。そのため平均値だけで評価すると誤解を招き、VaRなどのテールリスク指標や下方リスク（semivariance、Sortino比）なども併用する必要があります。A（正規近似）・B（無関係とする誤り）・D（「常に負の歪度」は過度な一般化で誤り）。</div></div><button class="btn" onclick="toggleAns(4)">解答・解説を表示</button></div>
+<div class="q" id="q5"><h3>Q005 · L1-1.2.2-007</h3><div class="body">Case Study 3. A CAIA member managing a hedge fund allocation for a pension client is also a limited partner in a separate private equity fund that charges its investors higher fees than comparable funds. The member recommends that the pension client invest in that same private equity fund. The member discloses the relationship in the client&#x27;s quarterly report but does not discuss the fee disadvantage in person. Which of the following statements best describes the member&#x27;s behavior?</div><ul class="opts"><li data-letter=" " onclick="pick(this,5)"><b> .</b> The member fully satisfied his ethical duties because the relationship was disclosed in writing.</li><li data-letter=" " onclick="pick(this,5)"><b> .</b> The member breached the fair dealing principle because he failed to allocate the private equity fund opportunity to the pension client before his own investment.</li><li data-letter=" " onclick="pick(this,5)"><b> .</b> The member&#x27;s disclosure was insufficient because he did not ensure the client understood the conflict and the fee disadvantage before acting on the recommendation.</li><li data-letter=" " onclick="pick(this,5)"><b> .</b> The member acted appropriately because personal investments are unrelated to professional recommendations.</li></ul>
+<div class="ansbox" id="ans5"><div class="corr">正解: C</div><div class="trick">🎯 <b>秒殺テク</b><br>- シナリオの欠点＝「書面開示だけで理解を確認していない」→Cの「insufficient...did not ensure the client understood」がそのまま指摘
+- A（書面で足りる）は過剰擁護、B（機会配分にすり替え）・D（無関係と断じる）は本質から逸れる→消去
+- 問題文の「欠点」を正確に言い当てた選択肢が正解</div><div>利益相反の管理において、形式的な書面開示だけでは不十分です。CAIAの原則では、開示が「効果的」であり、クライアントがその意味（ここでは手数料の不利）を理解した上で判断できることが求められます。Cは、理解を伴わない開示では不十分とする点で正しい。Aは書面開示のみで足りるとする点が誤り。Bは機会配分の公平性の問題を混同しており、本件の主要な問題は開示の質です。Dは個人的投資が推奨と無関係という前提が誤りです。</div></div><button class="btn" onclick="toggleAns(5)">解答・解説を表示</button></div>
+<div class="q" id="q6"><h3>Q006 · L1-1.2.4-005</h3><div class="body">According to the CAIA Association&#x27;s enforcement approach, which of the following statements is most accurate?</div><ul class="opts"><li data-letter=" " onclick="pick(this,6)"><b> .</b> The CAIA Association has no mechanism to discipline members for unethical conduct.</li><li data-letter=" " onclick="pick(this,6)"><b> .</b> Only securities regulators, not the CAIA Association, may sanction a member for unethical behavior.</li><li data-letter=" " onclick="pick(this,6)"><b> .</b> The CAIA Association can impose sanctions, including suspension or revocation of the Charter, for violations of its ethical principles and can consider cooperation with regulatory authorities.</li><li data-letter=" " onclick="pick(this,6)"><b> .</b> Sanctions apply only to members who have been criminally convicted.</li></ul>
+<div class="ansbox" id="ans6"><div class="corr">正解: C</div><div class="trick">🎯 <b>秒殺テク</b><br>- 「制裁できる・剥奪できる」を含む選択肢が正解→Cの「impose sanctions...suspension or revocation of the Charter」
+- A（制裁なし）・B（規制当局のみ）・D（刑事有罪のみ）はいずれも権限を過度に限定→消去
+- 自主規制団体の制裁権限は「あり」が前提。「制裁できない」方向の選択肢は不正解</div><div>CAIA協会は会員の倫理原則違反に対して、チャーターの停止・剥奪を含む制裁を科す権限を持ち、必要に応じて規制当局と連携することができます。Cが正解。Aの制裁メカニズム不存在は誤り。Bの規制当局のみという限定は誤り。Dの刑事有罪のみに限定されるという説明も誤りです。</div></div><button class="btn" onclick="toggleAns(6)">解答・解説を表示</button></div>
+<div class="q" id="q7"><h3>Q007 · L1-1.2.2-006</h3><div class="body">Which of the following best describes the fiduciary duty of loyalty as it applies to an investment professional managing client assets?</div><ul class="opts"><li data-letter=" " onclick="pick(this,7)"><b> .</b> Loyalty requires the professional to put the interests of the beneficiaries first and to avoid conflicts of interest that could compromise that priority.</li><li data-letter=" " onclick="pick(this,7)"><b> .</b> Loyalty requires the professional to prioritize the interests of the firm that employs him over the interests of any individual client.</li><li data-letter=" " onclick="pick(this,7)"><b> .</b> Loyalty requires the professional to disclose all fee structures but imposes no obligation regarding investment selection.</li><li data-letter=" " onclick="pick(this,7)"><b> .</b> Loyalty is satisfied if the professional follows a written compliance manual, regardless of outcomes.</li></ul>
+<div class="ansbox" id="ans7"><div class="corr">正解: A</div><div class="trick">🎯 <b>秒殺テク</b><br>- 「loyalty＝クライアント（受益者）の利益を最優先＋利益相反回避」→Aが定義そのもの
+- B（雇用者優先）は方向が逆、C（投資選択に義務なし）は義務を否定、D（文書準拠で足りる）は過小評価→消去
+- 定義問題は「クライアント優先」を含む選択肢が正解</div><div>受託者責任のうち忠実義務（duty of loyalty）は、受益者（クライアント）の利益を自己または雇用者の利益より優先し、その優先順位を損なう可能性のある利益相反を回避することを要求します。Aが忠実義務の核心を最も正確に述べています。Bは雇用者優先で誤り。Cは投資選択に関する義務を否定しており誤り。Dは文書準拠のみで足りるとする点が誤りです。</div></div><button class="btn" onclick="toggleAns(7)">解答・解説を表示</button></div>
+<div class="q" id="q8"><h3>Q008 · L1-1.2.1-003</h3><div class="body">Case Study 8. A CAIA member is preparing the track record of a new commodity fund for an investor questionnaire. To make the track record appear more attractive, the member backfills the fund&#x27;s returns using a strategy that was never actually traded before the fund&#x27;s official launch date. Which CAIA principle does this behavior most directly violate?</div><ul class="opts"><li data-letter=" " onclick="pick(this,8)"><b> .</b> High standards of professional conduct, because the backfilled track record misrepresents the fund&#x27;s actual performance history.</li><li data-letter=" " onclick="pick(this,8)"><b> .</b> The duty of loyalty to limited partners, because the backfill changes the fund&#x27;s legal structure.</li><li data-letter=" " onclick="pick(this,8)"><b> .</b> Fair dealing, because the backfill benefits the fund&#x27;s custodian.</li><li data-letter=" " onclick="pick(this,8)"><b> .</b> None, because backfilling is a common industry practice that is always acceptable.</li></ul>
+<div class="ansbox" id="ans8"><div class="corr">正解: A</div><div class="trick">🎯 <b>秒殺テク</b><br>- 実績の偽装（backfill）＝「実績を歪める」→Aの「misrepresents the fund&#x27;s actual performance」が直接指摘
+- B（法務構造）・C（カストディアン）は無関係、D（常に許容）は開き直り→消去
+- 虚偽表示シナリオは「misrepresent」を含む選択肢が正解</div><div>実際には運用されていなかった戦略のリターンをローンチ前日付までさかのぼって（backfill）表示することは、実績履歴を歪め、投資家に誤った情報を提供するもので、高水準の専門的行為および誠実性の原則違反です。Aが正解。Bは法務構造の変更という誤った説明。Cはカストディアンとの関係で誤り。Dの「常に許容される」という主張は誤りで、backfillは開示と公正性が条件となる場合もありますが、未運用戦略の偽装は許されません。</div></div><button class="btn" onclick="toggleAns(8)">解答・解説を表示</button></div>
+<div class="q" id="q9"><h3>Q009 · L1-1.2.1-006</h3><div class="body">Which of the following actions best demonstrates a CAIA member&#x27;s commitment to maintaining high standards of professional competence?</div><ul class="opts"><li data-letter=" " onclick="pick(this,9)"><b> .</b> Delegating all complex valuation work to outside vendors without reviewing their methodology.</li><li data-letter=" " onclick="pick(this,9)"><b> .</b> Limiting professional advice to areas in which the member has sufficient knowledge and experience, while engaging in continuous education.</li><li data-letter=" " onclick="pick(this,9)"><b> .</b> Relying exclusively on the firm&#x27;s legal team to make all investment decisions.</li><li data-letter=" " onclick="pick(this,9)"><b> .</b> Avoiding any new asset class once the member has qualified, to reduce risk of error.</li></ul>
+<div class="ansbox" id="ans9"><div class="corr">正解: B</div><div class="trick">🎯 <b>秒殺テク</b><br>- 「専門性を高める行動」が答え→Bの「sufficient knowledge and experience」＋「continuous education」がそのまま
+- A（外部委託に丸投げ）、C（判断放棄）、D（新規回避）は能力の行使・向上ではない→消去
+- 委任・放棄・回避の選択肢はすべて不正解。「自分の範囲内で＋学び続ける」が正解</div><div>高水準の専門的行為の原則には、専門的能力（professional competence）の維持・向上が含まれます。知識・経験の範囲内で助言し、継続的な教育に取り組むことが求められます。Bが正解。Aは外部委託に丸投げし検証しない点、Cは判断の放棄、Dは新しい資産クラスへの関与を一律回避する消極姿勢で、いずれも能力の適切な行使・向上とは言えません。</div></div><button class="btn" onclick="toggleAns(9)">解答・解説を表示</button></div>
+<div class="q" id="q10"><h3>Q010 · L1-1.2.3-007</h3><div class="body">Case Study 6. A CAIA member is a senior executive at a company that is about to announce a major acquisition. While the information is still material and non-public, the member places a personal trade in a related publicly listed company that will likely benefit from the acquisition. Which of the following statements best describes the member&#x27;s conduct?</div><ul class="opts"><li data-letter=" " onclick="pick(this,10)"><b> .</b> The member is in compliance because no law prohibits trading in a related company.</li><li data-letter=" " onclick="pick(this,10)"><b> .</b> The member is in compliance because the trade was personal and not made on behalf of a client.</li><li data-letter=" " onclick="pick(this,10)"><b> .</b> The member is in violation of the integrity and high standards of professional conduct principles, and the trade may also constitute illegal insider trading.</li><li data-letter=" " onclick="pick(this,10)"><b> .</b> The member is in violation only if the trade resulted in a personal profit.</li></ul>
+<div class="ansbox" id="ans10"><div class="corr">正解: C</div><div class="trick">🎯 <b>秒殺テク</b><br>- 重要非公開情報での取引＝インサイダー。Cの「in violation...may also constitute illegal insider trading」がそのまま答え
+- A（法律が禁止していない）、B（自己売買だからOK）、D（利益が出た時のみ）はすべて言い訳→消去
+- 「非公開重要情報で取引」はどんな言い訳も免責にならない。自己売買・個人取引は言い訳にならない</div><div>重要かつ非公開な情報に基づく取引は、CAIAの誠実性・高水準の専門的行為の原則に反し、多くの法域でインサイダー取引として違法となり得ます。取引が「個人のもの」であることや「関連会社」であることは免責になりません。Cが正解。A・Bは取引主体や対象の言い訳で成り立たない。Dは損失の場合に免責されるという誤った考え方です。</div></div><button class="btn" onclick="toggleAns(10)">解答・解説を表示</button></div>
+<div class="q" id="q11"><h3>Q011 · L1-1.2.2-012</h3><div class="body">Case Study 2. A CAIA member works for an advisory firm that also receives commissions from product sponsors when clients purchase sponsored products. The member is asked by the compliance officer whether the arrangement is acceptable under the CAIA ethical principles. The compliance officer states that the key issue is not the existence of the conflict itself, but how the firm manages it. Which of the following responses best reflects how the CAIA principles treat such conflicts?</div><ul class="opts"><li data-letter=" " onclick="pick(this,11)"><b> .</b> All commission arrangements are prohibited because any compensation linked to product sales creates a conflict.</li><li data-letter=" " onclick="pick(this,11)"><b> .</b> Conflicts are acceptable only if the member personally avoids ever recommending a sponsored product.</li><li data-letter=" " onclick="pick(this,11)"><b> .</b> Conflicts are acceptable as long as they are not disclosed, to avoid alarming clients.</li><li data-letter=" " onclick="pick(this,11)"><b> .</b> Unavoidable conflicts are acceptable as long as they are disclosed to clients and managed with appropriate safeguards such as transparency and strong governance.</li></ul>
+<div class="ansbox" id="ans11"><div class="corr">正解: D</div><div class="trick">🎯 <b>秒殺テク</b><br>- 利益相反は「排除」ではなく「開示＋管理」→「disclosed」「managed」「transparency」「governance」が揃うDが正解
+- Aの「all...prohibited」・Bの「never」は絶対表現→ほぼ不正解。Cの「not disclosed」は常識と逆
+- 「開示と適切な管理」という方向の選択肢を最優先で選ぶ</div><div>CAIA倫理原則は、すべての利益相反を排除するのではなく、回避可能なものは回避し、不可避なものは開示と適切な管理（透明性・強力なガバナンス）によって対処することを求めます。コミッションそのものは禁止されず、開示と管理が鍵となります。Aは過度な禁止、Bは個人的回避のみで組織的ガバナンスを欠く点が不十分、Cは非開示は原則に反するため誤りです。</div></div><button class="btn" onclick="toggleAns(11)">解答・解説を表示</button></div>
+<div class="q" id="q12"><h3>Q012 · L1-1.2.1-005</h3><div class="body">Case Study 4. A CAIA member preparing marketing materials for a real estate fund includes a headline stating that the fund &quot;has never lost money in its 15-year history,&quot; while omitting that returns have consistently lagged the benchmark by a wide margin and that early investors exited at substantial discounts. Which CAIA principle is the member most clearly violating?</div><ul class="opts"><li data-letter=" " onclick="pick(this,12)"><b> .</b> Acting in clients&#x27; best interests.</li><li data-letter=" " onclick="pick(this,12)"><b> .</b> High standards of integrity, because the presentation is misleading despite being technically true.</li><li data-letter=" " onclick="pick(this,12)"><b> .</b> Loyalty to the employer.</li><li data-letter=" " onclick="pick(this,12)"><b> .</b> Maintaining professional competence.</li></ul>
+<div class="ansbox" id="ans12"><div class="corr">正解: B</div><div class="trick">🎯 <b>秒殺テク</b><br>- 「technically trueでもmisleading」は誠実性（integrity）違反の定番→問題文とBの「misleading despite being technically true」が完全一致
+- A（最善利益）も関連するが、「どの原則をviolatingか」を問う→虚偽表示を直接指すBが優先
+- 「隠す・誤解を招く表示」シナリオは「integrity違反」がほぼ答え</div><div>高水準の誠実性（integrity）は、技術的に真実であっても文脈を省き誤解を招く表現を避けることを求めます。実績とベンチマークの乖離や早期投資家の割安退出を隠した「損失なし」の強調表示は、誤解を招く提示であり誠実性の原則違反です。Aの最善利益も関連しますが、問題の核心は虚偽・誤解を招く表現そのものです。C・Dは本件の主要な違反ではありません。</div></div><button class="btn" onclick="toggleAns(12)">解答・解説を表示</button></div>
+<div class="q" id="q13"><h3>Q013 · L1-1.1.6-022</h3><div class="body">According to the CAIA curriculum, which of the following is most likely to be considered one of the &quot;investor invariants&quot; that hold for all rational investors?</div><ul class="opts"><li data-letter=" " onclick="pick(this,13)"><b> .</b> Investors always prefer investments with higher fees.</li><li data-letter=" " onclick="pick(this,13)"><b> .</b> Investors are indifferent to liquidity.</li><li data-letter=" " onclick="pick(this,13)"><b> .</b> Investors have a preference for higher expected return and a dislike of risk, other things being equal.</li><li data-letter=" " onclick="pick(this,13)"><b> .</b> Investors prefer less wealth to more wealth.</li></ul>
+<div class="ansbox" id="ans13"><div class="corr">正解: C</div><div class="trick">🎯 <b>秒殺テク</b><br>- キーワード一致: 「investor invariants（投資家の不変項）」＝合理的投資家なら誰でも持つ普遍的選好＝「高い期待リターンを好み、リスクを嫌う」→Cがそのまま
+- 消去法: A（高い手数料を好む）B（流動性に無関心）D（富を減らすのを好む）は人間の常識と真逆→消去
+- 「不変項＝より多くの富を好む・リスクを嫌う・高リターンを好む」の3点セットで暗記</div><div>合理的投資家の「不変項（invariants）」とは、状況によらず成立する普遍的な選好で、(1) より多くの富を好む、(2) 他の条件が同じなら高い期待リターンを好む、(3) 他の条件が同じならリスクを嫌う、などが挙げられます。Dは逆（より多くの富を好む）、A・Bは合理的選好と矛盾します。</div></div><button class="btn" onclick="toggleAns(13)">解答・解説を表示</button></div>
+<div class="q" id="q14"><h3>Q014 · L1-1.2.2-003</h3><div class="body">Case Study 1. Rika Tanaka is a CAIA member and portfolio manager at a small alternatives boutique. Her firm has developed a proprietary feeder fund with high fees that pays the firm an extra administrative markup. Rika knows the markup is not justified by the services provided, but senior management pressures her to allocate client assets into the feeder fund because the firm&#x27;s revenue depends on it. Rika instead allocates client assets to a comparable third-party fund with lower fees and better historical risk-adjusted performance. Which of the following best describes Rika&#x27;s behavior under the CAIA ethical principles?</div><ul class="opts"><li data-letter=" " onclick="pick(this,14)"><b> .</b> Rika acted consistently with her duty to act in her clients&#x27; best interests by avoiding a costly, unjustified arrangement.</li><li data-letter=" " onclick="pick(this,14)"><b> .</b> Rika breached her duty because she ignored a legitimate directive from senior management.</li><li data-letter=" " onclick="pick(this,14)"><b> .</b> Rika acted improperly because she failed to obtain a written waiver from each client before choosing the third-party fund.</li><li data-letter=" " onclick="pick(this,14)"><b> .</b> Rika satisfied her obligations only because the third-party fund had a longer track record.</li></ul>
+<div class="ansbox" id="ans14"><div class="corr">正解: A</div><div class="trick">🎯 <b>秒殺テク</b><br>- 主人公が「クライアントを守った」→その行為を肯定する選択肢が正解。Aが「best interests」で明言
+- B（上席の指示無視＝違反）は優先順位を逆転させる引っかけ、C（書面放棄が必須）は過剰要求、Dは理由をすり替え→消去
+- 「顧客を守る行動」をしている人物を非難する選択肢はすべて不正解</div><div>CAIA倫理原則の中核はクライアントの最善の利益（best interests of clients）に基づいて行動することです。高額手数料・正当化されないマークアップ付きの自己ファンドへの割当は、利益相反を生み、クライアントに不利益です。Rikaが低コストで良好なリスク調整後リターンの第三者ファンドを選択した行為は原則に整合します。Bは上席の指示が倫理原則に優先しない点で誤り。Cは選択自体に書面放棄が必須ではないため誤り。Dはトラックレコードの長さが主因ではありません。</div></div><button class="btn" onclick="toggleAns(14)">解答・解説を表示</button></div>
+<div class="q" id="q15"><h3>Q015 · L1-1.1.7-026</h3><div class="body">Compared with traditional public equity investments, alternative investments are generally characterized by:</div><ul class="opts"><li data-letter=" " onclick="pick(this,15)"><b> .</b> Higher transparency and more frequent independent valuation.</li><li data-letter=" " onclick="pick(this,15)"><b> .</b> Greater heterogeneity of strategies and less standardization of vehicles.</li><li data-letter=" " onclick="pick(this,15)"><b> .</b> Lower management fees and higher liquidity.</li><li data-letter=" " onclick="pick(this,15)"><b> .</b> Tighter regulatory reporting requirements across all jurisdictions.</li></ul>
+<div class="ansbox" id="ans15"><div class="corr">正解: B</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器3「キーワード一致」: 代替投資の特徴＝「戦略が多様（heterogeneous）でビークルの標準化が低い」→Bがそのまま正解
+- 武器1「絶対表現」: D「across all jurisdictions（全法域で一律）」は誇張→消去
+- A（透明性が高い・評価頻度が高い）C（低手数料・高流動性）は伝統的投資の特徴を移植した引っかけ→代替投資とは真逆で消去
+- 「代替投資＝多様・非標準・低透明性・高手数料・低流動性」の5点セットで暗記</div><div>代替投資は戦略・ビークル（LPファンド、クローズドエンド、オープンエンド等）が多様で標準化が低いという特徴があります。伝統的投資（上場株式・公募債）に比べて透明性・評価頻度は低い（A逆）、手数料は高く流動性は低い（C逆）、規制報告は国・ビークルによりまちまち（D「一律に厳しい」は誤り）。よってBが正解。</div></div><button class="btn" onclick="toggleAns(15)">解答・解説を表示</button></div>
+<div class="q" id="q16"><h3>Q016 · L1-1.1.8-039</h3><div class="body">A hedge fund has a high-water mark feature. The fund&#x27;s net asset value (NAV) per share stood at $110 at the end of last year. This year, the fund gained 8%, ending the year at a NAV of $118.80. An incentive fee of 20% applies to new profits above the high-water mark. The incentive fee per share is closest to:</div><ul class="opts"><li data-letter=" " onclick="pick(this,16)"><b> .</b> $1.36</li><li data-letter=" " onclick="pick(this,16)"><b> .</b> $0.00</li><li data-letter=" " onclick="pick(this,16)"><b> .</b> $1.76</li><li data-letter=" " onclick="pick(this,16)"><b> .</b> $2.38</li></ul>
+<div class="ansbox" id="ans16"><div class="corr">正解: C</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器6「HWM（ハイウォーターマーク）」: 高水位マーク＝過去最高NAV（$110）。それを超えた新規利益＝$118.80−$110＝$8.80にだけ成功報酬20%
+- 20%×8.80＝$1.76→C。B（$0.00）は「高水位を超えていない場合」の選択肢だが、今回は118.80＞110で明確に超えている
+- 選択肢D（$2.38）は「$118.80×0.02」で管理費と混同した引っかけ。「HWM超えの部分×20%」と順序を固定
+
+**BA II Plus手順**:
+1. `2nd → CLR TVM`: 前の計算データを消去
+2. 高水位超えの新規利益: `118.80 − 110 =` → 8.80（期末NAV − 高水位マーク$110）
+3. 成功報酬: `8.80 × 0.20 =` → 1.76（新規利益の20%）
+4. 答: $1.76（選択肢C）。$118.80×0.02＝2.376（D）は管理費と混同した誤りと判別</div><div>高水位マークは前年度末のNAV $110。今期は$118.80で、$110を超えた新規利益 = $118.80 − $110 = $8.80。成功報酬 = 20% × $8.80 = **$1.76**。
+
+【検算】118.80 − 110 = 8.80。0.20 × 8.80 = 1.76（ドル）。よってC。B($0.00)は高水位を超えていない場合、A($1.36)は8.80 × 0.1545等の誤算、D($2.38)は$118.80 × 0.02 = 2.376の誤り（管理費と混同）。</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `2nd → CLR TVM`: 前の計算データを消去
+2. 高水位超えの新規利益: `118.80 − 110 =` → 8.80（期末NAV − 高水位マーク$110）
+3. 成功報酬: `8.80 × 0.20 =` → 1.76（新規利益の20%）
+4. 答: $1.76（選択肢C）。$118.80×0.02＝2.376（D）は管理費と混同した誤りと判別</div></div><button class="btn" onclick="toggleAns(16)">解答・解説を表示</button></div>
+<div class="topic">Introduction（代替投資入門・計量）</div>
+<div class="q" id="q17"><h3>Q017 · L1-2.1.7-005</h3><div class="body">A high-net-worth investor is comparing a separately managed account (SMA) with a hedge fund structure. Which of the following is the clearest advantage of an SMA over a fund structure?</div><ul class="opts"><li data-letter=" " onclick="pick(this,17)"><b> .</b> Pooling of capital achieves greater economies of scale.</li><li data-letter=" " onclick="pick(this,17)"><b> .</b> The investor can customize the portfolio and obtain full transparency of positions.</li><li data-letter=" " onclick="pick(this,17)"><b> .</b> The investor avoids paying any management fees.</li><li data-letter=" " onclick="pick(this,17)"><b> .</b> The SMA provides higher expected returns due to diversification across many managers.</li></ul>
+<div class="ansbox" id="ans17"><div class="corr">正解: B</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器3（キーワード一致）: SMA（個別管理口座）の売りは「customize + transparency」。この2語が揃うのはBだけ
+- Aの「pooling（資金プーリング）」はSMAの逆でファンドの利点、Dの「many managers」はファンド・オブ・ファンズの話 → 属性がズレた引っかけを消去
+- Cは「feesを完全に回避」と絶対表現っぽい誤り → 消去。残るBが正解</div><div>SMAの最大の利点は**カスタマイズ性と透明性**です。投資家がポートフォリオを個別にカスタマイズでき、ポジションを完全に把握できます。Aは資本のプーリングによる規模の経済で、これはむしろファンドの利点です。Cは誤り（SMAにも手数料はかかります）。Dは複数マネージャーへの分散はファンド・オブ・ファンズの特徴です。</div></div><button class="btn" onclick="toggleAns(17)">解答・解説を表示</button></div>
+<div class="q" id="q18"><h3>Q018 · L1-2.1.1-018</h3><div class="body">Which of the following is NOT a typical characteristic of hedge funds?</div><ul class="opts"><li data-letter=" " onclick="pick(this,18)"><b> .</b> Use of leverage to amplify returns</li><li data-letter=" " onclick="pick(this,18)"><b> .</b> Ability to sell short securities</li><li data-letter=" " onclick="pick(this,18)"><b> .</b> Significant use of derivatives</li><li data-letter=" " onclick="pick(this,18)"><b> .</b> Guaranteed liquidity with daily redemption at NAV</li></ul>
+<div class="ansbox" id="ans18"><div class="corr">正解: D</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器1＋武器2: NOT問題では「絶対表現（guaranteed）＋当てはまらない特徴」のDが答え
+- A(レバレッジ)・B(空売り)・C(デリバティブ)はヘッジファンドの三大特徴で教科書通り → NOTの答えにならない
+- 「毎日償還（daily redemption）」は伝統的ミューチュアルファンドの特徴。ヘッジファンドはロックアップ・ゲート・サイドポケットがあると暗記</div><div>ヘッジファンドは通常、ロックアップ期間や償還制限（ゲート、サイドポケット等）があり、**毎日の償還が保証されるわけではありません**。A（レバレッジ）、B（空売り）、C（デリバティブ活用）はヘッジファンドの典型特徴です。日次償還が可能なのは伝統的なミューチュアルファンドの特徴です。</div></div><button class="btn" onclick="toggleAns(18)">解答・解説を表示</button></div>
+<div class="q" id="q19"><h3>Q019 · L1-2.1.7-031</h3><div class="body">**Vignette** — Jonathan Mears is a wealthy investor who is considering a hedge fund structured as a Delaware limited partnership. He will be a limited partner (LP), and the fund&#x27;s manager will be the general partner (GP). Jonathan asks his advisor about the rights and obligations of LPs and GPs. Which of the following statements is most accurate regarding this limited partnership structure?</div><ul class="opts"><li data-letter=" " onclick="pick(this,19)"><b> .</b> The GP has limited liability and is not responsible for the fund&#x27;s debts.</li><li data-letter=" " onclick="pick(this,19)"><b> .</b> LPs have unlimited liability for the fund&#x27;s obligations beyond their capital contributions.</li><li data-letter=" " onclick="pick(this,19)"><b> .</b> The GP manages the fund&#x27;s day-to-day operations and LPs have limited liability up to their committed capital.</li><li data-letter=" " onclick="pick(this,19)"><b> .</b> LPs participate in the day-to-day management decisions of the fund.</li></ul>
+<div class="ansbox" id="ans19"><div class="corr">正解: C</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器3（キーワード一致）: 「GP = 運用・運営を担当 + 無限責任」「LP = 出資額（committed capital）を限度に有限責任 + 経営不参加」の対応を暗記し、両方が正しく書いてある選択肢だけ残す
+- Cだけが「GP=manage」「LP=limited liability up to committed capital」の両半分を正しく含む
+- Aは「GPがlimited liability」で真逆、Bは「LPがunlimited liability」で真逆、Dは「LPが経営参加」でLPの地位と矛盾→3つとも一方向だけおかしい引っかけ</div><div>リミテッド・パートナーシップでは、GP（ゼネラル・パートナー）が日々の運用・運営を担い無限責任を負い、LP（リミテッド・パートナー）は出資額（コミットメント）を限度とする有限責任を持つ代わりに日常運営に参加しません。AはGPの責任を誤っています（GPは無限責任）。BはLPの責任を誤っています。DはLPの経営参加を誤っています（参加すると有限責任が失われるリスクがあります）。</div></div><button class="btn" onclick="toggleAns(19)">解答・解説を表示</button></div>
+<div class="q" id="q20"><h3>Q020 · L1-2.4.3-193</h3><div class="body">An investor has allocated to a fund that claims to run a long/short equity strategy. Over the past year, the fund has increasingly shifted into global macro positions using currency futures and leveraged interest rate bets. Which of the following best describes this situation?</div><ul class="opts"><li data-letter=" " onclick="pick(this,20)"><b> .</b> This is a normal implementation of long/short equity and requires no action.</li><li data-letter=" " onclick="pick(this,20)"><b> .</b> The fund is exhibiting style drift, and the investor should monitor whether the manager&#x27;s risk profile has changed materially.</li><li data-letter=" " onclick="pick(this,20)"><b> .</b> Style drift is prohibited by regulation in all jurisdictions and cannot occur.</li><li data-letter=" " onclick="pick(this,20)"><b> .</b> The investor should immediately redeem regardless of lock-up provisions.</li></ul>
+<div class="ansbox" id="ans20"><div class="corr">正解: B</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器1（絶対表現はほぼ間違い）: Cの「prohibited by regulation in all jurisdictions」「cannot occur」は過激な絶対表現 → 消去
+- 契約上の戦略（ロング/ショート株式）からマクロ型ポジションへ乖離 = まさに「style drift」という用語がBに書いてある → キーワード一致で即B
+- Aは重大性を軽視、Dはロックアップを無視した過剰反応 → バランスの良い「監視・見直し」のBがBEST answer</div><div>契約上の戦略（ロング/ショート株式）から、マクロ型のポジション（為替・金利先物）へ運用スタイルが乖離するのは**スタイルドリフト**です。投資家はマネージャーのリスク特性が変化したかを監視し、必要に応じて見直すべきです。Aはドリフトの重大性を軽視、Cは誤り（規制で禁止されていなくても実際には起こり得る）、Dはロックアップを無視した過剰な対応です。</div></div><button class="btn" onclick="toggleAns(20)">解答・解説を表示</button></div>
+<div class="q" id="q21"><h3>Q021 · L1-2.7.2-015</h3><div class="body">Which of the following is most accurate regarding parametric and non-parametric approaches to computing the value-at-risk (VaR) measure?</div><ul class="opts"><li data-letter="A" onclick="pick(this,21)"><b>A.</b> VaR estimates that do not impose a distributional form are found using parametric VaR approaches.</li><li data-letter="B" onclick="pick(this,21)"><b>B.</b> Monte Carlo simulation is often used in parametric techniques of calculating VaR.</li><li data-letter="C" onclick="pick(this,21)"><b>C.</b> Leptokurtic adjustments can be made to parametric VaR approaches.</li><li data-letter="D" onclick="pick(this,21)"><b>D.</b> Historical data are not used in non-parametric VaR calculations.</li></ul>
+<div class="ansbox" id="ans21"><div class="corr">正解: C</div><div>パラメトリックVaR（parametric VaR）は分布形を仮定しますが、その仮定に尖った分布（leptokurtic distribution、尖度の高い分布）を使うことができ、VaRの式を修正して対応できるためCが正解です。Aは誤りで、分布形を仮定しないのはノンパラメトリック手法です。Bは誤りで、モンテカルロ・シミュレーションはノンパラメトリック手法でよく使われます。Dは誤りで、ノンパラメトリックVaRでは歴史データ（ヒストリカル・データ）を使用します。</div></div><button class="btn" onclick="toggleAns(21)">解答・解説を表示</button></div>
+<div class="q" id="q22"><h3>Q022 · L1-2.6.2-305</h3><div class="body">Which of the following statements regarding the cost of carry model for commodity futures is LEAST likely to be correct?</div><ul class="opts"><li data-letter=" " onclick="pick(this,22)"><b> .</b> At expiration, the futures price and the spot price must converge.</li><li data-letter=" " onclick="pick(this,22)"><b> .</b> Cash-and-carry arbitrage ensures that the futures price is linked to the spot price through financing and storage costs.</li><li data-letter=" " onclick="pick(this,22)"><b> .</b> The basis (spot price minus futures price) can be either positive or negative over the life of a futures contract.</li><li data-letter=" " onclick="pick(this,22)"><b> .</b> If the convenience yield rises, the theoretical futures price tends to fall relative to the spot-plus-carry price.</li></ul>
+<div class="ansbox" id="ans22"><div class="corr">正解: A</div><div class="trick">🎯 <b>秒殺テク</b><br>- least likely 型: 「正しい・当たり前のことを述べた選択肢」が答えになることが多いが、ここでは逆に「**唯一の誤り**」を探す。満期での先物と現物の一致(convergence)は**正しい事実**であり、これを「least likely」と答えるのは間違い。
+- 便利利回り(convenience yield)が上がると、理論先物価格は **下落**する（先物価格 = スポット + 保管費 + 金利 − 便利利回り）。これを「上がる」と言っているAが誤り → Aが答え。
+- 全選択肢を「正/誤」で機械的に判定し、「誤」の1つを選ぶ。</div><div>便利利回り上昇は理論先物価格を押し下げる方向に働くため、「先物価格が上昇する」とするAが誤り（=least likely）。Bのキャッシュ・アンド・キャリー裁定によるスポットと先物の連動、Cのベーシスの正負変動、Dの満期での収束（convergence）はすべて正しい。コンビニエンス利回りが大きい商品（在庫の少ない商品）ほど先物が安く（バックワーデーション）なる点が本問の核心。</div></div><button class="btn" onclick="toggleAns(22)">解答・解説を表示</button></div>
+<div class="q" id="q23"><h3>Q023 · L1-2.2.2-113</h3><div class="body">**Vignette** — A hedge fund manager identifies a pricing discrepancy between a convertible bond and the underlying stock of the same issuer. He buys the convertible bond and simultaneously sells short the underlying stock, hedging the equity exposure while collecting the coupon. Which hedge fund strategy does this manager employ?</div><ul class="opts"><li data-letter=" " onclick="pick(this,23)"><b> .</b> Global macro</li><li data-letter=" " onclick="pick(this,23)"><b> .</b> Long/short equity</li><li data-letter=" " onclick="pick(this,23)"><b> .</b> Convertible arbitrage</li><li data-letter=" " onclick="pick(this,23)"><b> .</b> Managed futures</li></ul>
+<div class="ansbox" id="ans23"><div class="corr">正解: C</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器3（キーワード一致）: 「convertible bond（転換社債）」を買って「underlying stock（原株）」を空売り → 戦略名に「Convertible」が付くCが正解
+- 問題文の最重要名詞「convertible bond」がそのまま戦略名に入っている選択肢を探すだけで決まる
+- A(マクロ)・D(先物)は株式と無関係、B(ロング/ショート株式)は普通の株式裁定で「転換社債」キーワードがない→消去</div><div>転換社債を買い、同一発行体の株式を空売りしてエクイティエクスポージャーを中立化し、クーポン収入と裁定益を得る戦略は**コンバーティブルアービトラージ（転換社債裁定）**です。これはレラティブバリュー型戦略に分類されます。Aはマクロ、Bは株式のロング/ショート、Dは先物のトレンドフォロー型で、いずれも今回の手法に該当しません。</div></div><button class="btn" onclick="toggleAns(23)">解答・解説を表示</button></div>
+<div class="q" id="q24"><h3>Q024 · L1-2.4.4-109</h3><div class="body">A private equity fund reports quarterly returns based on appraised (marked-to-model) NAVs rather than continuously observable market prices. Which of the following is the most likely consequence of this stale-pricing / return-smoothing behavior for the fund&#x27;s reported returns?</div><ul class="opts"><li data-letter=" " onclick="pick(this,24)"><b> .</b> The reported returns exhibit positive autocorrelation, and the measured (reported) volatility understates the true economic volatility of the underlying assets.</li><li data-letter=" " onclick="pick(this,24)"><b> .</b> The reported returns exhibit negative autocorrelation because appraisals adjust fully and immediately to new information.</li><li data-letter=" " onclick="pick(this,24)"><b> .</b> The reported returns are not autocorrelated because appraisals are based on the fund manager&#x27;s unbiased estimates.</li><li data-letter=" " onclick="pick(this,24)"><b> .</b> The measured volatility of reported returns overstates the true volatility of the underlying assets.</li></ul>
+<div class="ansbox" id="ans24"><div class="corr">正解: A</div><div class="trick">🎯 <b>秒殺テク</b><br>「評価価格ベース・平滑化・非流動資産」は決まり文句で「正の自己相関（positive autocorrelation）＋ ボラティリティの過小計上（understated volatility）」とセットで覚える。評価は前回の評価に引きずられる（スムージング）ため、報告リターンは滑らかに見え、リスクが実際より小さく見える。Cの「unbiased estimates」は無根拠な美化表現、Bは評価の特徴（遅延する）と逆、Dは「過小」を「過大」にすり替え。キーワード「smoothing」を見たら即A。</div><div>評価価格（appraised values）に基づく報告リターンは、評価担当者が前回の評価や市場価格を参考にするため、リターンが平滑化（smoothed）される。その結果、報告リターンには正の自己相関（positive autocorrelation）が生じ、連続して似た値が並ぶため、見かけ上のボラティリティは真の経済的ボラティリティより**低く**計上される。これはヘッジファンド・PEファンドのリスク過小評価の代表的な要因であり、シャープレシオなどの見かけ上の改善にもつながる。Bは評価が即時・完全に調整されるとする誤り（実際は遅延・平滑化）。Cは無偏推定と美化する誤り。Dは「過小」を「過大」と逆に述べた誤り。</div></div><button class="btn" onclick="toggleAns(24)">解答・解説を表示</button></div>
+<div class="q" id="q25"><h3>Q025 · L1-2.7.7-005</h3><div class="body">A portfolio manager requests the valuation of a thinly traded asset from a brokerage firm. The manager knows that the brokerage firm has an incentive to bias the value of the asset to benefit him. This is an example of which of the following forms of managed pricing?</div><ul class="opts"><li data-letter="A" onclick="pick(this,25)"><b>A.</b> selective valuation</li><li data-letter="B" onclick="pick(this,25)"><b>B.</b> favorable mark</li><li data-letter="C" onclick="pick(this,25)"><b>C.</b> market manipulation</li><li data-letter="D" onclick="pick(this,25)"><b>D.</b> model manipulation</li></ul>
+<div class="ansbox" id="ans25"><div class="corr">正解: B</div><div>主観的な情報源に有利な評価額を依頼する行為はフェイバラブル・マーク（favorable mark）で、Bが正解です。問題文ではブローカー（brokerage firm）がマネージャーに有利になるよう評価額にバイアスをかけるインセンティブを持っている点が該当します。セレクティブ・バリュエーション（selective valuation/appraisal）は評価のタイミング操作、モデル操作（model manipulation）はモデル構成要素の変更、マーケット操作（market manipulation）は取引による薄商い証券の価格操作であり、いずれも状況が異なります。</div></div><button class="btn" onclick="toggleAns(25)">解答・解説を表示</button></div>
+<div class="q" id="q26"><h3>Q026 · L1-2.3.2-168</h3><div class="body">Regarding drawdown, which of the following statements is LEAST likely to be correct?</div><ul class="opts"><li data-letter=" " onclick="pick(this,26)"><b> .</b> Drawdown is measured from the previous peak NAV to the subsequent trough or current NAV.</li><li data-letter=" " onclick="pick(this,26)"><b> .</b> A larger drawdown requires an even larger subsequent gain to recover.</li><li data-letter=" " onclick="pick(this,26)"><b> .</b> The maximum drawdown is the largest peak-to-trough decline over a specified period.</li><li data-letter=" " onclick="pick(this,26)"><b> .</b> A fund with a 20% drawdown recovers to its prior peak with a subsequent 20% gain.</li></ul>
+<div class="ansbox" id="ans26"><div class="corr">正解: D</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器4（暗算で矛盾を見抜く）: 20%下落後は残高が80% → 元に戻すには80×1.25=100で**25%必要**。Dの「20%の上昇で回復」は数字的に矛盾 → これがleast likelyの答え
+- A・B・Cはドローダウンの正しい定義・性質を述べている → 正しいので答えにならない
+- 「損失より回復の方が大きくないといけない」の非対称性（問題14と同じ知識）でDを即消去</div><div>20%下落後の残高は元の80%です。元の水準（100%）に戻るには80%×(1+r)=100% → r = 25%の上昇が必要であり、**20%の上昇では回復しません**。A・B・Cはドローダウンの正しい記述です。したがってDがLEAST likely（誤り）です。</div></div><button class="btn" onclick="toggleAns(26)">解答・解説を表示</button></div>
+<div class="q" id="q27"><h3>Q027 · L1-2.4.1-179</h3><div class="body">Which of the following is the most important limitation of the Sharpe ratio when used to evaluate hedge funds?</div><ul class="opts"><li data-letter=" " onclick="pick(this,27)"><b> .</b> It does not consider the risk-free rate.</li><li data-letter=" " onclick="pick(this,27)"><b> .</b> It assumes returns are normally distributed and treats upside and downside volatility symmetrically.</li><li data-letter=" " onclick="pick(this,27)"><b> .</b> It cannot be calculated from historical returns.</li><li data-letter=" " onclick="pick(this,27)"><b> .</b> It always overstates performance for funds with leverage.</li></ul>
+<div class="ansbox" id="ans27"><div class="corr">正解: B</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器5（定義の復元）: シャープは(リターン−Rf)÷σで**無リスク金利を必ず使う** → Aは「Rfを考慮しない」と定義に反する偽の記述 → 即消去
+- Cは「計算できない」と常識に反する、Dは「always」絶対表現 → 武器1で消去
+- 残るBが唯一の正しい限界（正規分布仮定＋上振れ下振れ対称扱い）。ヘッジファンドは歪んだリターンを持つからこそ限界になる</div><div>シャープレシオの主な限界は、リターンが正規分布であることを前提とし、上振れと下振れのボラティリティを対称に扱うことです。ヘッジファンドは非対称（スキュー）なリターンやテールリスクを持つことが多く、シャープレシオがリスクを適切に捉えられません。Aは誤り（シャープレシオは無リスク金利を考慮します）。Cは誤り、Dも一般に誤りです。非正規性の補完にはソルティノレシオやVaRが用いられます。</div></div><button class="btn" onclick="toggleAns(27)">解答・解説を表示</button></div>
+<div class="q" id="q28"><h3>Q028 · L1-2.4.6-108</h3><div class="body">An analyst computes a Jarque-Bera (JB) test statistic of 7.3 for a hedge fund&#x27;s monthly return series. The critical value of the chi-square distribution at the 5% significance level (2 degrees of freedom) is 5.99. Based on this information, which of the following is the most accurate conclusion?</div><ul class="opts"><li data-letter=" " onclick="pick(this,28)"><b> .</b> Fail to reject the null hypothesis; the returns are consistent with a normal distribution.</li><li data-letter=" " onclick="pick(this,28)"><b> .</b> Reject the null hypothesis; the returns are not consistent with a normal distribution.</li><li data-letter=" " onclick="pick(this,28)"><b> .</b> Reject the null hypothesis; the returns are not serially correlated.</li><li data-letter=" " onclick="pick(this,28)"><b> .</b> Fail to reject the null hypothesis; the returns exhibit no autocorrelation.</li></ul>
+<div class="ansbox" id="ans28"><div class="corr">正解: B</div><div class="trick">🎯 <b>秒殺テク</b><br>ジャック-ベラ（JB）検定は「データが正規分布か」を検定する。ルールは「JB統計量 ＞ 臨界値なら帰無仮説（正規分布）を棄却」。7.3 ＞ 5.99 → 棄却 →「正規分布ではない」。ここで「帰無仮説が何か」を常に確認する（JBの帰無仮説=正規分布、対立仮説=非正規）。C・Dは「自己相関」の話にすり替えた引っかけ。JB統計量が大きい＝正規から遠い。</div><div>JB検定は歪度と尖度（excess kurtosis）を組み合わせた統計量で、「データが正規分布に従う」という帰無仮説を検定する。JB統計量（7.3）が5%有意水準の臨界値（5.99）を上回るため、帰無仮説を棄却し、「リターンは正規分布に従わない」と結論できる。Aは統計量が臨界値を超えたのに棄却しないとしており誤り。CはJB検定を「自己相関の検定」と誤解したもの（自己相関の検定はDurbin-Watson）。Dも同様に検定の目的を誤解。
+
+**BA II Plus手順**:
+1. `7.3 [−] 5.99 [=]`: 検定統計量と臨界値の差を計算 → 1.31（正=統計量が臨界値を上回る=棄却域）。
+2. `2nd → CLR WORK` → 検算: `5.99 [−] 7.3 [=]` → −1.31。差の符号が逆転することを確認し、「統計量＞臨界値」なら棄却と判断。
+3. この問題は単純比較なので、電卓の代わりに「7.3 &gt; 5.99」と大小を見て判断するだけでもよい。</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `7.3 [−] 5.99 [=]`: 検定統計量と臨界値の差を計算 → 1.31（正=統計量が臨界値を上回る=棄却域）。
+2. `2nd → CLR WORK` → 検算: `5.99 [−] 7.3 [=]` → −1.31。差の符号が逆転することを確認し、「統計量＞臨界値」なら棄却と判断。
+3. この問題は単純比較なので、電卓の代わりに「7.3 &gt; 5.99」と大小を見て判断するだけでもよい。
+
+- LO: L1-2.4.6-108</div></div><button class="btn" onclick="toggleAns(28)">解答・解説を表示</button></div>
+<div class="q" id="q29"><h3>Q029 · L1-2.3.2-166</h3><div class="body">**Vignette** — Renee Ito is evaluating a hedge fund&#x27;s historical performance. The fund&#x27;s NAV peaked at $110 per share six months ago. It then declined to a trough of $82 per share before recovering to its current NAV of $88 per share. What is the fund&#x27;s current drawdown from its peak NAV?</div><ul class="opts"><li data-letter=" " onclick="pick(this,29)"><b> .</b> 20%</li><li data-letter=" " onclick="pick(this,29)"><b> .</b> 25%</li><li data-letter=" " onclick="pick(this,29)"><b> .</b> 7%</li><li data-letter=" " onclick="pick(this,29)"><b> .</b> 34%</li></ul>
+<div class="ansbox" id="ans29"><div class="corr">正解: A</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器5: ドローダウン = (ピーク − 現在) ÷ ピーク = (110 − 88) ÷ 110 = 22 ÷ 110 = **20%** → A
+- 引っかけのB(25%)は「トラフの$82」を使った値（28÷110≈25%）→ 問題文は「current NAV = $88」なので現在値を使うと判別
+- 「(110−88)=22、110の2割=22」でAが確定。88は110の80%なので下落は20%と暗算できる</div><div>ドローダウン = (ピークNAV − 現在NAV) ÷ ピークNAV = ($110 − $88) ÷ $110 = $22 ÷ $110 = **20%**。Bの25%は$110→$82（最大ドローダウン: 28÷110=25.5%に近い）を指す誘導です。Dは$82まで下落した率の誤り。現在値ベースのドローダウンは20%です。
+
+**BA II Plus手順**:
+1. `2nd → CLR TVM`: 計算前のメモリ消去
+2. `110 − 88 =`: ピークからの下落額 → 22
+3. `÷ 110 =`: ピークNAVで割る → 0.20 = 20%
+4. （検算）トラフ基準の誤答確認: `110 − 82 =` → 28 → `÷ 110 =` → 0.2545（Bの引っかけと確認）
+5. 答: 20%（A）</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `2nd → CLR TVM`: 計算前のメモリ消去
+2. `110 − 88 =`: ピークからの下落額 → 22
+3. `÷ 110 =`: ピークNAVで割る → 0.20 = 20%
+4. （検算）トラフ基準の誤答確認: `110 − 82 =` → 28 → `÷ 110 =` → 0.2545（Bの引っかけと確認）
+5. 答: 20%（A）
+
+- LO: L1-2.3.2-166
+
+---</div></div><button class="btn" onclick="toggleAns(29)">解答・解説を表示</button></div>
+<div class="q" id="q30"><h3>Q030 · L1-2.6.2-308</h3><div class="body">Gold is currently trading at $1,000 per ounce. The annualized risk-free rate is 4%, and the storage cost is 2% of the spot price per year (payable at contract expiration). Using the cost of carry model with simple interest, the theoretical six-month futures price is closest to:</div><ul class="opts"><li data-letter=" " onclick="pick(this,30)"><b> .</b> $1,010</li><li data-letter=" " onclick="pick(this,30)"><b> .</b> $1,020</li><li data-letter=" " onclick="pick(this,30)"><b> .</b> $1,040</li><li data-letter=" " onclick="pick(this,30)"><b> .</b> $1,030</li></ul>
+<div class="ansbox" id="ans30"><div class="corr">正解: D</div><div class="trick">🎯 <b>秒殺テク</b><br>- コスト・オブ・キャリーの公式: **F = S × {1 + (金利 + 保管费率) × t}**。
+- (4% + 2%) = 6%を半年(0.5年)適用 → 1000 × (1 + 0.06 × 0.5) = **1,030**。
+- 金利4%だけの$1,020(B)は「保管費を忘れた」引っかけ。$1,040(C)は1年分を誤適用した引っかけ。</div><div>キャリー・コスト = 金利4% + 保管費2% = 年間6%。半年分 = 3%。理論先物価格 = 1000 × 1.03 = $1,030。保管費はスポット価格の2%を年率換算して金利と合算する点が本問のポイント。金利のみの1,020（B）、年率を半年に換算しない1,040（C）、金利分しか加味しない誤計算1,010（A）はいずれも誤り。
+
+**BA II Plus手順**:
+1. `2nd → P/Y → 12 [ENTER] → CE/C`: 月次複利にする（半年=6期）。
+2. 金利分の将来価値: `2nd → CLR TVM` → `N=6`（半年=6ヶ月）→ `I/Y=0.3333`（4%÷12ヶ月）→ `PV=1000` → `PMT=0` → `CPT → FV` → 約1,020.17（金利のみのFV）。
+3. 保管費を加算: `+ 10 [=]`（保管費 = $1,000 × 2% × 0.5年 = $10）→ 約1,030。→ Dを選択。
+4. ※簡単な計算なら通常計算機で `1000 [×] 1.03 [=]` → 1030 でも可。</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `2nd → P/Y → 12 [ENTER] → CE/C`: 月次複利にする（半年=6期）。
+2. 金利分の将来価値: `2nd → CLR TVM` → `N=6`（半年=6ヶ月）→ `I/Y=0.3333`（4%÷12ヶ月）→ `PV=1000` → `PMT=0` → `CPT → FV` → 約1,020.17（金利のみのFV）。
+3. 保管費を加算: `+ 10 [=]`（保管費 = $1,000 × 2% × 0.5年 = $10）→ 約1,030。→ Dを選択。
+4. ※簡単な計算なら通常計算機で `1000 [×] 1.03 [=]` → 1030 でも可。
+
+- LO: L1-2.6.2-308
+
+---</div></div><button class="btn" onclick="toggleAns(30)">解答・解説を表示</button></div>
+<div class="q" id="q31"><h3>Q031 · L1-2.6.1-118</h3><div class="body">A portfolio manager holds a long position in a stock and uses exchange-traded call options on the same stock to establish a delta-neutral position. Which of the following best describes the position the manager should take in the calls?</div><ul class="opts"><li data-letter=" " onclick="pick(this,31)"><b> .</b> Buy calls, because buying calls increases the portfolio delta and offsets the negative delta of a long stock position.</li><li data-letter=" " onclick="pick(this,31)"><b> .</b> Sell (write) calls, because selling calls reduces the portfolio delta and offsets the positive delta of the long stock position.</li><li data-letter=" " onclick="pick(this,31)"><b> .</b> Buy calls, because the delta of a long stock position is negative and requires a positive-delta instrument to hedge.</li><li data-letter=" " onclick="pick(this,31)"><b> .</b> Do nothing to the call position, because delta neutrality is achieved automatically by holding the underlying asset.</li></ul>
+<div class="ansbox" id="ans31"><div class="corr">正解: B</div><div class="trick">🎯 <b>秒殺テク</b><br>- ストック(原資産)のdeltaは常に **+1**。ロング株のdeltaは正。
+- デルタニュートラルにするには「逆の符号」のポジションが必要 → **callを売る(ショート)**。ロング株=正、ショートcall=負で相殺。
+- B以外は「買う」か「何もしない」と言っており、deltaの符号の常識(+1)から即排除。</div><div>株のdelta=+1なので、ロング株ポジションのdeltaは正。これをゼロにするにはdeltaが負のポジション、すなわちcallのショート（writing）が必要。callを買えばさらに正が増え、逆効果。A・Cは「買う」ことの理由付けが誤り。デルタヘッジは自動では成立しないためDも誤り。</div></div><button class="btn" onclick="toggleAns(31)">解答・解説を表示</button></div>
+<div class="q" id="q32"><h3>Q032 · L1-2.5.9-101</h3><div class="body">An analyst runs a simple linear regression of a hedge fund&#x27;s monthly returns (R_fund) on the returns of a market index (R_market), estimating the model R_fund = a + b × R_market + e. The estimated slope coefficient (b) is 1.4, the estimated intercept (a) is 0.2% per month, and the R-squared is 0.64. Which of the following statements is most accurate?</div><ul class="opts"><li data-letter=" " onclick="pick(this,32)"><b> .</b> A 1% increase in the market index return is associated with an expected increase of 1.4% in the fund&#x27;s return, and 64% of the variation in the fund&#x27;s returns is explained by the market index.</li><li data-letter=" " onclick="pick(this,32)"><b> .</b> A 1% increase in the fund&#x27;s return is associated with an expected increase of 1.4% in the market index return, and 64% of the variation in the market&#x27;s returns is explained by the fund.</li><li data-letter=" " onclick="pick(this,32)"><b> .</b> When the market index return is zero, the fund&#x27;s expected monthly return is 1.4%, and 64% of the fund&#x27;s risk is systematic.</li><li data-letter=" " onclick="pick(this,32)"><b> .</b> The intercept of 0.2% means the fund&#x27;s return is 0.2% higher than the market&#x27;s return in every month.</li></ul>
+<div class="ansbox" id="ans32"><div class="corr">正解: A</div><div class="trick">🎯 <b>秒殺テク</b><br>回帰式 R_fund = a + b×R_market + e の基本構造を丸暗記。「b＝X（市場）が1%動くとY（ファンド）がb%動く」が傾きの意味で、説明力は必ず「R²＝被説明変数（Y）の分散のうちモデルが説明する割合」。選択肢で「市場がファンドの変動を説明する」という向き（B）と、「bを切片扱いする」（C）が引っかけ。R²=0.64は「ファンドの変動の64%を市場が説明」であり、「ファンドのリスクの64%がシステム的」という表現（C）とは意味が違う。</div><div>単回帰モデル R_fund = a + b×R_market + e において、bは傾き（slope）であり「市場リターンが1%増えるとファンドの期待リターンがb%変化する」ことを意味する。b=1.4なので、市場が1%上がればファンドは平均1.4%上がることが期待される。R²（決定係数）は「被説明変数（ファンド）の総変動のうち、回帰モデル（市場）で説明される割合」であり、0.64=64%。Bは因果の向きが逆（XとYを逆に解釈）。Cはbを切片と誤解し、R²を「システム的リスクの割合」と言い換えており誤り。Dはa=0.2%（切片＝市場がゼロのときのファンドの期待リターン）を「毎月のアウトパフォーム」と読み替えており誤り。</div></div><button class="btn" onclick="toggleAns(32)">解答・解説を表示</button></div>
+<div class="q" id="q33"><h3>Q033 · L1-2.1.3-102</h3><div class="body">A hedge fund has beginning-of-year NAV of $100 million and charges an annual management fee of 2% of NAV. The fund earns a gross return of 15% during the year. The management fee is calculated on the NAV at the beginning of the year. What is the dollar amount of the management fee?</div><ul class="opts"><li data-letter=" " onclick="pick(this,33)"><b> .</b> $2.00 million</li><li data-letter=" " onclick="pick(this,33)"><b> .</b> $2.30 million</li><li data-letter=" " onclick="pick(this,33)"><b> .</b> $1.70 million</li><li data-letter=" " onclick="pick(this,33)"><b> .</b> $2.15 million</li></ul>
+<div class="ansbox" id="ans33"><div class="corr">正解: A</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器5（求める変数を先に確認）: 問題文に「calculated on the NAV at the beginning of the year」と明記 → 期首NAVの$100Mを使うと確定
+- 武器4（桁・数値）: $100M × 2% = $2.00M は一瞬で計算できる。丸い「2.00」のA以外は全て誤答
+- Bの$2.30Mは期末NAV（$100M×1.15=115M×0.02）で計算した引っかけ。「期首か期末か」でA/Bが分かれる</div><div>管理報酬は期首NAVに2%を掛けます。$100M × 2% = **$2.00 million**。Bの$2.30Mは期末NAV基準（$100M×1.15×0.02）で計算した誤答の誘導です。CAIAでは「feeが期首NAVか期末NAVか」が明示されることが多いため、設問の条件を正確に読み取ることが重要です。
+
+**BA II Plus手順**:
+1. `2nd → CLR TVM`: 前の計算データを消去（計算前に必ず）
+2. `100 × 0.02 =`: 期首NAV × 管理報酬率 → 2.00
+3. （検算）期末基準の誤答確認: `100 × 1.15 =` → 115 → `115 × 0.02 =` → 2.30（Bの引っかけと確認）
+4. 答: 2.00M（A）</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `2nd → CLR TVM`: 前の計算データを消去（計算前に必ず）
+2. `100 × 0.02 =`: 期首NAV × 管理報酬率 → 2.00
+3. （検算）期末基準の誤答確認: `100 × 1.15 =` → 115 → `115 × 0.02 =` → 2.30（Bの引っかけと確認）
+4. 答: 2.00M（A）
+
+- LO: L1-2.1.3-102
+
+---</div></div><button class="btn" onclick="toggleAns(33)">解答・解説を表示</button></div>
+<div class="q" id="q34"><h3>Q034 · L1-2.2.7-237</h3><div class="body">A private equity fund draws down $50 million at inception (t=0) and an additional $50 million at t=1. The fund distributes $140 million to its limited partners at t=2. The limited partners&#x27; cost of financing is 10% and the reinvestment rate is 12%. The modified internal rate of return (MIRR) of the fund is closest to:</div><ul class="opts"><li data-letter=" " onclick="pick(this,34)"><b> .</b> 21.1%</li><li data-letter=" " onclick="pick(this,34)"><b> .</b> 24.6%</li><li data-letter=" " onclick="pick(this,34)"><b> .</b> 18.4%</li><li data-letter=" " onclick="pick(this,34)"><b> .</b> 15.7%</li></ul>
+<div class="ansbox" id="ans34"><div class="corr">正解: A</div><div class="trick">🎯 <b>秒殺テク</b><br>- MIRRは「流出(投資)はファイナンスレートで現在価値化」「流入(リターン)は再投資レートで将来価値化」してから1本の利回りにする。この2段階を理解していれば機械的に解ける
+- 計算の骨格: 流出のPV = 50 + 50/1.10 = 95.45。流入はt=2の140の1本だけなのでFV=140。MIRR = (140/95.45)^(1/2) − 1 ≒ 21.1%
+- 選択肢B(24.6%)は通常のIRR（NPV=0になる割引率）の値→「MIRRはIRRより低くなりがち」と知っていればAとBの判別も容易
+- 答えが%の4択は、まず計算してから選択肢に当てはめる。桁や符号のミス防止に(140/95.45)の平方根を忘れない</div><div>MIRRは、マイナスのキャッシュフロー（投資・引き出し）をファイナンスコスト(10%)で現在価値化し、プラスのキャッシュフロー（配分）を再投資レート(12%)で将来価値化して、その比率から求めた修正内部収益率。流出のPV=50+50/1.1=95.4545、流入のFV=140（t=2で1本のみ）より、MIRR=(140/95.4545)^(1/2)−1≈21.11%。参考: 通常のIRRは約24.6%（NPV=0の割引率）。MIRRは再投資レートがIRRを下回るため、IRRより低く出るのが典型的。BはIRRとの混同による誤答。
+
+**BA II Plus手順**:
+1. `CF → 2nd → CLR WORK`: CFワークシートの全データを消去
+2. `CF0 → 50 → +/- → ENTER`: t=0の流出 -50 を入力（符号に注意）
+3. `↓ → 50 → +/- → ENTER → ↓ → ↓`: t=1の流出 -50 をC01に入力（F01=1のまま）
+4. `NPV → I → 10 → ENTER → ↓ → CPT`: 流出の現在価値 −95.45 が表示される（符号を無視して95.45として使う）
+5. 流入のFVを求める: t=2の140が1本なので `2nd → CLR TVM → FV → 140` と記憶（複数流入なら各期を12%で複利計算して合計）
+6. `N → 2 → PV → 95.45 → +/- → ENTER → CPT → I/Y`: (140/95.45)^(1/2)−1 → 21.11%
+7. 答: 約21.1%（選択肢A）</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `CF → 2nd → CLR WORK`: CFワークシートの全データを消去
+2. `CF0 → 50 → +/- → ENTER`: t=0の流出 -50 を入力（符号に注意）
+3. `↓ → 50 → +/- → ENTER → ↓ → ↓`: t=1の流出 -50 をC01に入力（F01=1のまま）
+4. `NPV → I → 10 → ENTER → ↓ → CPT`: 流出の現在価値 −95.45 が表示される（符号を無視して95.45として使う）
+5. 流入のFVを求める: t=2の140が1本なので `2nd → CLR TVM → FV → 140` と記憶（複数流入なら各期を12%で複利計算して合計）
+6. `N → 2 → PV → 95.45 → +/- → ENTER → CPT → I/Y`: (140/95.45)^(1/2)−1 → 21.11%
+7. 答: 約21.1%（選択肢A）
+
+- LO: L1-2.2.7-237
+
+---</div></div><button class="btn" onclick="toggleAns(34)">解答・解説を表示</button></div>
+<div class="q" id="q35"><h3>Q035 · L1-2.4.1-178</h3><div class="body">Two funds are being compared. Fund A has an expected return of 15% and a standard deviation of 20%. Fund B has an expected return of 10% and a standard deviation of 12%. The risk-free rate is 3%. Based solely on the Sharpe ratio, which fund is more attractive, and what is its Sharpe ratio?</div><ul class="opts"><li data-letter=" " onclick="pick(this,35)"><b> .</b> Fund A with 0.60</li><li data-letter=" " onclick="pick(this,35)"><b> .</b> Fund B with 0.58</li><li data-letter=" " onclick="pick(this,35)"><b> .</b> Fund A with 0.75</li><li data-letter=" " onclick="pick(this,35)"><b> .</b> Fund B with 0.83</li></ul>
+<div class="ansbox" id="ans35"><div class="corr">正解: A</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器5: まずFund A = (15 − 3) ÷ 20 = 12 ÷ 20 = **0.60** と確定。この0.60を持つ選択肢はAだけ
+- C(0.75)は15÷20=0.75（超過リターンを引かない）の引っかけ、D(0.83)は10÷12（同様に引かない）の引っかけ
+- 「超過リターン（R−Rf）を必ず先に引く」と覚えれば、0.60/0.58の正しいペアに自動的に到達する</div><div>Fund A: (15% − 3%) ÷ 20% = 12 ÷ 20 = **0.60**。Fund B: (10% − 3%) ÷ 12% = 7 ÷ 12 = 0.5833。Aの方がシャープレシオが高く、より魅力的です。CはAを15÷20で計算した誤り（0.75）、DはBを10÷12で計算した誤り（0.833）。
+
+**BA II Plus手順**:
+1. `2nd → CLR TVM`: 計算前のメモリ消去
+2. Fund A: `15 − 3 =` → 12 → `÷ 20 =` → 0.60
+3. Fund B: `10 − 3 =` → 7 → `÷ 12 =` → 0.5833
+4. 比較: 0.60 &gt; 0.58 なので Fund A の 0.60（A）
+5. 答: A。0.60を持つ選択肢はAのみ（他はRfを引かない誤答）</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `2nd → CLR TVM`: 計算前のメモリ消去
+2. Fund A: `15 − 3 =` → 12 → `÷ 20 =` → 0.60
+3. Fund B: `10 − 3 =` → 7 → `÷ 12 =` → 0.5833
+4. 比較: 0.60 &gt; 0.58 なので Fund A の 0.60（A）
+5. 答: A。0.60を持つ選択肢はAのみ（他はRfを引かない誤答）
+
+- LO: L1-2.4.1-178
+
+---</div></div><button class="btn" onclick="toggleAns(35)">解答・解説を表示</button></div>
+<div class="q" id="q36"><h3>Q036 · L1-2.3.1-155</h3><div class="body">A fund&#x27;s 1-day VaR at the 95% confidence level is $2 million. Under the square-root-of-time rule, what is the approximate 10-day VaR?</div><ul class="opts"><li data-letter=" " onclick="pick(this,36)"><b> .</b> $6.32 million</li><li data-letter=" " onclick="pick(this,36)"><b> .</b> $20.00 million</li><li data-letter=" " onclick="pick(this,36)"><b> .</b> $2.00 million</li><li data-letter=" " onclick="pick(this,36)"><b> .</b> $3.16 million</li></ul>
+<div class="ansbox" id="ans36"><div class="corr">正解: A</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器5: √時間則 = 1日VaR × √(日数) = $2M × √10 ≈ $2M × 3.162 = $6.32M → A
+- Bの$20Mは「×10日」と日数をそのまま掛けた誤り（√を忘れる）。√10≈3.16を覚えていれば即判別
+- 「時間換算は必ず平方根」と覚え、×10のように線形になる選択肢を真っ先に消す</div><div>VaRの時間換算は√時間則を用います。10日VaR = 1日VaR × √10 = $2M × 3.162 = **$6.32 million**。Bは10倍（√を忘れた）、Cは換算なし、Dは$2M×√2.5ではなく誤った誘導です（√10≈3.16を掛けた結果が$6.32M）。
+
+**BA II Plus手順**:
+1. `2nd → CLR TVM`: 計算前のメモリ消去
+2. `10 → √x`（または `10` → `2nd → x²` の逆・電卓の√キー）: √10を出す → 3.162
+3. `× 2 =`: 1日VaRを掛ける → 6.324
+4. 答: 約6.32M（A）。10をそのまま掛けて20M（B）にするのが引っかけ</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `2nd → CLR TVM`: 計算前のメモリ消去
+2. `10 → √x`（または `10` → `2nd → x²` の逆・電卓の√キー）: √10を出す → 3.162
+3. `× 2 =`: 1日VaRを掛ける → 6.324
+4. 答: 約6.32M（A）。10をそのまま掛けて20M（B）にするのが引っかけ
+
+- LO: L1-2.3.1-155
+
+---</div></div><button class="btn" onclick="toggleAns(36)">解答・解説を表示</button></div>
+<div class="q" id="q37"><h3>Q037 · L1-2.2.1-090</h3><div class="body">**Vignette** — Paloma Adarkar manages a long/short equity fund with $100 million of capital. She has $80 million invested in long positions, which rise by 10% over the year, and $50 million in short positions, which decline by 5% over the year (i.e., the underlying securities fall, which benefits the short book). What is the fund&#x27;s total dollar profit/loss over the year (before fees)?</div><ul class="opts"><li data-letter=" " onclick="pick(this,37)"><b> .</b> $5.5 million</li><li data-letter=" " onclick="pick(this,37)"><b> .</b> $8.0 million</li><li data-letter=" " onclick="pick(this,37)"><b> .</b> $2.5 million</li><li data-letter=" " onclick="pick(this,37)"><b> .</b> $10.5 million</li></ul>
+<div class="ansbox" id="ans37"><div class="corr">正解: D</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器4・武器5: ロング損益 = 80×10% = +8.0M。ショートは「対象株が5%下落 = 利益」なので +50×5% = +2.5M（マイナスではない）
+- 武器4（数値の合計）: 両方プラスなので「足し算」= 8.0 + 2.5 = 10.5M → D。両利きで利益が出る問題は答えが最大値になりやすい
+- Aの5.5Mはショートを「損失(−2.5M)」と誤解した引っかけ（8−2.5）。「short declines = profit」の英文を読み落とさない</div><div>ロング損益 = $80M × 10% = +$8.0M。ショートは対象株が5%下落するため 5% の利益 → +$50M × 5% = +$2.5M。合計 = $8.0M + $2.5M = **$10.5 million**。Aの$5.5Mはショートを損失(−$2.5M)と誤解したケース、Bはロングのみ、Cはショートのみの損益です。
+
+**BA II Plus手順**:
+1. `2nd → CLR TVM`: 計算前のメモリ消去
+2. ロング損益: `80 × 0.10 =` → 8.0
+3. ショート損益（下落=利益なのでプラス）: `50 × 0.05 =` → 2.5
+4. 合計: `8.0 + 2.5 =` → 10.5
+5. 答: 10.5M（D）。「short declines = +利益」を忘れて8−2.5=5.5（A）にするのが引っかけ</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `2nd → CLR TVM`: 計算前のメモリ消去
+2. ロング損益: `80 × 0.10 =` → 8.0
+3. ショート損益（下落=利益なのでプラス）: `50 × 0.05 =` → 2.5
+4. 合計: `8.0 + 2.5 =` → 10.5
+5. 答: 10.5M（D）。「short declines = +利益」を忘れて8−2.5=5.5（A）にするのが引っかけ
+
+- LO: L1-2.2.1-090
+
+---</div></div><button class="btn" onclick="toggleAns(37)">解答・解説を表示</button></div>
+<div class="q" id="q38"><h3>Q038 · L1-2.5.10-104</h3><div class="body">Which of the following statements about hypothesis testing is least likely to be correct?</div><ul class="opts"><li data-letter=" " onclick="pick(this,38)"><b> .</b> The significance level of a test is the probability of a Type I error, which is rejecting the null hypothesis when it is true.</li><li data-letter=" " onclick="pick(this,38)"><b> .</b> A two-tailed test is appropriate when the alternative hypothesis is expressed in the form &quot;not equal to&quot; (≠).</li><li data-letter=" " onclick="pick(this,38)"><b> .</b> A Type II error is failing to reject the null hypothesis when it is false, and the power of the test is 1 minus the probability of a Type II error.</li><li data-letter=" " onclick="pick(this,38)"><b> .</b> Increasing the significance level from 5% to 10% reduces the probability of a Type I error and increases the probability of a Type II error.</li></ul>
+<div class="ansbox" id="ans38"><div class="corr">正解: D</div><div class="trick">🎯 <b>秒殺テク</b><br>least likely問題は「明らかに正しい・当たり前の説明」が正解ではなく、「正しそうで実は誤っている」ものが答え。誤りの定義を確認: Type I＝本当に正しい帰無仮説を棄却（第1種）、Type II＝誤った帰無仮説を棄却しない（第2種）。有意水準αを上げるとType Iは増え、Type IIは減る（トレードオフ）。Dは「αを上げるとType Iが減る」と言っており因果が逆→これが答え。A・B・Cは定義が正確。</div><div>有意水準αはType I誤り（本当は正しい帰無仮説を棄却する確率）そのものである。αを5%から10%に上げると、帰無仮説を「より簡単に」棄却することになり、Type I誤りの確率は**増加**する。一方、棄却域が広がるため、偽の帰無仮説を棄却できる機会も増え、Type II誤りは**減少**する。Dは「α上昇→Type I減少」と因果を逆に述べており、最も不正確。AはType I誤りの定義どおり、Bは両側検定（≠型対立仮説）の使い方として正しい、CはType II誤りと検出力（1−Type II確率）の関係として正しい。本問はleast likely型。</div></div><button class="btn" onclick="toggleAns(38)">解答・解説を表示</button></div>
+<div class="q" id="q39"><h3>Q039 · L1-2.4.3-105</h3><div class="body">An analyst ranks five hedge funds by their monthly return (variable X) and by their Sharpe ratio (variable Y) over the same period. The ranks are given below. Using the Spearman rank correlation coefficient formula ρ_s = 1 − [6 × Σd²] / [n × (n² − 1)], where d is the difference between the two ranks of each fund and n is the number of observations, which of the following is the Spearman rank correlation coefficient? | Fund | Rank of X (return) | Rank of Y (Sharpe) | |------|--------------------|--------------------| | 1    | 4                  | 4                  | | 2    | 2                  | 3                  | | 3    | 5                  | 5                  | | 4    | 1                  | 1                  | | 5    | 3                  | 2                  |</div><ul class="opts"><li data-letter=" " onclick="pick(this,39)"><b> .</b> 0.3</li><li data-letter=" " onclick="pick(this,39)"><b> .</b> 0.7</li><li data-letter=" " onclick="pick(this,39)"><b> .</b> 0.9</li><li data-letter=" " onclick="pick(this,39)"><b> .</b> 1.0</li></ul>
+<div class="ansbox" id="ans39"><div class="corr">正解: C</div><div class="trick">🎯 <b>秒殺テク</b><br>スピアマンは「順位の差d」だけを計算すればよい。表の各行で d = X順位 − Y順位 を計算: Fund1: 4−4=0、Fund2: 2−3=−1、Fund3: 5−5=0、Fund4: 1−1=0、Fund5: 3−2=1。d²の合計 = 0+1+0+0+1 = 2。あとは公式に代入: 6×2=12、n(n²−1)=5×24=120、12/120=0.1、1−0.1=0.9。「dがほぼ全て0→順位がほぼ完全一致→相関は1に近い」と感覚的にも0.9が妥当。</div><div>d = X順位 − Y順位 は Fund1〜5 でそれぞれ 0, −1, 0, 0, 1 であり、Σd² = 0² + (−1)² + 0² + 0² + 1² = 2。n=5 なので n(n²−1) = 5×(25−1) = 120。よって ρ_s = 1 − (6×2)/120 = 1 − 12/120 = 1 − 0.1 = 0.9。XとYの順位が5件中4件で一致しており、強い正の順位相関であることを反映している。A（0.3）は1−0.7を誤計算、B（0.7）はΣd²=6と誤算した場合、D（1.0）は完全一致のケースであり、本データでは不完全。
+
+**BA II Plus手順**:
+1. `2nd → DATA`: 統計データ入力モードへ。
+2. `X01=4 [ENTER] ↓ Y01=4 [ENTER] ↓`: Fund1の順位ペアを入力。以下Fund5まで X/Y の順に入力（X02=2,Y02=3 / X03=5,Y03=5 / X04=1,Y04=1 / X05=3,Y05=2）。
+3. `2nd → STAT ↓`: 回帰・相関統計を表示。`↓`を数回押し「r=」の値（=0.9）を読み取る（BA II Plusの線形回帰では順位データの相関係数rがスピアマン係数と一致する）。
+4. 検算: d²の合計を手計算（0+1+0+0+1=2）→ `6 [×] 2 [=]` 12、`5 [×] (25−1) [=]` 120、`12 [÷] 120 [=]` 0.1、`1 [−] 0.1 [=]` 0.9。</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `2nd → DATA`: 統計データ入力モードへ。
+2. `X01=4 [ENTER] ↓ Y01=4 [ENTER] ↓`: Fund1の順位ペアを入力。以下Fund5まで X/Y の順に入力（X02=2,Y02=3 / X03=5,Y03=5 / X04=1,Y04=1 / X05=3,Y05=2）。
+3. `2nd → STAT ↓`: 回帰・相関統計を表示。`↓`を数回押し「r=」の値（=0.9）を読み取る（BA II Plusの線形回帰では順位データの相関係数rがスピアマン係数と一致する）。
+4. 検算: d²の合計を手計算（0+1+0+0+1=2）→ `6 [×] 2 [=]` 12、`5 [×] (25−1) [=]` 120、`12 [÷] 120 [=]` 0.1、`1 [−] 0.1 [=]` 0.9。
+
+- LO: L1-2.4.3-105</div></div><button class="btn" onclick="toggleAns(39)">解答・解説を表示</button></div>
+<div class="q" id="q40"><h3>Q040 · L1-2.4.1-177</h3><div class="body">A fund has an annual return of 12%, an annualized standard deviation of 18%, and the risk-free rate is 3%. What is the fund&#x27;s Sharpe ratio?</div><ul class="opts"><li data-letter=" " onclick="pick(this,40)"><b> .</b> 0.67</li><li data-letter=" " onclick="pick(this,40)"><b> .</b> 0.83</li><li data-letter=" " onclick="pick(this,40)"><b> .</b> 0.50</li><li data-letter=" " onclick="pick(this,40)"><b> .</b> 0.40</li></ul>
+<div class="ansbox" id="ans40"><div class="corr">正解: C</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器5（式を先に固定）: シャープ = (リターン − 無リスク金利) ÷ 標準偏差 = (12 − 3) ÷ 18 = 9 ÷ 18 = 0.50 → C
+- 「分子は必ず引き算（12−3=9）」と覚える。引き算せず12÷18=0.67（A）が最大の引っかけ
+- 9÷18=0.5は暗算で一瞬。きれいな0.5のCを選べばいい</div><div>シャープレシオ = (期待収益率 − 無リスク金利) ÷ 標準偏差 = (12% − 3%) ÷ 18% = 9 ÷ 18 = **0.50**。Aの0.67は12÷18（無リスク金利を引かない）、Bの0.83は(15−3)÷18の誤り、Dは誤差です。超過リターンをトータルリスクで割る定義を覚えましょう。
+
+**BA II Plus手順**:
+1. `2nd → CLR TVM`: 計算前のメモリ消去
+2. `12 − 3 =`: 超過リターンを先に計算 → 9
+3. `÷ 18 =`: 標準偏差で割る → 0.50
+4. 答: 0.50（C）。無リスク金利を引かず12÷18=0.67（A）にするのが引っかけ</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `2nd → CLR TVM`: 計算前のメモリ消去
+2. `12 − 3 =`: 超過リターンを先に計算 → 9
+3. `÷ 18 =`: 標準偏差で割る → 0.50
+4. 答: 0.50（C）。無リスク金利を引かず12÷18=0.67（A）にするのが引っかけ
+
+- LO: L1-2.4.1-177
+
+---</div></div><button class="btn" onclick="toggleAns(40)">解答・解説を表示</button></div>
+<div class="q" id="q41"><h3>Q041 · L1-2.3.1-154</h3><div class="body">A portfolio has a market value of $50 million and a daily standard deviation of 2%. Assuming returns are normally distributed, what is the approximate 1-day VaR at the 95% confidence level? (Use z = 1.645.)</div><ul class="opts"><li data-letter=" " onclick="pick(this,41)"><b> .</b> $1.00 million</li><li data-letter=" " onclick="pick(this,41)"><b> .</b> $2.00 million</li><li data-letter=" " onclick="pick(this,41)"><b> .</b> $1.65 million</li><li data-letter=" " onclick="pick(this,41)"><b> .</b> $0.98 million</li></ul>
+<div class="ansbox" id="ans41"><div class="corr">正解: C</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器5（式を先に固定）: VaR = 価値 × σ × z = $50M × 0.02 × 1.645。z=1.645が問題文に与えられている → 必ず1.645を掛ける
+- Aの$1.00Mはzを掛けない誤り（50×0.02）、Dの$0.98Mはz≈1.0の誤り → z&gt;1なので正解は「$1.0Mより大きい」C(1.65M)
+- 「95% = 1.645、99% = 2.326」のz値対応は丸暗記。zが1.645なら答えは「σ額×1.645倍」になる</div><div>VaR = ポートフォリオ価値 × 標準偏差 × z値 = $50M × 0.02 × 1.645 = **$1.645M ≈ $1.65 million**。Aは$50M×2%そのもの（z倍していない）、Bは誤った数値、Dはzを1.0とした場合です。95%信頼水準=1.645σ、99%=2.326σを覚えておきましょう。
+
+**BA II Plus手順**:
+1. `2nd → CLR TVM`: 計算前のメモリ消去
+2. `50 × 0.02 =`: 1σ分の損失額 → 1.0
+3. `× 1.645 =`: z値（95%水準）を掛ける → 1.645
+4. 答: 約1.65M（C）。zを掛け忘れると1.00M（A）になるのが最大の引っかけ。99%水準ならz=2.326を使うと覚える</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `2nd → CLR TVM`: 計算前のメモリ消去
+2. `50 × 0.02 =`: 1σ分の損失額 → 1.0
+3. `× 1.645 =`: z値（95%水準）を掛ける → 1.645
+4. 答: 約1.65M（C）。zを掛け忘れると1.00M（A）になるのが最大の引っかけ。99%水準ならz=2.326を使うと覚える
+
+- LO: L1-2.3.1-154
+
+---</div></div><button class="btn" onclick="toggleAns(41)">解答・解説を表示</button></div>
+<div class="topic">Real Assets（実物資産）</div>
+<div class="q" id="q42"><h3>Q042 · L1-3.2.1-005</h3><div class="body">Continuing the crude oil scenario: the portfolio manager instead enters a six-month commodity swap as the fixed-price receiver. At the swap&#x27;s inception the spot price is $70 and the fixed price in the swap is $74. Which statement about this swap is **most accurate**?</div><ul class="opts"><li data-letter=" " onclick="pick(this,42)"><b> .</b> The investor receives the spot price and pays the fixed price each period.</li><li data-letter=" " onclick="pick(this,42)"><b> .</b> The investor receives the fixed price and pays the floating (spot-based) price each period.</li><li data-letter=" " onclick="pick(this,42)"><b> .</b> The swap has no mark-to-market exposure because it is customized.</li><li data-letter=" " onclick="pick(this,42)"><b> .</b> Swap counterparty default risk is eliminated because swaps are cleared through an exchange.</li></ul>
+<div class="ansbox" id="ans42"><div class="corr">正解: B</div><div class="trick">🎯 <b>秒殺テク</b><br>- スワップの受取側（固定価格レシーバー）の定義を暗記: 「**固定価格を受け取り、変動（スポット連動）価格を支払う**」= 先物ロングと同様のエクスポージャー → B
+- A（スポットを受けて固定を支払う）は役割が逆 → 消去
+- C（カスタマイズだからMTMリスクなし）・D（上場清算だからデフォルトリスク消滅）はOTCスワップの実態（日次MTM・相手方信用リスクあり）に反する → 消去
+- 「receiver（受取側）」という単語に注目: 受け取るのは「fixed price」と決まっている。問題文の「fixed-price receiver」が答えのヒントそのもの</div><div>商品スワップでは受取側（ロング）が固定価格を受け取り、浮動（スポット連動）価格を支払う。固定価格$74で受けることは、先物ロングと類似のエクスポージャーを生む。Aは役割が逆。C・DはOTCスワップがカスタマイズされ、日次マークトゥマーケットと相手方信用リスクを伴うという実態に反する。</div></div><button class="btn" onclick="toggleAns(42)">解答・解説を表示</button></div>
+<div class="q" id="q43"><h3>Q043 · L1-3.2.2-015</h3><div class="body">Which of the following statements about backwardation in a commodity futures market is **least likely correct**?</div><ul class="opts"><li data-letter=" " onclick="pick(this,43)"><b> .</b> In backwardation, the futures price is lower than the spot price.</li><li data-letter=" " onclick="pick(this,43)"><b> .</b> Backwardation is often associated with a positive roll yield for long futures positions.</li><li data-letter=" " onclick="pick(this,43)"><b> .</b> Backwardation arises when the convenience yield exceeds the combined cost of financing and storage.</li><li data-letter=" " onclick="pick(this,43)"><b> .</b> Backwardation typically reflects a market in which physical supply is abundant relative to current demand.</li></ul>
+<div class="ansbox" id="ans43"><div class="corr">正解: D</div><div class="trick">🎯 <b>秒殺テク</b><br>- バックワーデーションの本質を1文で暗記: 「**現物が不足気味（需給逼迫）で、即時受領の便益 = コンビニエンスイールドが高い状態**」。先物 ＜ スポットになる
+- Dは「physical supply is **abundant**（供給過剰）」と言っており、バックワーデーションの前提（需給逼迫）と真逆 → 「明らかに間違い」= least likelyの答え
+- A（先物&lt;スポット）・B（ロールイールド正）・C（コンビニエンスイールド &gt; 資金+保管コスト）はバックワーデーションの正しい性質 → 正しい3つは選ばない
+- 「バックワーデーション = 需給逼迫 = コンビニエンスイールドが高い」と「供給過剰」が結びつく選択肢があれば即答え</div><div>バックワーデーションは現物需給が逼迫し、即時受領の便益（コンビニエンス・イールド）が金利・保管コストの合計を上回る状態であり、「供給過剰」を意味するDは誤り（least likely correct）。需給逼迫でコンビニエンス・イールドが高まると先物がスポットを下回る。A・B・Cはいずれもバックワーデーションの正しい性質。</div></div><button class="btn" onclick="toggleAns(43)">解答・解説を表示</button></div>
+<div class="q" id="q44"><h3>Q044 · L1-3.6.3-004</h3><div class="body">A small apartment complex has an annual potential gross income of $280,000. The complex&#x27;s annual fixed costs are $62,000 and its variable costs are $85,000 in 2019. The complex has a vacancy loss rate of 12%. Which of the following come closest to the apartment complex&#x27;s net operating income in 2019?</div><ul class="opts"><li data-letter="A" onclick="pick(this,44)"><b>A.</b> $97,600</li><li data-letter="B" onclick="pick(this,44)"><b>B.</b> $99,400</li><li data-letter="C" onclick="pick(this,44)"><b>C.</b> $114,600</li><li data-letter="D" onclick="pick(this,44)"><b>D.</b> $133,000</li></ul>
+<div class="ansbox" id="ans44"><div class="corr">正解: B</div><div>NOI（純営業利益）＝実効総収入（effective gross income）－営業費用の式で計算します。実効総収入＝潜在総収入×(1－空室率)＝$280,000×(1－0.12)＝$246,400。営業費用は固定費＋変動費＝$62,000＋$85,000＝$147,000。よってNOI＝$246,400－$147,000＝$99,400となりBが正解です。Aは空室損失の控除漏れ、Dは費用の一部しか差し引いていない計算ミスです。</div></div><button class="btn" onclick="toggleAns(44)">解答・解説を表示</button></div>
+<div class="q" id="q45"><h3>Q045 · L1-3.5.1-005</h3><div class="body">Which of the following is accurate regarding the foreclosure process under the Uniform Commercial Code?
+
+ 
+
+It is initiated by mezzanine lenders.
+It is controlled by the fulcrum security holder.
+It involves selling the borrower&#x27;s assets.</div><ul class="opts"><li data-letter="A" onclick="pick(this,45)"><b>A.</b> I and III only</li><li data-letter="B" onclick="pick(this,45)"><b>B.</b> I, II, and III only</li><li data-letter="C" onclick="pick(this,45)"><b>C.</b> I and II only</li><li data-letter="D" onclick="pick(this,45)"><b>D.</b> II only</li></ul>
+<div class="ansbox" id="ans45"><div class="corr">正解: B</div><div>UCC担保執行（UCC foreclosure）は、メザニンローン（mezzanine loan）の不履行時にメザニンレンダーが開始でき、借手の資産を売却する手続きです。手続きはファルカム証券（fulcrum security）の保有者が管理します。よってI・II・IIIすべて正しくBが正解です。いずれの記述も誤りではないため、一部だけを選ぶA・C・Dは誤りです。</div></div><button class="btn" onclick="toggleAns(45)">解答・解説を表示</button></div>
+<div class="q" id="q46"><h3>Q046 · L1-3.3.1-243</h3><div class="body">Which of the following statements most accurately contrasts a royalty interest with a working interest in an oil and gas investment?</div><ul class="opts"><li data-letter=" " onclick="pick(this,46)"><b> .</b> A working interest holder receives a share of production revenue without bearing any drilling or operating costs.</li><li data-letter=" " onclick="pick(this,46)"><b> .</b> A royalty interest holder must pay a proportional share of all drilling and operating costs and actively manage operations.</li><li data-letter=" " onclick="pick(this,46)"><b> .</b> Both royalty and working interest holders bear identical risks and have identical rights to control operations.</li><li data-letter=" " onclick="pick(this,46)"><b> .</b> A working interest holder bears the costs of drilling and operations in exchange for control and a larger share of the revenue, whereas a royalty holder bears no operating costs but receives only a fraction of the revenue.</li></ul>
+<div class="ansbox" id="ans46"><div class="corr">正解: D</div><div class="trick">🎯 <b>秒殺テク</b><br>- 対比問題は「トレードオフ構造」を探す: **working interest = コストを負担する代わりに支配権＋収益の大部分 / royalty = コストを負担しない代わりに収益は一部**。この構造が丸ごとD
+- A・Bは役割を完全に逆転させた引っかけ（A: working interestがコストを負わない / B: royaltyがコストを負う）→ 即消去
+- Cの「identical（同一）」は絶対表現（武器1）→ 消去。リスク・権利が同一なはずがない
+- 「コストを払う人が収益とコントロールを取る」という常識で、コスト負担の主語を確認して選ぶ</div><div>ワーキング・インタレスト（直接権益）保有者は、探鉱・掘削・操業コストを持分割合に応じて負担し、その見返りとして生産収益の大きな割合と経営・操業への支配権（コントロール）を得る。ロイヤルティ保有者は操業コストを負担せず、生産量×価格×ロイヤルティ率に応じた「収益の一部」のみを受け取る。Aは逆（working interestはコストを負う）、Bも逆（royaltyはコストを負わない）、Cは両者のリスク・権利が同一と述べる誤り。</div></div><button class="btn" onclick="toggleAns(46)">解答・解説を表示</button></div>
+<div class="q" id="q47"><h3>Q047 · L1-3.1.1-001</h3><div class="body">Real estate is often described as an &quot;inefficient&quot; asset class. Which of the following characteristics **best explains** why active management in real estate is expected to add value relative to public markets?</div><ul class="opts"><li data-letter=" " onclick="pick(this,47)"><b> .</b> Real estate returns are perfectly correlated with broad equity market returns.</li><li data-letter=" " onclick="pick(this,47)"><b> .</b> Real estate is heterogeneous, illiquid, and traded in localized markets with limited information.</li><li data-letter=" " onclick="pick(this,47)"><b> .</b> Real estate is homogeneous, transparent, and priced continuously in a centralized marketplace.</li><li data-letter=" " onclick="pick(this,47)"><b> .</b> Real estate prices are set daily by a large number of informed market participants.</li></ul>
+<div class="ansbox" id="ans47"><div class="corr">正解: B</div><div class="trick">🎯 <b>秒殺テク</b><br>- 問題文のキーワード「inefficient（非効率）」に注目。非効率 = 情報が限られ・流動性が低く・市場が細分化されている → Bが非効率市場の教科書的定義そのもの
+- C・Dは「homogeneous / transparent / priced continuously / informed participants」= 効率的市場の特徴を並べた引っかけ → 問題文（inefficient）と真逆なので即消去
+- Aは「株式と完全相関」= 分散効果もアクティブの付加価値も消える意味になり、アクティブ運用の理由にならない → 消去
+- 「inefficient」という単語が出たら、選択肢中で『非効率』を表す語（heterogeneous / illiquid / localized / limited information）を含むものを選ぶ</div><div>不動産は物件ごとに異質（heterogeneous）で、流動性が低く、市場情報が限られたローカル市場で取引されるため、情報の非対称性と価格発見の遅れが生じ、アクティブ運用が超過リターンを獲得しやすい。Aは相関が高ければ分散効果・情報価値が小さくなる。C・Dは効率的市場（流動的・透明・頻繁な価格形成）の特徴であり、不動産の実態に反する。</div></div><button class="btn" onclick="toggleAns(47)">解答・解説を表示</button></div>
+<div class="q" id="q48"><h3>Q048 · L1-3.2.1-004</h3><div class="body">Which of the following statements about the participants in commodity futures markets is **least likely correct**?</div><ul class="opts"><li data-letter=" " onclick="pick(this,48)"><b> .</b> Hedgers take futures positions to reduce the price risk of their physical production or consumption.</li><li data-letter=" " onclick="pick(this,48)"><b> .</b> Speculators provide liquidity and absorb the price risk transferred by hedgers.</li><li data-letter=" " onclick="pick(this,48)"><b> .</b> In normal backwardation, hedgers as a group tend to be net long and speculators net short.</li><li data-letter=" " onclick="pick(this,48)"><b> .</b> Producers such as farmers and oil companies are typically natural short hedgers.</li></ul>
+<div class="ansbox" id="ans48"><div class="corr">正解: C</div><div class="trick">🎯 <b>秒殺テク</b><br>- 正常バックワーデーション理論の核心を暗記: 「**生産者（ヘッジャー）は自然なショート売り圧力 → 投機家がロング側でリスクを吸収 → 先物がスポットを下回る**」
+- Cは「ヘッジャーがネットロング・投機家がネットショート」と役割を完全に逆転 → 「明らかに間違い」= least likelyの答え
+- 「ヘッジャー = リスク回避 = ショート」「投機家 = リスク吸収 = ロング」という役割分担を覚えておけば、Cの違和感に気づける
+- A（ヘッジャーは価格リスク低減）・B（投機家は流動性提供・リスク吸収）・D（生産者は自然なショートヘッジャー）は正しい → 選ばない</div><div>正常バックワーデーション理論では、生産者（自然なショートヘッジャー）が売り圧力をかけ、投機家がロング側でリスクを引き受けることで先物がスポットを下回ると説明される。Cは「ヘッジャーがネットロング・投機家がネットショート」としており役割が逆で誤り（least likely correct）。A・B・Dは各参加者の正しい役割。</div></div><button class="btn" onclick="toggleAns(48)">解答・解説を表示</button></div>
+<div class="q" id="q49"><h3>Q049 · L1-3.4.1-001</h3><div class="body">Which of the following is **most accurate** regarding the role of natural resource investments (e.g., energy, timberland, and farmland) in an institutional portfolio?</div><ul class="opts"><li data-letter=" " onclick="pick(this,49)"><b> .</b> They historically provide a partial hedge against inflation and low correlation with traditional financial assets.</li><li data-letter=" " onclick="pick(this,49)"><b> .</b> They are best suited to hedging deflationary environments.</li><li data-letter=" " onclick="pick(this,49)"><b> .</b> Their returns are driven almost entirely by the same factors that drive developed-market equities.</li><li data-letter=" " onclick="pick(this,49)"><b> .</b> They typically exhibit high liquidity and low management costs compared with listed equities.</li></ul>
+<div class="ansbox" id="ans49"><div class="corr">正解: A</div><div class="trick">🎯 <b>秒殺テク</b><br>- 問題13と同一テーマ: 天然資源（エネルギー・森林・農地）の役割は「**インフレヘッジ + 伝統的資産との低相関（分散効果）**」→ Aがそのまま
+- B（デフレヘッジに最適）はインフレと真逆 → 消去。C（株式とほぼ同因子）は低相関という前提を否定 → 消去
+- D（株式より高流動性・低コスト）は実物資産の実態（低流動性・高い運用コスト）と逆 → 消去
+- 「natural resources」や「commodities」が出たら、選択肢に「inflation hedge」「low correlation」が揃うものを選ぶ（問題13と共通パターン）</div><div>天然資源（エネルギー・森林・農地等）は歴史的にインフレ連動性を持ち、伝統的金融資産との相関が低いことから、インフレヘッジと分散効果を目的にポートフォリオへ組み入れられる（Aが正しい）。Bはデフレヘッジが目的という逆の誤り。Cは株式とほぼ同因子という誤り。Dは現物資産が低流動性・高い運用コストを持つ点に反する。</div></div><button class="btn" onclick="toggleAns(49)">解答・解説を表示</button></div>
+<div class="q" id="q50"><h3>Q050 · L1-3.1.2-002</h3><div class="body">Regarding the &quot;multiple purpose value&quot; (strategic option value) embedded in land and other real assets, which of the following statements is **least likely correct**?</div><ul class="opts"><li data-letter=" " onclick="pick(this,50)"><b> .</b> Multiple purpose value increases when the profitability of the alternative uses is highly uncertain.</li><li data-letter=" " onclick="pick(this,50)"><b> .</b> Multiple purpose value is greater when the alternative uses are NOT highly positively correlated with each other.</li><li data-letter=" " onclick="pick(this,50)"><b> .</b> Multiple purpose value is greatest for real assets that have only a single, stable use with highly certain cash flows.</li><li data-letter=" " onclick="pick(this,50)"><b> .</b> Multiple purpose value reflects the option to switch a real asset to its most valuable use as conditions change.</li></ul>
+<div class="ansbox" id="ans50"><div class="corr">正解: C</div><div class="trick">🎯 <b>秒殺テク</b><br>- テーマは「複数用途価値（戦略オプション）」= 切替オプション。切替オプションは「不確実性が高いほど・用途の相関が低いほど」価値が上がる
+- least likely問題の鉄則: 「明らかに正しい・当たり前のこと」を述べた選択肢は正解（=当てはまらない）になる。Cは「単一用途・確実なCF」が価値最大と言っており、切替オプションの存在意義（多用途性・柔軟性）と真逆
+- A（不確実性が高いと増加）・B（相関が低いと増加）は正しい条件。Dは戦略オプションの定義そのもの → 正しい3つを消去してCに辿り着く
+- 「オプション価値 = 柔軟性・不確実性」の原則に反する選択肢を探せば即答</div><div>複数用途価値（戦略オプション）は「収益性の不確実性が高く」「複数用途の相関が低い」ほど大きくなる。用途が単一・キャッシュフローが確定的な資産は切替オプションを持たず、戦略オプション価値は小さい。よってCが誤り（least likely correct）。A・Bは複数用途価値を高める条件として正しく、Dは戦略オプションの定義そのもの。</div></div><button class="btn" onclick="toggleAns(50)">解答・解説を表示</button></div>
+<div class="q" id="q51"><h3>Q051 · L1-3.1.2-006</h3><div class="body">In a falling (declining) cap rate environment for commercial real estate, which of the following is **most likely** observed?</div><ul class="opts"><li data-letter=" " onclick="pick(this,51)"><b> .</b> Property values decrease for a given level of NOI.</li><li data-letter=" " onclick="pick(this,51)"><b> .</b> NOI must increase by the same percentage as the cap rate falls to keep values stable.</li><li data-letter=" " onclick="pick(this,51)"><b> .</b> Property values increase for a given level of NOI.</li><li data-letter=" " onclick="pick(this,51)"><b> .</b> The relationship between cap rates and property values disappears.</li></ul>
+<div class="ansbox" id="ans51"><div class="corr">正解: C</div><div class="trick">🎯 <b>秒殺テク</b><br>- キャップレートの式は1本: **価値 = NOI ÷ キャップレート**。分母が小さくなれば（NOI一定なら）値は大きくなる
+- 「cap rate下落 → 物件価値上昇」という**逆相関**を暗記 → Cが即答。Aは逆、Dは関係消滅という誤り
+- B（NOIが同率上昇しなければ価値不変）は不正確: NOI一定でも価値は変化する → 消去
+- 具体例で確認: NOI=10万、cap率8% → 価値125万。cap率7% → 価値142.8万（上昇）。「cap率低下 = 価格上昇（金利低下局面と同じ方向）」と覚える</div><div>キャップレートが低下する環境では、同一のNOIに対して物件価値（NOI ÷ キャップレート）は上昇する。例えばNOI一定でキャップレートが8%→7%に低下すると価格は上昇する。Aは逆。BはNOIが同率上昇しなければ価値が変化するため不正確。Dは関係が消えるという誤り。</div></div><button class="btn" onclick="toggleAns(51)">解答・解説を表示</button></div>
+<div class="q" id="q52"><h3>Q052 · L1-3.1.3-008</h3><div class="body">Which valuation metric is most commonly used to evaluate the operating performance and relative value of REITs, given that net income understates the cash flow available for distribution due to non-cash depreciation charges?</div><ul class="opts"><li data-letter=" " onclick="pick(this,52)"><b> .</b> Earnings per share (EPS)</li><li data-letter=" " onclick="pick(this,52)"><b> .</b> Funds from operations (FFO)</li><li data-letter=" " onclick="pick(this,52)"><b> .</b> Price-to-book ratio</li><li data-letter=" " onclick="pick(this,52)"><b> .</b> Dividend payout ratio</li></ul>
+<div class="ansbox" id="ans52"><div class="corr">正解: B</div><div class="trick">🎯 <b>秒殺テク</b><br>- 問題文の最重要キーワード「**non-cash depreciation charges（非現金の減価償却）**」に注目。減価償却を「足し戻して」補正する指標 = **FFO**（FFO = 純利益 + 減価償却費 − 売却益）
+- 武器3（キーワード一致）: 「depreciation」と最も強く結びつく選択肢はFFO。EPS（A）は減価償却を含んだままでREITの実力を過小評価する → 問題文の指摘そのものがAを否定している
+- C（PBR）は簿価ベースで不動産市場価値を反映しない、D（配当性向）は分配方針の指標 → 評価指標として的外れ
+- 「REITの評価 = FFO（P/FFO倍率）」は暗記必須のワンセット</div><div>FFOはGAAP純利益に非現金項目（減価償却費）を加算した指標で、REITのキャッシュフロー創出能力と相対評価に最もよく用いられる（P/FFO倍率）。A（EPS）は減価償却の影響でREITの実力を過小評価する。C（PBR）は簿価が取得原価ベースで市場価値を反映しないため適さない。D（配当性向）は分配方針の指標でありバリュエーションそのものではない。</div></div><button class="btn" onclick="toggleAns(52)">解答・解説を表示</button></div>
+<div class="q" id="q53"><h3>Q053 · L1-3.2.2-021</h3><div class="body">An institutional investor wants crude oil exposure and is considering (1) purchasing physical crude for storage, (2) buying long-dated oil futures, or (3) buying an oil ETF that holds near-month futures. The oil forward curve is currently in contango. The portfolio manager notes that the ETF must continuously roll expiring contracts into the next-dated contract. Which statement is **most accurate**?</div><ul class="opts"><li data-letter=" " onclick="pick(this,53)"><b> .</b> The ETF&#x27;s return will benefit from a positive roll yield while the market stays in contango.</li><li data-letter=" " onclick="pick(this,53)"><b> .</b> The ETF&#x27;s return will suffer a negative roll yield while the market stays in contango.</li><li data-letter=" " onclick="pick(this,53)"><b> .</b> Roll yield is determined solely by spot price changes and is unaffected by the shape of the forward curve.</li><li data-letter=" " onclick="pick(this,53)"><b> .</b> Physical storage eliminates all carrying costs, making it cheaper than futures exposure.</li></ul>
+<div class="ansbox" id="ans53"><div class="corr">正解: B</div><div class="trick">🎯 <b>秒殺テク</b><br>- 問題15と同一テーマ: 「**コンタンゴ = ロールイールド負**」→ Bが即答
+- 問題文に「contango」と「roll」の2語が同時に出たら、選択肢から「negative roll yield」を含むものを選ぶ（Aはバックワーデーションでの現象と逆）
+- C（ロールリターンがカーブ形状に無関係）はロールの定義を否定 → 消去
+- D（物理在庫はキャリーコストがゼロ）は常識に反する（保管・保険・資金コストがかかる）→ 消去</div><div>コンタンゴ下で近月から遠月へロールする限り、売値＜買値となり負のロールリターンが発生する（Bが正しい）。Aはバックワーデーションでの現象で逆。Cはロールリターンが先物カーブ形状に依存する点で誤り。Dは物理在庫は保管・保険・資金コストを負担するため誤り。</div></div><button class="btn" onclick="toggleAns(53)">解答・解説を表示</button></div>
+<div class="q" id="q54"><h3>Q054 · L1-3.2.1-246</h3><div class="body">Based on empirical evidence regarding the inflation-hedging properties of commodity investments, which of the following statements is most accurate?</div><ul class="opts"><li data-letter=" " onclick="pick(this,54)"><b> .</b> Commodity returns are negatively correlated with inflation, making commodities a poor hedge for unexpected inflation.</li><li data-letter=" " onclick="pick(this,54)"><b> .</b> Commodities have historically exhibited a positive correlation with inflation, and the empirical relationship is generally stronger for energy commodities than for many other commodity sectors.</li><li data-letter=" " onclick="pick(this,54)"><b> .</b> Empirical studies show that commodities hedge inflation only when the annual inflation rate exceeds 20%.</li><li data-letter=" " onclick="pick(this,54)"><b> .</b> Stocks and bonds have historically provided better protection against unexpected inflation than commodities.</li></ul>
+<div class="ansbox" id="ans54"><div class="corr">正解: B</div><div class="trick">🎯 <b>秒殺テク</b><br>- 実証の結論は「**コモディティはインフレと正の相関。特にエネルギー（原油など）が最も強いインフレヘッジ**」。この「正の相関＋エネルギー」のセットがB
+- 武器1の絶対表現: A「negatively correlated（負の相関）」は関係を逆転、C「only when 20%」は「only（限定）」、Dは「stocks and bonds better」と実証と真逆 → 3つとも消去
+- 「インフレ = 物価上昇 = コモディティ価格も上昇」という直感で、正の相関を述べる選択肢を選ぶ</div><div>実証研究（Gorton &amp; Rouwenhorst等）では、コモディティ先物リターンは期待インフレ・予想外（アンエクスペクテッド）インフレの双方と正の相関を持つことが示されており、そのインフレへの感応度（インフレベータ）は株式・債券よりも高い。特にエネルギー（原油・天然ガス）はインフレとの関連が強く、インフレヘッジ機能が最も強いとされる。Aは相関の向きが逆、Cは「only」で閾値を限定した記述が実証と合致しない、Dは実証と真逆（債券はインフレ局面で実質リターンが目減りしやすい）。</div></div><button class="btn" onclick="toggleAns(54)">解答・解説を表示</button></div>
+<div class="q" id="q55"><h3>Q055 · L1-3.1.2-005</h3><div class="body">An investor is evaluating a plot of land that can be developed at a construction cost of $300,000 if the economy improves; in that state the improved property will be worth $600,000. If the economy declines, the construction cost drops to $100,000 and the improved property will be worth $400,000. The investor has decided NOT to build at the outset. If the probability of an improving economy is 50%, the current value of the land, based on its option value, is **closest to**:</div><ul class="opts"><li data-letter=" " onclick="pick(this,55)"><b> .</b> $300,000</li><li data-letter=" " onclick="pick(this,55)"><b> .</b> $250,000</li><li data-letter=" " onclick="pick(this,55)"><b> .</b> $350,000</li><li data-letter=" " onclick="pick(this,55)"><b> .</b> $200,000</li></ul>
+<div class="ansbox" id="ans55"><div class="corr">正解: A</div><div class="trick">🎯 <b>秒殺テク</b><br>- まず「売却価値 − 建設コスト」を2つのシナリオでそれぞれ計算: 改善時 = 600,000 − 300,000 = 300,000、悪化時 = 400,000 − 100,000 = 300,000
+- 両シナリオのペイオフが**同じ値**になったら、期待値もその値そのもの（0.5×300k + 0.5×300k = 300k）→ 一瞬でAと確定
+- 選択肢Aの$300,000は「売却価値 − コスト」の計算結果と一致。B($250k)・D($200k)はペイオフの取り違え、C($350k)は2シナリオの価値を足し過ぎた引っかけ
+- 「土地のオプション価値 = シナリオ別ペイオフの期待値」とだけ覚えて、2本の引き算→平均の順で解く</div><div>土地は「開発する権利」（コールオプション）であり、確実に開発する義務ではない。経済が改善する場合のペイオフ = $600,000 − $300,000 = $300,000、経済が悪化する場合のペイオフ = $400,000 − $100,000 = $300,000。期待ペイオフ = 0.5×300,000 + 0.5×300,000 = $300,000。悪化時でも開発コストが下がるためペイオフが正になり、オプション価値は確率の値に依存しない形となる。B・Dは片方のシナリオのみ、またはペイオフの取り違え。Cは両シナリオの価値を過大評価している。
+
+**BA II Plus手順**:
+1. `2nd → CLR TVM`: 前の問題のデータを消去（計算前に必ず）
+2. 改善時ペイオフ: `600000 − 300000 =` → 300000
+3. 悪化時ペイオフ: `400000 − 100000 =` → 300000
+4. 期待値: `0.5 × 300000 =` → 150000 → `+ 0.5 × 300000 =` → 300000（両シナリオ同じ値なので実質そのまま）
+5. 答: $300,000（選択肢A）</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `2nd → CLR TVM`: 前の問題のデータを消去（計算前に必ず）
+2. 改善時ペイオフ: `600000 − 300000 =` → 300000
+3. 悪化時ペイオフ: `400000 − 100000 =` → 300000
+4. 期待値: `0.5 × 300000 =` → 150000 → `+ 0.5 × 300000 =` → 300000（両シナリオ同じ値なので実質そのまま）
+5. 答: $300,000（選択肢A）
+
+- LO: L1-3.1.2-005
+
+---</div></div><button class="btn" onclick="toggleAns(55)">解答・解説を表示</button></div>
+<div class="q" id="q56"><h3>Q056 · L1-3.2.2-020</h3><div class="body">A commodity futures curve is in backwardation. A trader sells the near-month contract at $95 and simultaneously buys the next month&#x27;s contract at $93. One month later the trader rolls the position by repeating the same trade at the same prices. The one-month roll yield is **closest to**:</div><ul class="opts"><li data-letter=" " onclick="pick(this,56)"><b> .</b> +2.2%</li><li data-letter=" " onclick="pick(this,56)"><b> .</b> +1.8%</li><li data-letter=" " onclick="pick(this,56)"><b> .</b> +2.5%</li><li data-letter=" " onclick="pick(this,56)"><b> .</b> +3.1%</li></ul>
+<div class="ansbox" id="ans56"><div class="corr">正解: A</div><div class="trick">🎯 <b>秒殺テク</b><br>- 符号を先に決める: バックワーデーション（近月$95 &gt; 遠月$93）→ 高く売って安く買う → ロールはプラス。選択肢は全部プラスなので、次は**幅**を見る
+- ロールリターン = (売値95 ÷ 買値93) − 1 = 1.0215 − 1 ≈ **2.15%** → 選択肢A（+2.2%）に一致
+- 選択肢C(2.5%)・D(3.1%)は価格差(2)を過大評価、B(1.8%)は端数処理の誤り。95÷93 ≈ 1.0215 を出せば±0.1%で絞れる
+- 「（売値−買値）÷ 買値 = 2 ÷ 93 ≈ 2.15%」の簡易計算でもAが浮かぶ</div><div>ロールリターン = (売却価格 ÷ 購入価格) − 1 = (95/93) − 1 = 0.021505 ≈ +2.15%。バックワーデーションでは近月＞遠月となり、高値で売却し安値で買い直すためロールリターンはプラスになる。Bは計算過程の端数処理の誤り、C・Dは価格差を過大に評価している。
+
+**BA II Plus手順**:
+1. `2nd → CLR TVM`: 計算前のメモリ消去
+2. ロールファクター: `95 ÷ 93 =` → 1.0215054
+3. ロールリターン: `− 1 =` → 0.0215054（+2.15%）
+4. 符号チェック: 売り95 &gt; 買い93（バックワーデーション）→ 正のロール（検算として有効）
+5. 答: 約+2.2%（選択肢A）</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `2nd → CLR TVM`: 計算前のメモリ消去
+2. ロールファクター: `95 ÷ 93 =` → 1.0215054
+3. ロールリターン: `− 1 =` → 0.0215054（+2.15%）
+4. 符号チェック: 売り95 &gt; 買い93（バックワーデーション）→ 正のロール（検算として有効）
+5. 答: 約+2.2%（選択肢A）
+
+- LO: L1-3.2.2-020
+
+---</div></div><button class="btn" onclick="toggleAns(56)">解答・解説を表示</button></div>
+<div class="q" id="q57"><h3>Q057 · L1-3.1.2-010</h3><div class="body">A multifamily property is purchased for $10,000,000. Gross potential rent is $1,200,000 per year, vacancy and collection losses are estimated at 5% of gross potential rent, and operating expenses are 30% of effective gross income. The owner also sets aside $57,000 per year as a capital expenditure reserve. The property&#x27;s capitalization rate is **closest to**:</div><ul class="opts"><li data-letter=" " onclick="pick(this,57)"><b> .</b> 7.4%</li><li data-letter=" " onclick="pick(this,57)"><b> .</b> 6.8%</li><li data-letter=" " onclick="pick(this,57)"><b> .</b> 8.1%</li><li data-letter=" " onclick="pick(this,57)"><b> .</b> 8.6%</li></ul>
+<div class="ansbox" id="ans57"><div class="corr">正解: A</div><div class="trick">🎯 <b>秒殺テク</b><br>- キャップレート = **NOI ÷ 購入価格**。NOIの計算順を丸暗記: 総収入 → 空室控除 → 実効総収入(EGI) → 営業費用控除 → 資本的支出控除 = NOI
+- EGI = 1,200,000 × 0.95 = 1,140,000。営業費用 = 1,140,000 × 0.30 = 342,000。NOI = 1,140,000 − 342,000 − 57,000 = 741,000
+- キャップレート = 741,000 ÷ 10,000,000 = **7.41%** → 選択肢A（7.4%）に一致
+- 選択肢B(6.8%)は「空室率・資本的支出の処理不足」、C・D(8%超)は「営業費用率を総収入に掛けた誤り」など。**答えは必ず7%台前半**と桁の見当をつけてから計算を確認</div><div>実効総収入 EGI = $1,200,000 × (1 − 0.05) = $1,140,000。営業費用 = $1,140,000 × 0.30 = $342,000。NOI = $1,140,000 − $342,000 − $57,000（資本的支出引当） = $741,000。キャップレート = NOI ÷ 価格 = $741,000 ÷ $10,000,000 = 7.41% ≈ 7.4%。Bは空室率・引当の処理不足、C・Dは営業費用率の誤用。
+
+**BA II Plus手順**:
+1. `2nd → CLR TVM`: 計算前のメモリ消去
+2. 実効総収入: `1200000 × 0.95 =` → 1140000（総収入から空室5%を控除）
+3. 営業費用: `1140000 × 0.30 =` → 342000
+4. NOI: `1140000 − 342000 − 57000 =` → 741000
+5. キャップレート: `741000 ÷ 10000000 =` → 0.0741（7.41%）
+6. 答: 約7.4%（選択肢A）</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `2nd → CLR TVM`: 計算前のメモリ消去
+2. 実効総収入: `1200000 × 0.95 =` → 1140000（総収入から空室5%を控除）
+3. 営業費用: `1140000 × 0.30 =` → 342000
+4. NOI: `1140000 − 342000 − 57000 =` → 741000
+5. キャップレート: `741000 ÷ 10000000 =` → 0.0741（7.41%）
+6. 答: 約7.4%（選択肢A）
+
+- LO: L1-3.1.2-010
+
+---</div></div><button class="btn" onclick="toggleAns(57)">解答・解説を表示</button></div>
+<div class="q" id="q58"><h3>Q058 · L1-3.1.3-007</h3><div class="body">Tera Capital REIT owns a single stabilized office property. For the coming year the property generates NOI of $14.4 million, which is expected to remain level in perpetuity. Tera&#x27;s appraiser applies a 6% cap rate to this NOI to estimate property value. Tera also holds $15 million in cash and has $120 million of total debt outstanding. Based only on this information, the estimated net asset value (NAV) of Tera Capital REIT is **closest to**:</div><ul class="opts"><li data-letter=" " onclick="pick(this,58)"><b> .</b> $99 million</li><li data-letter=" " onclick="pick(this,58)"><b> .</b> $120 million</li><li data-letter=" " onclick="pick(this,58)"><b> .</b> $255 million</li><li data-letter=" " onclick="pick(this,58)"><b> .</b> $135 million</li></ul>
+<div class="ansbox" id="ans58"><div class="corr">正解: D</div><div class="trick">🎯 <b>秒殺テク</b><br>- NAVの計算順を暗記: ①物件価値 = NOI ÷ キャップレート → ②総資産 = 物件価値 + 現金 → ③NAV = 総資産 − 負債
+- ① 14.4M ÷ 0.06 = **240M** → ② 240M + 15M = 255M → ③ 255M − 120M = **135M** → D
+- 引っかけ構造を暗記: C($255M)は負債を引く前の総資産価値、A($99M)は「現金を加えず負債と現金の両方を引いた」誤り、B($120M)は負債額そのもの
+- 「NOI ÷ cap率」が6%割りなら「14.4 × 100/6 = 240」と暗算し、現金を足して負債を引く、の3段を順番に</div><div>物件価値 = NOI ÷ キャップレート = $14.4M ÷ 0.06 = $240M。総資産価値 = $240M + $15M（現金） = $255M。NAV = 総資産価値 − 負債 = $255M − $120M = $135M。Aは物件価値に現金を加算せず負債を控除した誤り（$240M − $120M − $15M）、Bは負債額そのもの、Cは負債控除前の総資産価値。
+
+**BA II Plus手順**:
+1. `2nd → CLR TVM`: 計算前のメモリ消去
+2. 物件価値: `14.4 ÷ 0.06 =` → 240（百万ドル）
+3. 総資産価値: `240 + 15 =` → 255（現金を加算）
+4. NAV: `255 − 120 =` → 135（負債を控除）
+5. 答: $135M（選択肢D）</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `2nd → CLR TVM`: 計算前のメモリ消去
+2. 物件価値: `14.4 ÷ 0.06 =` → 240（百万ドル）
+3. 総資産価値: `240 + 15 =` → 255（現金を加算）
+4. NAV: `255 − 120 =` → 135（負債を控除）
+5. 答: $135M（選択肢D）
+
+- LO: L1-3.1.3-007
+
+---</div></div><button class="btn" onclick="toggleAns(58)">解答・解説を表示</button></div>
+<div class="q" id="q59"><h3>Q059 · L1-3.2.2-014</h3><div class="body">The spot price of gold is $1,750 per ounce, the one-year risk-free rate is 3.5%, and annual storage and insurance costs are 0.6% of the spot value. Under the cost-of-carry model, the theoretical one-year futures price is **closest to**:</div><ul class="opts"><li data-letter=" " onclick="pick(this,59)"><b> .</b> $1,822</li><li data-letter=" " onclick="pick(this,59)"><b> .</b> $1,790</li><li data-letter=" " onclick="pick(this,59)"><b> .</b> $1,850</li><li data-letter=" " onclick="pick(this,59)"><b> .</b> $1,875</li></ul>
+<div class="ansbox" id="ans59"><div class="corr">正解: A</div><div class="trick">🎯 <b>秒殺テク</b><br>- 式は1本だけ: **理論先物価格 = スポット × (1 + 金利 + 保管コスト率)** = 1,750 × (1 + 0.035 + 0.006)
+- 金利+保管 = 3.5% + 0.6% = 4.1%。1,750 × 1.041 ≈ **1,821.75** → 選択肢A（$1,822）にほぼ完全一致
+- 選択肢B（$1,790）は「金利のみ」（1,750×1.035≈1,811でもない）や保管コスト抜きの誤り、C・Dはコスト過大評価
+- 「キャリーコスト = 金利 + 保管・保険」を足して1プラス、を1発で。選択肢の「差」は0.5〜1%単位なので、4.1%の乗数を出せば迷わない</div><div>理論先物価格 F = S × (1 + r + 保管コスト率) = $1,750 × (1 + 0.035 + 0.006) = $1,750 × 1.041 = $1,821.75 ≈ $1,822。金は利子所得を生まず、物理的保管コストを負担するため、フルキャリー（先物がスポット＋キャリーコスト）で価格形成される。Bはキャリーコストを過小評価、C・Dはコストを過大評価した計算。
+
+**BA II Plus手順**:
+1. `2nd → CLR TVM`: 計算前のメモリ消去
+2. 総キャリーコスト率: `3.5 + 0.6 =` → 4.1（%）
+3. 理論先物価格: `1750 × 1.041 =` → 1821.75
+4. （TVMで検算）`2nd → CLR TVM → N → 1 → I/Y → 4.1 → PV → 1750 → +/- → PMT → 0 → CPT → FV` → 1821.75（N=1期、I/Y=4.1%、PVを負で入力してFVを計算）
+5. 答: $1,822（選択肢A）</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `2nd → CLR TVM`: 計算前のメモリ消去
+2. 総キャリーコスト率: `3.5 + 0.6 =` → 4.1（%）
+3. 理論先物価格: `1750 × 1.041 =` → 1821.75
+4. （TVMで検算）`2nd → CLR TVM → N → 1 → I/Y → 4.1 → PV → 1750 → +/- → PMT → 0 → CPT → FV` → 1821.75（N=1期、I/Y=4.1%、PVを負で入力してFVを計算）
+5. 答: $1,822（選択肢A）
+
+- LO: L1-3.2.2-014
+
+---</div></div><button class="btn" onclick="toggleAns(59)">解答・解説を表示</button></div>
+<div class="q" id="q60"><h3>Q060 · L1-3.1.4-016</h3><div class="body">An investor purchases 40 acres of farmland at $3,000 per acre using a loan with a 50% loan-to-value ratio and a 5.4% annual interest rate, amortized over 30 years with monthly payments. Annual property taxes are $140 per acre and annual insurance is $2,800. The monthly mortgage payment and the total annual cash carrying cost are **closest to**:</div><ul class="opts"><li data-letter=" " onclick="pick(this,60)"><b> .</b> $340.55; $12,600</li><li data-letter=" " onclick="pick(this,60)"><b> .</b> $333.40; $12,300</li><li data-letter=" " onclick="pick(this,60)"><b> .</b> $336.92; $12,443</li><li data-letter=" " onclick="pick(this,60)"><b> .</b> $330.12; $12,200</li></ul>
+<div class="ansbox" id="ans60"><div class="corr">正解: C</div><div class="trick">🎯 <b>秒殺テク</b><br>- 選択肢の2つ目の数値（年間コスト合計）を先に見る: 合計 = モーゲージ年払い + 固定資産税($140×40=$5,600) + 保険($2,800) = モーゲージ年払い + $8,400
+- 月払いは$336前後（6万ドル・5.4%・30年）なので年払い ≈ $4,043 → 合計 ≈ $12,443。2つ目の値が「$12,443」の選択肢Cだけが一貫している
+- 月払いの桁チェック: 元本$60,000を30年で返すと「元金分だけでも$167/月」。金利を加えると$330〜$340帯になる。$333や$340との差は微差なので、**2つ目の数値（合計コスト）で絞る**のが最短
+- 最後の2桁（$12,443 vs $12,600 vs $12,300）が合計コスト計算の差に出る → 「税+保険=$8,400の固定部分」を先に足して比べる</div><div>物件価格 = $3,000 × 40 = $120,000、借入元本 = $120,000 × 50% = $60,000。月次支払額 = P×r/[1−(1+r)^−n]、r = 0.054/12 = 0.0045、n = 360 → 約$336.92。年間モーゲージ支払 = $336.92×12 ≈ $4,043。年間固定費 = 固定資産税 $140×40 = $5,600 + 保険 $2,800 = $8,400。年間キャリーコスト合計 = $4,043 + $5,600 + $2,800 ≈ $12,443。A・Dは元本または固定費の計算ミス。
+
+**BA II Plus手順**:
+1. `2nd → P/Y → 12 → ENTER`: 年間12回払い（月払い）を設定
+2. `2nd → QUIT → 2nd → CLR TVM`: 計算前のメモリを消去
+3. `N → 360`: 期間 = 30年×12ヶ月
+4. `I/Y → 5.4`: 年利率を%のまま入力（0.054ではない）
+5. `PV → 60000`: 借入元本 = 物件価格$120,000×50%
+6. `FV → 0 → CPT → PMT` → −336.92（マイナス=毎月の支払い。符号は「支払い=マイナス」）
+7. 年間モーゲージ: `× 12 =` → 4043
+8. 固定資産税: `140 × 40 =` → 5600。保険: `2800`
+9. 年間合計: `4043 + 5600 + 2800 =` → 12443
+10. 答: 月払い$336.92・年間合計$12,443（選択肢C）</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `2nd → P/Y → 12 → ENTER`: 年間12回払い（月払い）を設定
+2. `2nd → QUIT → 2nd → CLR TVM`: 計算前のメモリを消去
+3. `N → 360`: 期間 = 30年×12ヶ月
+4. `I/Y → 5.4`: 年利率を%のまま入力（0.054ではない）
+5. `PV → 60000`: 借入元本 = 物件価格$120,000×50%
+6. `FV → 0 → CPT → PMT` → −336.92（マイナス=毎月の支払い。符号は「支払い=マイナス」）
+7. 年間モーゲージ: `× 12 =` → 4043
+8. 固定資産税: `140 × 40 =` → 5600。保険: `2800`
+9. 年間合計: `4043 + 5600 + 2800 =` → 12443
+10. 答: 月払い$336.92・年間合計$12,443（選択肢C）
+
+- LO: L1-3.1.4-016
+
+---</div></div><button class="btn" onclick="toggleAns(60)">解答・解説を表示</button></div>
+<div class="q" id="q61"><h3>Q061 · L1-3.2.2-016</h3><div class="body">The spot price of copper is $4.20 per pound. The one-year copper futures price is $4.29 per pound, the annual risk-free rate is 4%, and annual storage costs are 1% of the spot value. The implied annual convenience yield is **closest to**:</div><ul class="opts"><li data-letter=" " onclick="pick(this,61)"><b> .</b> 1%</li><li data-letter=" " onclick="pick(this,61)"><b> .</b> 2%</li><li data-letter=" " onclick="pick(this,61)"><b> .</b> 3%</li><li data-letter=" " onclick="pick(this,61)"><b> .</b> 4%</li></ul>
+<div class="ansbox" id="ans61"><div class="corr">正解: C</div><div class="trick">🎯 <b>秒殺テク</b><br>- 式: **コンビニエンスイールド(y) = 金利 + 保管コスト − 先物プレミアム** = 4% + 1% − (4.29/4.20 − 1)
+- 先物プレミアム = 4.29 ÷ 4.20 ≈ 2.14%。よって y = 5% − 2.14% ≈ **2.86% ≈ 3%** → C
+- 選択肢の構造を暗記: A(1%)は「保管コストのみ」、B(2%)は「先物プレミアムのみ」、D(4%)は「金利のみ」を見た引っかけ。金利+保管（5%）から先物の上乗せ分（2.1%）を引く、とだけ覚える
+- 「金利+保管コストの合計(5%)より先物が安い分だけ、現物保有の便益（コンビニエンスイールド）が吸収される」という方向感で選ぶ</div><div>コスト・オブ・キャリー式より、コンビニエンス・イールド(y) = r + 保管コスト − (F/S − 1)。F/S − 1 = 4.29/4.20 − 1 = 0.02143 ≈ 2.14%。よって y = 4% + 1% − 2.14% ≈ 2.86% ≈ 3%（検算：先物がスポットの約2.1%高であるのに対し、金利+保管のキャリーコストは5%。この差額約2.9%がコンビニエンス・イールドとして現物保有の便益から吸収される）。Aは保管コストのみ、Bは金利のみを考慮した誤り、Dはキャリーコストを無視した誤り。
+
+**BA II Plus手順**:
+1. `2nd → CLR TVM`: 計算前のメモリ消去
+2. 先物プレミアム: `4.29 ÷ 4.20 =` → 1.0214286 → `− 1 =` → 0.0214286（2.1429%）
+3. キャリーコスト合計: `4 + 1 =` → 5（%）
+4. コンビニエンスイールド: `5 − 2.1429 =` → 2.8571（%）
+5. 答: 約3%（選択肢C）</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `2nd → CLR TVM`: 計算前のメモリ消去
+2. 先物プレミアム: `4.29 ÷ 4.20 =` → 1.0214286 → `− 1 =` → 0.0214286（2.1429%）
+3. キャリーコスト合計: `4 + 1 =` → 5（%）
+4. コンビニエンスイールド: `5 − 2.1429 =` → 2.8571（%）
+5. 答: 約3%（選択肢C）
+
+- LO: L1-3.2.2-016
+
+---</div></div><button class="btn" onclick="toggleAns(61)">解答・解説を表示</button></div>
+<div class="q" id="q62"><h3>Q062 · L1-3.2.2-018</h3><div class="body">A commodity futures portfolio is rolled by selling the near-month crude oil contract at $78 per barrel and buying the six-month contract at $82 per barrel, holding this structure for six months. The annualized roll yield on this strategy is **closest to**:</div><ul class="opts"><li data-letter=" " onclick="pick(this,62)"><b> .</b> +9.5%</li><li data-letter=" " onclick="pick(this,62)"><b> .</b> +4.9%</li><li data-letter=" " onclick="pick(this,62)"><b> .</b> −4.9%</li><li data-letter=" " onclick="pick(this,62)"><b> .</b> −9.5%</li></ul>
+<div class="ansbox" id="ans62"><div class="corr">正解: D</div><div class="trick">🎯 <b>秒殺テク</b><br>- **符号を先に決める**: 売値$78 &lt; 買値$82（安く売って高く買う）→ ロールは必ずマイナス → +の選択肢A・Bは即消去
+- 残るC（−4.9%）とD（−9.5%）は「半年分」か「年率換算後」かの差。問題文に「**annualized**（年率換算）」とある → 年率の−9.5%が答え
+- 6ヶ月でロールしたのが年率換算なら「2回ロール」相当 → 半年値−4.9%を複利化すると約−9.5%になる、という関係だけ覚える
+- 「コンタンゴ（遠月が高い）= 近月売り・遠月買いでロールリターン負」の記憶と符号チェックでDに確定</div><div>ロールリターン = (売却価格 ÷ 購入価格) − 1 = (78/82) − 1 = −4.878%（6ヶ月間）。年率換算 = (1 − 0.04878)² − 1 ≈ −9.52%。先物カーブがコンタンゴ（遠月ほど高い）の場合、近月を売って遠月を買うロールはマイナスのリターンを生む。A・Bは符号または年率換算を誤り、Cは年率換算前の値。
+
+**BA II Plus手順**:
+1. `2nd → CLR TVM`: 計算前のメモリ消去
+2. 6ヶ月ロールファクター: `78 ÷ 82 =` → 0.9512195（−4.88%）
+3. 年率換算（6ヶ月×2 = 1年）: `× =`（そのまま二乗）→ 0.904819 → `− 1 =` → −0.095181 → −9.52%
+4. 符号チェック: 売り78 &lt; 買い82 → 負のロール → プラスの選択肢は排除（検算として有効）
+5. 答: −9.5%（選択肢D）</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `2nd → CLR TVM`: 計算前のメモリ消去
+2. 6ヶ月ロールファクター: `78 ÷ 82 =` → 0.9512195（−4.88%）
+3. 年率換算（6ヶ月×2 = 1年）: `× =`（そのまま二乗）→ 0.904819 → `− 1 =` → −0.095181 → −9.52%
+4. 符号チェック: 売り78 &lt; 買い82 → 負のロール → プラスの選択肢は排除（検算として有効）
+5. 答: −9.5%（選択肢D）
+
+- LO: L1-3.2.2-018
+
+---</div></div><button class="btn" onclick="toggleAns(62)">解答・解説を表示</button></div>
+<div class="topic">Private Equity</div>
+<div class="q" id="q63"><h3>Q063 · L1-4.1.2-002</h3><div class="body">Which of the following is **most likely** a responsibility of a private equity fund&#x27;s limited partner advisory committee (LPAC)?</div><ul class="opts"><li data-letter=" " onclick="pick(this,63)"><b> .</b> Making individual portfolio investment decisions on behalf of the fund.</li><li data-letter=" " onclick="pick(this,63)"><b> .</b> Reviewing and approving matters that involve potential conflicts of interest between the GP and the LPs.</li><li data-letter=" " onclick="pick(this,63)"><b> .</b> Guaranteeing the fund&#x27;s returns to its investors.</li><li data-letter=" " onclick="pick(this,63)"><b> .</b> Serving as the fund&#x27;s external auditor.</li></ul>
+<div class="ansbox" id="ans63"><div class="corr">正解: B</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器3のキーワード一致: 問題文の「limited partner advisory committee（LPAC）」の本質は「LP側の代表・助言機関」。キーワード「conflicts of interest（利益相反）」を含むBがそのまま正解
+- 武器1の定型: C「Guaranteeing（保証）」は絶対表現に加え、PEは無保証なので不適。Aは投資決定＝GPの役割、Dは外部監査人の役割でLPACと役割が違う
+- 覚え方: LPAC = 「LPの監視役（ガバナンスのチェック機関）」。利益相反・関連当事者取引・延長などの審査・承認が主務。投資決定や監査は別の役割</div><div>LPACはLP側の代表機関であり、主に「GPとLP間の利益相反事項（関連当事者取引、延長・承継ファンド、フィー関連など）」の審査・承認を行う。AはGPの役割、Cは保証を約束するものではない（PEは無保証）、Dは外部監査人の役割。ガバナンス上のチェック機能がLPACの本質。</div></div><button class="btn" onclick="toggleAns(63)">解答・解説を表示</button></div>
+<div class="q" id="q64"><h3>Q064 · L1-4.1.3-001</h3><div class="body">Three private equity firms agree to jointly acquire a large infrastructure asset through a club deal, with each firm committing roughly one-third of the equity. Which of the following is **most likely** an advantage of the club deal structure for the participating general partners?</div><ul class="opts"><li data-letter=" " onclick="pick(this,64)"><b> .</b> It allows each fund to share the deal&#x27;s risk and reduce the concentration of a single large investment in any one fund.</li><li data-letter=" " onclick="pick(this,64)"><b> .</b> It eliminates the need for each GP to conduct due diligence.</li><li data-letter=" " onclick="pick(this,64)"><b> .</b> It guarantees a higher IRR than a sole-sponsored transaction.</li><li data-letter=" " onclick="pick(this,64)"><b> .</b> It removes the need for a management fee and carried interest on the deal.</li></ul>
+<div class="ansbox" id="ans64"><div class="corr">正解: A</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器3のキーワード一致: クラブディール = 複数ファンドが共同出資する「共同買収」。主目的はリスク共有・1ファンドへの集中回避 → Aがそのまま正解
+- 武器1の定型: B「eliminates（排除）」・C「guarantees（保証）」・D「removes（撤廃）」はいずれも絶対表現。デューデリ・フィー構造・IRRの保証はなくなるはずがない
+- 「クラブ（複数人）＝分担・分け合う」のイメージで、リスクも分け合うAを選ぶ</div><div>クラブディール（複数ファンド共同出資）の主目的は、**1ファンドへの集中リスクを分散**し、大型案件に単独で乗れない場合にも参加できるようにすること。B・Dは誤り（デューデリやフィー構造は残る）。Cは誤り（IRRの保証はない）。</div></div><button class="btn" onclick="toggleAns(64)">解答・解説を表示</button></div>
+<div class="q" id="q65"><h3>Q065 · L1-4.1.1-241</h3><div class="body">Which of the following statements regarding the types of buyout transactions is least likely correct?</div><ul class="opts"><li data-letter=" " onclick="pick(this,65)"><b> .</b> In a leveraged buyout (LBO), a substantial portion of the purchase price is financed with debt secured by the target company&#x27;s assets and cash flows.</li><li data-letter=" " onclick="pick(this,65)"><b> .</b> In a management buy-in (MBI), the target company&#x27;s existing management team acquires the company and remains in control after the transaction.</li><li data-letter=" " onclick="pick(this,65)"><b> .</b> In a management buyout (MBO), the existing management team, often with private equity backing, purchases the company and continues to run it.</li><li data-letter=" " onclick="pick(this,65)"><b> .</b> In a secondary buyout, one private equity fund sells its portfolio company to another private equity fund.</li></ul>
+<div class="ansbox" id="ans65"><div class="corr">正解: B</div><div class="trick">🎯 <b>秒殺テク</b><br>- least likely問題の鉄則: 「一番ウソの選択肢」を探す。Bは「MBI = 既存経営陣が買収して継続」と述べており、MBIの定義（外部経営陣が新たに入る）と真逆 → 正解
+- MBO / MBIの語呂: **Out = 現経営陣が自社を「買い出し」継続 / In = 外部経営陣が「入って」来て経営**。Bは「In（外部参入）」を「既存経営陣」と言い換えた引っかけ。OutかInかで秒殺判別
+- A（LBO = 資産・CF担保の借入）、C（MBO）、D（PE間売却）はすべて正しい定義 → 「正しく当たり前」の選択肢はleast likelyの答えにしない（武器2）</div><div>MBI（Management Buy-In）は、外部から招聘された新しい経営チームが買収主体となって企業を取得し、経営を担う形態であり、「既存経営陣が買収して継続」はMBO（Management Buy-Out）の特徴。BはMBOとMBIを混同した誤りで、最も当てはまらない（least likely）。AはLBOの正しい定義（対象企業の資産・キャッシュフローを担保に多額の借入で支配権を取得）。CはMBOの正しい定義。Dはセカンダリー・バイアウトの正しい定義（PEファンド間のポートフォリオ企業売却）。</div></div><button class="btn" onclick="toggleAns(65)">解答・解説を表示</button></div>
+<div class="q" id="q66"><h3>Q066 · L1-4.1.1-002</h3><div class="body">Which of the following is the **most accurate** description of growth equity as a private equity strategy?</div><ul class="opts"><li data-letter=" " onclick="pick(this,66)"><b> .</b> It typically involves purchasing controlling stakes in mature, cash-generative companies using high leverage.</li><li data-letter=" " onclick="pick(this,66)"><b> .</b> It provides debt financing to companies in financial distress.</li><li data-letter=" " onclick="pick(this,66)"><b> .</b> It typically involves making minority investments in established companies to finance expansion without taking control.</li><li data-letter=" " onclick="pick(this,66)"><b> .</b> It provides seed capital to companies with no revenue or operating history.</li></ul>
+<div class="ansbox" id="ans66"><div class="corr">正解: C</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器3のキーワード一致: グロースエクイティの定義キーワードは「minority investments（少数持分）」+「without taking control（支配権を取らない）」+「finance expansion（拡大資金）」。この3つが揃うのはCのみ → 即正解
+- 武器5の戦略分類: A = LBO（高レバレッジ・支配権）、B = メザニン/ディストレスト、D = シード/アーリーステージVC。他3つは別戦略の説明
+- 「グロース＝成長する会社に少数出資で資金提供」と覚える。「支配権を取らない」という記述を含む選択肢を探す</div><div>グロースエクイティは「収益はあるが急成長を資金面で支援するため、少数持分（マイノリティ）投資を行う」戦略。AはLBO、Bはメザニン/ディストレスト、Dはシード/アーリーステージVCに相当。コントロールを取らない点がLBOとの最大の違い。</div></div><button class="btn" onclick="toggleAns(66)">解答・解説を表示</button></div>
+<div class="q" id="q67"><h3>Q067 · L1-4.1.1-240</h3><div class="body">The existing management team of a privately held manufacturing company, backed by capital from a private equity fund, purchases all of the outstanding shares of its own company and continues to run the business after the acquisition. Which of the following terms most accurately describes this transaction?</div><ul class="opts"><li data-letter=" " onclick="pick(this,67)"><b> .</b> A management buy-in (MBI)</li><li data-letter=" " onclick="pick(this,67)"><b> .</b> A secondary buyout</li><li data-letter=" " onclick="pick(this,67)"><b> .</b> A management buyout (MBO)</li><li data-letter=" " onclick="pick(this,67)"><b> .</b> A growth equity investment</li></ul>
+<div class="ansbox" id="ans67"><div class="corr">正解: C</div><div class="trick">🎯 <b>秒殺テク</b><br>- キーワード一致（武器3）: 「existing management team（現経営陣）」+「its own company（自社）」+「continues to run（経営継続）」の3点セットが揃う取引はMBOだけ。現経営陣が「自社を買い出す」= C
+- MBO vs MBIの判別: **Out = 現経営陣が自社を「買い出し(Out)」して継続 / In = 外部経営陣が「入って(In)」来て経営**。問題文が「現経営陣が買収後も継続」と言っている時点で、外部経営陣が主体のMBI（A）は消える
+- B（セカンダリー・バイアウト）= PEファンド間の持分売却、D（グロースエクイティ）= 少数株主としての成長資金供与 → いずれも「自社株を全部買い取って経営継続」ではないので消去</div><div>MBO（Management Buy-Out）は、対象企業の現経営陣が買収主体の一員（買収後の株式の相当部分を保有）となり、PEファンドの資金支援を受けつつ自社の株式を買い取り、買収後も自ら経営を継続するバイアウト形態。現経営陣と株主の利害を一致させるインセンティブ（マネジメント・モチベーション）を生むのが特徴。AのMBI（Management Buy-In）は外部から招聘された新しい経営チームが買収主体となる点で異なる。BはGPが保有するポートフォリオ企業（またはLP持分）を別のPEファンドへ売却する取引。Dは少数株主として成長資金を提供する戦略で、支配権取得・既存経営陣の継続という要素を持たない。</div></div><button class="btn" onclick="toggleAns(67)">解答・解説を表示</button></div>
+<div class="q" id="q68"><h3>Q068 · L1-4.2.11-008</h3><div class="body">A growth equity investor plans to exercise his redemption rights. The investor&#x27;s equity interest is redeemable at a pre-negotiated redemption value that does not involve which of the following?</div><ul class="opts"><li data-letter="A" onclick="pick(this,68)"><b>A.</b> equity interest plus a warrant</li><li data-letter="B" onclick="pick(this,68)"><b>B.</b> multiple of the original issuance price</li><li data-letter="C" onclick="pick(this,68)"><b>C.</b> fair market value of the equity interest</li><li data-letter="D" onclick="pick(this,68)"><b>D.</b> original issuance price plus a preferred return</li></ul>
+<div class="ansbox" id="ans68"><div class="corr">正解: A</div><div>成長エクイティ（growth equity）投資家の償還権（redemption rights）が行使されると、事前交渉された償還価値（redemption value）を受け取れます。これは通常、①元の発行価格＋優先リターン（preferred return）、②元の発行価格の倍数（multiple）、③株式持分の公正市場価値（fair market value）のうち最大のものとして設定されます。よって「株式持分＋ワラント（warrant）」のAだけが含まれず、正解です。</div></div><button class="btn" onclick="toggleAns(68)">解答・解説を表示</button></div>
+<div class="q" id="q69"><h3>Q069 · L1-4.1.4-003</h3><div class="body">Which of the following statements regarding carried interest in private equity is **most accurate**?</div><ul class="opts"><li data-letter=" " onclick="pick(this,69)"><b> .</b> Carried interest is typically paid to the GP as a share of profits, often after the LPs have received a return of their capital and, in some funds, a preferred return (hurdle).</li><li data-letter=" " onclick="pick(this,69)"><b> .</b> Carried interest is distributed to LPs in proportion to their committed capital.</li><li data-letter=" " onclick="pick(this,69)"><b> .</b> The carried interest rate for private equity funds is typically 5%.</li><li data-letter=" " onclick="pick(this,69)"><b> .</b> Carried interest is paid only at the termination of the fund and never during its life.</li></ul>
+<div class="ansbox" id="ans69"><div class="corr">正解: A</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器6の定型: キャリー = 「LPが元本を回収した後の利益の一部（通常20%）をGPが受け取る」報酬。この定義をそのまま述べたAが正解
+- 武器1の定型: C「typically 5%」は誤った数字（正解は約20%）、D「only...never（〜のみ・決して〜ない）」は絶対表現。Bはキャリーの受取人をLPと誤る（キャリーはGPが受取る）→ 全部消去
+- 「キャリー＝GPの利益分け前」と覚えておけば、LPに配分すると言うBは一瞬で不適と分かる</div><div>キャリーは「LPが元本を回収した後の利益の一部（通常20%）をGPが受け取る」報酬である。ハードル（優先配当率、通常8%前後）を設定するファンドでは、ハードル達成後にキャリーが発生する。Bは誤り（キャリーはLPにではなくGPに支払う）。Cは誤り（業界標準は約20%）。Dは誤り（ファンド存続中にも分配されうる）。</div></div><button class="btn" onclick="toggleAns(69)">解答・解説を表示</button></div>
+<div class="q" id="q70"><h3>Q070 · L1-4.2.4-008</h3><div class="body">Limited partners of venture capital funds can increase their chances of successful venture capital investing by selecting firms with which of the following traits?</div><ul class="opts"><li data-letter="A" onclick="pick(this,70)"><b>A.</b> no GP deal sharing, skilled GP, and undiversified funds</li><li data-letter="B" onclick="pick(this,70)"><b>B.</b> well-networked, more male partners, and relatively large follow-on funds</li><li data-letter="C" onclick="pick(this,70)"><b>C.</b> GP deal sharing, skilled GP, and diversified funds</li><li data-letter="D" onclick="pick(this,70)"><b>D.</b> well-networked, more female partners, and relatively small follow-on funds</li></ul>
+<div class="ansbox" id="ans70"><div class="corr">正解: D</div><div>VCファンドのリターン・ドライバー（return drivers）には、GPの技能・経験、人脈（well-networked）、ジェンダーの多様性（女性パートナーの比率が高い）がプラスに働きます。また大型のフォローオン・ファンド（follow-on funds）はリターン低下と関連し、GP間のディール・シェアリング（deal sharing）もリターン低下と関連します。よって「良好な人脈・より多くの女性パートナー・比較的小さなフォローオン・ファンド」のDが正解です。</div></div><button class="btn" onclick="toggleAns(70)">解答・解説を表示</button></div>
+<div class="q" id="q71"><h3>Q071 · L1-4.3.2-002</h3><div class="body">Asuka Ventures is investing $10 million in a biotech startup in exchange for 20% of the company on a post-money basis. The pre-money valuation implied by this investment is **closest to**:</div><ul class="opts"><li data-letter=" " onclick="pick(this,71)"><b> .</b> $40 million</li><li data-letter=" " onclick="pick(this,71)"><b> .</b> $50 million</li><li data-letter=" " onclick="pick(this,71)"><b> .</b> $60 million</li><li data-letter=" " onclick="pick(this,71)"><b> .</b> $12.5 million</li></ul>
+<div class="ansbox" id="ans71"><div class="corr">正解: A</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器5の定型: ①ポストマネー = 投資額 ÷ 持分率 = 10 ÷ 0.2 = 50 → ②プレマネー = ポストマネー − 投資額 = 50 − 10 = 40 → Aで確定
+- 問題は「pre-money」を聞いている。ポストマネー（Bの$50M）をそのまま選ばないよう、必ず最後に投資額を引く
+- 頭文字の順で暗記: 「pre（投資前）＝ポスト（投資後）から投資額を引く」。「投資前」=投資後の金額から投資分を除いた会社の元の価値</div><div>ポストマネー評価額 = 投資額 ÷ 取得持分 = $10M ÷ 0.20 = **$50M**。プレマネー評価額 = ポストマネー − 投資額 = $50M − $10M = **$40M**。選択肢Bの$50Mはポストマネー側なので引っかけ。プレマネーは「投資前の会社価値」である点を必ず確認。
+
+**BA II Plus手順**:
+1. `2nd → CLR TVM`: 前の計算をクリア
+2. `10 [÷] 0.20 [=]`: ポストマネー評価額を算出 → 50
+3. `50 [−] 10 [=]`: プレマネー = ポスト − 投資額 → 40
+4. 答: $40M（A）。ステップ2で出た50（Bの$50M）はポストマネーであり、答えではない点に注意</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `2nd → CLR TVM`: 前の計算をクリア
+2. `10 [÷] 0.20 [=]`: ポストマネー評価額を算出 → 50
+3. `50 [−] 10 [=]`: プレマネー = ポスト − 投資額 → 40
+4. 答: $40M（A）。ステップ2で出た50（Bの$50M）はポストマネーであり、答えではない点に注意
+
+- LO: L1-4.3.2-002
+
+---</div></div><button class="btn" onclick="toggleAns(71)">解答・解説を表示</button></div>
+<div class="q" id="q72"><h3>Q072 · L1-4.1.4-003</h3><div class="body">A private equity limited partnership has $500 million in LP commitments. Over its life, the fund generates total cash distributions of $650 million to the partnership before the GP receives its carried interest, of which $500 million represents a return of LP capital and $150 million represents profit. The GP is entitled to a 20% carried interest with no hurdle rate. The carried interest earned by the GP is **closest to**:</div><ul class="opts"><li data-letter=" " onclick="pick(this,72)"><b> .</b> $24 million</li><li data-letter=" " onclick="pick(this,72)"><b> .</b> $26 million</li><li data-letter=" " onclick="pick(this,72)"><b> .</b> $28 million</li><li data-letter=" " onclick="pick(this,72)"><b> .</b> $30 million</li></ul>
+<div class="ansbox" id="ans72"><div class="corr">正解: D</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器6の定型: キャリー = 利益 × キャリーレート。まず利益部分を求める: 650 − 500 = 150 → 150 × 0.2 = 30 → Dで即確定
+- 「no hurdle rate（ハードルなし）」という言葉に注目。ハードルなし＝元本（$500M）返還後の純利益にだけ20%を掛ければよい
+- 選択肢24/26/28/30のうち、150×0.2=30は唯一きれいに割り切れる値。他は計算ミスや引っかけ</div><div>キャリー = 利益 × キャリーレート = $150M × 20% = **$30M**。ノーハードルの場合、LP元本（$500M）返還後に生じた純利益に対してのみキャリーが発生する。$650M − $500M = $150M が利益部分である点をまず正確に計算すること。誤答$24Mなどは元本返還前の総分配額×20%で計算した場合の値。
+
+**BA II Plus手順**:
+1. `2nd → CLR TVM`: 前の計算をクリア
+2. `650 [−] 500 [=]`: 利益部分を算出 → 150
+3. `150 [×] 0.20 [=]`: キャリーレート20%を掛ける → 30
+4. 答: $30M（D）。元本（500）を間違えて掛けないこと（500×0.2=100は誤り）</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `2nd → CLR TVM`: 前の計算をクリア
+2. `650 [−] 500 [=]`: 利益部分を算出 → 150
+3. `150 [×] 0.20 [=]`: キャリーレート20%を掛ける → 30
+4. 答: $30M（D）。元本（500）を間違えて掛けないこと（500×0.2=100は誤り）
+
+- LO: L1-4.1.4-003
+
+---</div></div><button class="btn" onclick="toggleAns(72)">解答・解説を表示</button></div>
+<div class="q" id="q73"><h3>Q073 · L1-4.3.2-003</h3><div class="body">An investor purchases new shares in a private company for $8 million at a pre-money valuation of $32 million. The investor&#x27;s resulting ownership percentage on a post-money basis is **closest to**:</div><ul class="opts"><li data-letter=" " onclick="pick(this,73)"><b> .</b> 18%</li><li data-letter=" " onclick="pick(this,73)"><b> .</b> 20%</li><li data-letter=" " onclick="pick(this,73)"><b> .</b> 22%</li><li data-letter=" " onclick="pick(this,73)"><b> .</b> 25%</li></ul>
+<div class="ansbox" id="ans73"><div class="corr">正解: B</div><div class="trick">🎯 <b>秒殺テク</b><br>- 武器5の定型: 所有比率 = 投資額 ÷ ポストマネー。ポストマネー = 32 + 8 = 40 → 8 ÷ 40 = 0.2 = 20% → Bで確定
+- 分母は必ず「投資後（post-money）」の価値。Dの25%（8÷32＝プレマネーで割る誤り）が最頻出の引っかけ
+- 覚え方: 「プレ（投資前）で割ると比率が大きく見える＝誤り」。問題に「pre-money valuation」と書かれていても、持分計算は必ず「ポスト」を使う</div><div>ポストマネー評価額 = $32M + $8M = **$40M**。所有比率 = 投資額 ÷ ポストマネー = $8M ÷ $40M = **20%**。誤答D（25%）は投資額をプレマネー額で割った誤り（8 ÷ 32）。分母は必ず「投資後」の会社価値を使うこと。
+
+**BA II Plus手順**:
+1. `2nd → CLR TVM`: 前の計算をクリア
+2. `32 [+] 8 [=]`: ポストマネー評価額を算出 → 40
+3. `8 [÷] 40 [=]`: 投資額をポストマネーで除算 → 0.2（=20%）
+4. 答: 20%（B）。`8 [÷] 32 [=]`（=25%）はプレマネーで割る誤りで引っかけD。分母は40を必ず使う</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `2nd → CLR TVM`: 前の計算をクリア
+2. `32 [+] 8 [=]`: ポストマネー評価額を算出 → 40
+3. `8 [÷] 40 [=]`: 投資額をポストマネーで除算 → 0.2（=20%）
+4. 答: 20%（B）。`8 [÷] 32 [=]`（=25%）はプレマネーで割る誤りで引っかけD。分母は40を必ず使う
+
+- LO: L1-4.3.2-003
+
+---</div></div><button class="btn" onclick="toggleAns(73)">解答・解説を表示</button></div>
+<div class="topic">Private Debt</div>
+<div class="q" id="q74"><h3>Q074 · L1-5.1.3-004</h3><div class="body">In a typical asset-backed securitization, which of the following statements about the senior tranche is most accurate?</div><ul class="opts"><li data-letter=" " onclick="pick(this,74)"><b> .</b> It bears the first losses from the underlying collateral pool.</li><li data-letter=" " onclick="pick(this,74)"><b> .</b> It carries the highest expected loss and the lowest credit rating among all tranches.</li><li data-letter=" " onclick="pick(this,74)"><b> .</b> It is protected by credit enhancement in the form of subordinated junior tranches that absorb losses first.</li><li data-letter=" " onclick="pick(this,74)"><b> .</b> It is paid only after the equity tranche receives its target return.</li></ul>
+<div class="ansbox" id="ans74"><div class="corr">正解: C</div><div class="trick">🎯 <b>秒殺テク</b><br>- ウォーターフォールの鉄則: **支払いは上（シニア）から、損失は下（エクイティ）から**。
+- シニアは「下のトランシェが先に損失を吸収して守ってくれる」→ 「subordinated junior tranches that absorb losses first」のキーワードがC。
+- A（ファーストロス）・B（最高損失・最低格付）はエクイティの役割、Dは支払順位が逆転 → すべて消去。</div><div>証券化ではキャッシュフローと損失が優先順位（ウォーターフォール）に従って配分される。シニアトランシェは最優先で償還される一方、損失は最劣後のエクイティトランシェから順に吸収されるため、劣後トランシェの存在自体がシニアの信用補完（subordination）となる。Aはエクイティの役割、Bはエクイティの特徴、Dは支払順位が逆転しており誤り。</div></div><button class="btn" onclick="toggleAns(74)">解答・解説を表示</button></div>
+<div class="q" id="q75"><h3>Q075 · L1-5.1.1-002</h3><div class="body">Which of the following is LEAST likely to be a characteristic of a senior secured leveraged loan?</div><ul class="opts"><li data-letter=" " onclick="pick(this,75)"><b> .</b> It is typically secured by the borrower&#x27;s assets.</li><li data-letter=" " onclick="pick(this,75)"><b> .</b> It has a floating interest rate tied to a benchmark such as SOFR.</li><li data-letter=" " onclick="pick(this,75)"><b> .</b> It is issued with a fixed-rate coupon and a fixed amortization schedule that never resets.</li><li data-letter=" " onclick="pick(this,75)"><b> .</b> It generally ranks senior to subordinated debt and equity in the borrower&#x27;s capital structure.</li></ul>
+<div class="ansbox" id="ans75"><div class="corr">正解: C</div><div class="trick">🎯 <b>秒殺テク</b><br>- レバレッジドローンの3大特徴は「担保付き(A)・浮動金利=SOFR+スプレッド(B)・上位優先(D)」。この3つが揃っている選択肢は全部正しい特徴。
+- least likely問題は「唯一の違和感」を探す。Cだけが「fixed-rate / never resets（金利が永遠に変わらない）」と言っており、浮動金利が常識のレバローンと真逆。
+- 「fixed / never / always」等の絶対表現・非可変表現を含む選択肢は不正解の鉄則がそのまま当てはまる → C。</div><div>レバレッジドローン（LBO向けシニア担保付きローン）は通常、浮動金利（SOFR等のベンチマーク＋スプレッド）で組まれ、6ヶ月ごとに金利がリセットされる。固定クーポンで償還期間中金利が変わらないというのはレバレッジドローンの特徴として最も当てはまらない。A（担保付き）、B（浮動金利）、D（優先弁済順位が上位）はいずれも正しい特徴。</div></div><button class="btn" onclick="toggleAns(75)">解答・解説を表示</button></div>
+<div class="q" id="q76"><h3>Q076 · L1-5.4.7-033</h3><div class="body">Which of the following are part of the structure of a cash-funded balance sheet CDO?
+
+ 
+
+The assets are held by a CLO trust.
+The assets are managed by a professional money manager.
+They can use credit enhancement products.
+They are largely composed of assets purchased in the secondary market.</div><ul class="opts"><li data-letter="A" onclick="pick(this,76)"><b>A.</b> I, II, and III only</li><li data-letter="B" onclick="pick(this,76)"><b>B.</b> II and III only</li><li data-letter="C" onclick="pick(this,76)"><b>C.</b> II, III, and IV only</li><li data-letter="D" onclick="pick(this,76)"><b>D.</b> I and II only</li></ul>
+<div class="ansbox" id="ans76"><div class="corr">正解: A</div><div>バランスシート型CDOは貸し手が元の貸出金をCLOトラスト（trust）に売却し、トラストがトランシェ（tranche）を投資家に売る仕組みです。現物（cash funded）でシンセティックではなく、専門の運用マネージャーが管理し、クレジット・エンハンスメント（credit enhancement）商品を利用できます。よってI・II・IIIが正しくAが正解です。IVは誤りで、バランスシート型はセカンダリーマーケット購入ではなく銀行から直接貸出金を取得するのが特徴です。</div></div><button class="btn" onclick="toggleAns(76)">解答・解説を表示</button></div>
+<div class="q" id="q77"><h3>Q077 · L1-5.4.8-065</h3><div class="body">Which of the following is NOT true regarding cash flow arbitrage collateralized debt obligations (CDOs)?</div><ul class="opts"><li data-letter="A" onclick="pick(this,77)"><b>A.</b> Repayment of the CDO securities depends on cash flows from the underlying pool of bonds and loans and from the sale of the collateral bonds.</li><li data-letter="B" onclick="pick(this,77)"><b>B.</b> The cash flows depend on the default rate for the bonds held by the CDO trust and the recovery rate on the bonds once they default.</li><li data-letter="C" onclick="pick(this,77)"><b>C.</b> The return to CDO investors does not depend on the prices of the high-yield bonds held by the CDO trust.</li><li data-letter="D" onclick="pick(this,77)"><b>D.</b> Interest and principal payments from the underlying pool of bonds and loans are used to repay the CDO securities.</li></ul>
+<div class="ansbox" id="ans77"><div class="corr">正解: A</div><div>担保債券の売却がCDO証券の償還に影響するのはマーケット・バリュー・アービトラージ型CDOの特徴で、キャッシュフロー型CDO（cash flow arbitrage CDO）ではありません。よってAが「当てはまらない」記述として正解です。キャッシュフロー型CDOでは、償還は元となる債券・ローンのキャッシュフロー（利息と元本の支払い）のみに依存し、デフォルト率と回収率（recovery rate）に左右されるためB・Dは正しい記述です。Cも、キャッシュフロー型では保有ハイイールド債の価格は償還に影響しないため正しい記述です。</div></div><button class="btn" onclick="toggleAns(77)">解答・解説を表示</button></div>
+<div class="q" id="q78"><h3>Q078 · L1-5.3.5-003</h3><div class="body">Life settlements are generally valuable to policyholders and investors in which of the following situations?</div><ul class="opts"><li data-letter="A" onclick="pick(this,78)"><b>A.</b> Purchase price &lt; Surrender value &lt; Net present value of non-surrender cash flows</li><li data-letter="B" onclick="pick(this,78)"><b>B.</b> Surrender value &lt; Purchase price &lt; Net present value of non-surrender cash flows</li><li data-letter="C" onclick="pick(this,78)"><b>C.</b> Purchase price &gt; Surrender value &gt; Net present value of non-surrender cash flows</li><li data-letter="D" onclick="pick(this,78)"><b>D.</b> Surrender value &gt; Purchase price &gt; Net present value of non-surrender cash flows</li></ul>
+<div class="ansbox" id="ans78"><div class="corr">正解: B</div><div>ライフ・セトルメント（life settlements）は、支払われる価格（purchase price）が解約返戻金（surrender value）より高ければ保険契約者に価値があり、価格が解約しない場合のキャッシュフロー（保険料と保険金）のNPVより低ければ投資家に価値があります。よって「解約返戻金＜購入価格＜解約しないキャッシュフローのNPV」となるBが正解です。Aは保険契約者が損、C・Dはいずれかの当事者に価値がない順序で誤りです。</div></div><button class="btn" onclick="toggleAns(78)">解答・解説を表示</button></div>
+<div class="q" id="q79"><h3>Q079 · L1-5.1.8-011</h3><div class="body">Meridian Manufacturing has filed for Chapter 11 bankruptcy. Under the proposed reorganization plan, existing equity holders retain their shares in full, while general unsecured creditors receive only 30% of their claims. The general unsecured creditors are not impaired. Under the absolute priority rule, this plan would most likely be:</div><ul class="opts"><li data-letter=" " onclick="pick(this,79)"><b> .</b> Permissible because equity holders contributed no new value.</li><li data-letter=" " onclick="pick(this,79)"><b> .</b> Rejected because the senior secured creditors are impaired.</li><li data-letter=" " onclick="pick(this,79)"><b> .</b> Confirmed automatically once 120 days have elapsed since filing.</li><li data-letter=" " onclick="pick(this,79)"><b> .</b> Rejected because it violates the absolute priority rule, as equity holders are paid before general unsecured creditors are made whole.</li></ul>
+<div class="ansbox" id="ans79"><div class="corr">正解: D</div><div class="trick">🎯 <b>秒殺テク</b><br>- 絶対優先原則（absolute priority rule）: **上の債権者が満額弁済されるまで、下の請求権（株主含む）は1円ももらえない**。
+- 事実確認: 無担保債権者が30%しか回収できないのに株主が全額保持 → 明らかに「下の者が先にもらっている」= 原則違反。
+- 原則違反を指摘する選択肢Dがそのまま正解。Aは「new value例外」だが本問にその事実なし、Bはシニア担保付きへの言及で論点ズレ、Cは期間だけで認可されるわけではない。</div><div>絶対優先原則（absolute priority rule）では、上位の債権者が満額弁済を受けるまで下位の請求権（株式含む）は何も受け取れない。本ケースでは無担保一般債権者が30%しか回収できない一方で株主が全額保持するため、原則違反となり計画は認められない。A（新価値の貢献があれば例外となり得るが、本問ではその事実がない）、Bはシニア担保付き債権者への言及だが本問の論点は優先順位違反、Cは期間のみで認可されるわけではない。</div></div><button class="btn" onclick="toggleAns(79)">解答・解説を表示</button></div>
+<div class="q" id="q80"><h3>Q080 · L1-5.2.5-016</h3><div class="body">A 5-year $50,000 mortgage has a 6% annual interest rate. If the borrower of this mortgage loan has a $10,000 balloon payment on the loan&#x27;s maturity date, how much of the first monthly payment will be interest?</div><ul class="opts"><li data-letter="A" onclick="pick(this,80)"><b>A.</b> $200</li><li data-letter="B" onclick="pick(this,80)"><b>B.</b> $240</li><li data-letter="C" onclick="pick(this,80)"><b>C.</b> $250</li><li data-letter="D" onclick="pick(this,80)"><b>D.</b> $300</li></ul>
+<div class="ansbox" id="ans80"><div class="corr">正解: C</div><div>最初の月払いの利息部分は、元本全体に対して月利で計算します。(0.06/12)×$50,000＝$250でありCが正解です。バルーン・ペイメント（balloon payment）の有無や償還スケジュールに関係なく、最初の月の利息は残高$50,000全体に発生します。Aは年利率を12でなく月利として誤って扱った数値、B・Dは計算の切り上げや誤用です。</div></div><button class="btn" onclick="toggleAns(80)">解答・解説を表示</button></div>
+<div class="q" id="q81"><h3>Q081 · L1-5.1.3-006</h3><div class="body">Which of the following is LEAST likely to provide credit enhancement to a securitized bond?</div><ul class="opts"><li data-letter=" " onclick="pick(this,81)"><b> .</b> A bullet maturity structure with no amortization of principal.</li><li data-letter=" " onclick="pick(this,81)"><b> .</b> Overcollateralization of the collateral pool.</li><li data-letter=" " onclick="pick(this,81)"><b> .</b> A cash reserve account funded by excess spread.</li><li data-letter=" " onclick="pick(this,81)"><b> .</b> A third-party financial guarantee from a highly rated insurer.</li></ul>
+<div class="ansbox" id="ans81"><div class="corr">正解: A</div><div class="trick">🎯 <b>秒殺テク</b><br>- 信用補完の代表格3つを暗記: **過剰担保(O/C・B)・準備金勘定(リザーブ・C)・第三者保証(D)**。この3つは全部「損失を吸収・保護する仕組み」。
+- least likely問題: 「正しい・当たり前の選択肢」が答え → ここでは逆に「唯一、損失吸収機能がないもの」A。
+- バレット満期は返済スケジュールの「形」の話で、損失を吸収する機能ゼロ。それだけで即A。</div><div>信用補完（credit enhancement）とは、元本・利息の支払いを外部要因から保護する仕組み。B（過剰担保）、C（エクセススプレッドを積む準備金勘定）、D（第三者保証）はいずれも代表的な信用補完。一方、バレット満期（据置償還）は返済期限の形状に過ぎず、損失を吸収する機能を持たないため信用補完としては最も当てはまらない。</div></div><button class="btn" onclick="toggleAns(81)">解答・解説を表示</button></div>
+<div class="q" id="q82"><h3>Q082 · L1-5.2.5-019</h3><div class="body">Ludwig Strauss purchased a house in Massachusetts using a $660,000 mortgage with a 5% interest rate. If the loan was a 10/15 interest-only mortgage, which of the following comes closest to Strauss&#x27; monthly mortgage payment in year 3 and year 17, respectively?</div><ul class="opts"><li data-letter="A" onclick="pick(this,82)"><b>A.</b> $2,750; $4,184.67</li><li data-letter="B" onclick="pick(this,82)"><b>B.</b> $2,750; $5,219.38</li><li data-letter="C" onclick="pick(this,82)"><b>C.</b> $3,300; $4,184.67</li><li data-letter="D" onclick="pick(this,82)"><b>D.</b> $3,300; $5,219.38</li></ul>
+<div class="ansbox" id="ans82"><div class="corr">正解: B</div><div>10/15インタレスト・オンリー・モーゲージ（interest-only mortgage）は最初の10年間は利息のみ支払います。3年目の月払い＝(5%/12)×$660,000＝$2,750。17年目は残り15年（180か月）で元利均等返済となり、月利0.4167%・180期で$660,000を償還するため、財務電卓でPMT＝$5,219.38。よって「$2,750；$5,219.38」のBが正解です。Aの4年目以降の数字は利息のみのまま計算した誤り、C・Dは利息計算を(5%/12)ではなく別の方法（例：年利÷10等）で誤ったものです。</div></div><button class="btn" onclick="toggleAns(82)">解答・解説を表示</button></div>
+<div class="topic">Hedge Funds</div>
+<div class="q" id="q83"><h3>Q083 · L1-6.1.3-002</h3><div class="body">For which of the following reasons did Long-Term Capital Management (LTCM) most likely collapse?</div><ul class="opts"><li data-letter="A" onclick="pick(this,83)"><b>A.</b> LTCM consistently produced negative alpha despite its extensive use of leverage.</li><li data-letter="B" onclick="pick(this,83)"><b>B.</b> LTCM&#x27;s positions in highly illiquid securities lost value as trading volume increased during the late 1990s.</li><li data-letter="C" onclick="pick(this,83)"><b>C.</b> LTCM&#x27;s short put option exposure lost massive amounts of capital due to a disastrous economic event.</li><li data-letter="D" onclick="pick(this,83)"><b>D.</b> LTCM could not continue to collect high option premiums by selling options since market volatility plummeted.</li></ul>
+<div class="ansbox" id="ans83"><div class="corr">正解: C</div><div>LTCMは証券価格の収斂（convergence）を狙ってオプション的なプレミアムを収集する戦略で、一定期間はうまく機能していました。しかし1998年のロシアの債務不履行（default）でフライト・トゥ・クオリティ（flight to quality）が発生し、LTCMの予測と逆方向に相対価格が乖離（divergence）しました。ショート・プット・オプション的な損益構造（short put option profile）に高レバレッジが重なり、巨額の損失を被ったためCが正解です。Aは負のアルファを出していたのではなく収益を上げていた時期があり誤り、Bは取引量増加ではなく価格の乖離が原因で誤りです。</div></div><button class="btn" onclick="toggleAns(83)">解答・解説を表示</button></div>
+<div class="q" id="q84"><h3>Q084 · L1-6.3.2-010</h3><div class="body">The Castle Fund buys shares of Green Meadows, Inc. The Castle Fund meets with the management team of Green Meadows and demands the payout of its cash reserves as a special dividend. The management team refuses and the Castle Fund initiates a shareholder vote. 74% of votes are in favor of Castle Fund&#x27;s proposal. Which of the following groups of investors is most likely to have been the largest group voting in favor of the proposal?</div><ul class="opts"><li data-letter="A" onclick="pick(this,84)"><b>A.</b> active followers</li><li data-letter="B" onclick="pick(this,84)"><b>B.</b> passive followers</li><li data-letter="C" onclick="pick(this,84)"><b>C.</b> passive pacifists</li><li data-letter="D" onclick="pick(this,84)"><b>D.</b> active initiators</li></ul>
+<div class="ansbox" id="ans84"><div class="corr">正解: B</div><div>公開企業の株式の大半はアクティビズム（activism）を目的としない多様な投資家が保有しており、株主提案の賛否はこれら受動的投資家の投票で決まります。投票ではパッシブ・フォロワー（passive followers）はアクティビストの提案に賛成し、パッシブ・パシフィスト（passive pacifists）は現経営陣を支持します。アクティブ・イニシエーター（active initiators）もアクティブ・フォロワーも保有株式が相対的に少なく、74%の賛成多数を説明できる最大勢力はBのpassive followersです。</div></div><button class="btn" onclick="toggleAns(84)">解答・解説を表示</button></div>
+<div class="q" id="q85"><h3>Q085 · L1-6.4.6-027</h3><div class="body">A prepayable mortgage has a yield of 4.2%, 70 basis points of which is attributable to the mortgage&#x27;s prepayment option. If the mortgage has an option-adjusted spread of 75 basis points, which of the following corresponds to the yield on a comparable Treasury security?</div><ul class="opts"><li data-letter="A" onclick="pick(this,85)"><b>A.</b> 2.625%</li><li data-letter="B" onclick="pick(this,85)"><b>B.</b> 2.75%</li><li data-letter="C" onclick="pick(this,85)"><b>C.</b> 4.15%</li><li data-letter="D" onclick="pick(this,85)"><b>D.</b> 4.25%</li></ul>
+<div class="ansbox" id="ans85"><div class="corr">正解: B</div><div>繰上償還可能モーゲージの利回り＝財務省証券利回り＋OAS（オプション調整スプレッド）＋繰上償還オプション分のスプレッド、という関係を使います。4.2%＝T利回り＋0.75%＋0.70%より、T利回り＝4.2%－0.75%－0.70%＝2.75%でBが正解です。なお財務省証券はリスクフリーなので利回りが4.2%を超えるD（4.25%）は即座に排除でき、Aの2.625%は計算過程が正しくありません。</div></div><button class="btn" onclick="toggleAns(85)">解答・解説を表示</button></div>
+<div class="q" id="q86"><h3>Q086 · L1-6.3.3-012</h3><div class="body">Which of the following LEAST accurately describes the historical performance of activist hedge funds over the past 15 years?</div><ul class="opts"><li data-letter="A" onclick="pick(this,86)"><b>A.</b> Their returns were positively-skewed.</li><li data-letter="B" onclick="pick(this,86)"><b>B.</b> Their return volatilities were similar to those of global equities.</li><li data-letter="C" onclick="pick(this,86)"><b>C.</b> Their maximum drawdown was smaller than that of global stocks.</li><li data-letter="D" onclick="pick(this,86)"><b>D.</b> Their return distributions were fat-tailed.</li></ul>
+<div class="ansbox" id="ans86"><div class="corr">正解: A</div><div>アクティビスト・ヘッジファンドの過去15年のリターンは、グローバル株式と同様に負の歪度（negative skewness）を持つため、「正の歪度（positively-skewed）」とするAが誤り＝正解です。ボラティリティはグローバル株式と同水準、最大ドローダウン（maximum drawdown）は株式より小さく、リターン分布はファットテール（fat tails、fat-tailed）であるためB・C・Dは正しい記述です。</div></div><button class="btn" onclick="toggleAns(86)">解答・解説を表示</button></div>
+<div class="q" id="q87"><h3>Q087 · L1-6.4.5-003</h3><div class="body">A group of investors are concerned about the occurrence of a black swan. Investment in which of the following volatility funds would most likely provide constant protection against this occurrence?</div><ul class="opts"><li data-letter="A" onclick="pick(this,87)"><b>A.</b> long volatility funds</li><li data-letter="B" onclick="pick(this,87)"><b>B.</b> short volatility funds</li><li data-letter="C" onclick="pick(this,87)"><b>C.</b> relative value funds</li><li data-letter="D" onclick="pick(this,87)"><b>D.</b> tail risk funds</li></ul>
+<div class="ansbox" id="ans87"><div class="corr">正解: D</div><div>ブラック・スワン（black swan、極めて稀で影響の大きい事象）に対して常時（constant）保護を提供するとされるのはテールリスク・ファンド（tail risk funds）で、Dが正解です。ロング・ボラティリティ・ファンド（long volatility funds）もブラック・スワンから保護し得ますが、常にではありません。ショート・ボラティリティ・ファンドは逆に大きな事象で損失を被り、相対価値（relative value）ファンドはテール事象への常時保護を目的としないため誤りです。</div></div><button class="btn" onclick="toggleAns(87)">解答・解説を表示</button></div>
+<div class="q" id="q88"><h3>Q088 · L1-6.3.2-006</h3><div class="body">Cashcow, Inc. is a producer of cattle fodder and has $2 billion in cash reserves. Which of the following actions is the management team of this firm LEAST likely to take?</div><ul class="opts"><li data-letter="A" onclick="pick(this,88)"><b>A.</b> Disburse a large special cash dividend.</li><li data-letter="B" onclick="pick(this,88)"><b>B.</b> Acquire a Moolah, Inc., an unprofitable producer of beef.</li><li data-letter="C" onclick="pick(this,88)"><b>C.</b> Ask the board of directors for a salary raise.</li><li data-letter="D" onclick="pick(this,88)"><b>D.</b> Refuse to initiate a share repurchase program.</li></ul>
+<div class="ansbox" id="ans88"><div class="corr">正解: A</div><div>経営陣にとって最も利益にならないのは余剰現金を特別配当（special dividend）として支払うことです。配当で現金を吐き出すと、経営陣はその現金を自分たちの利益のために使えなくなるためAが正解（LEAST likely）です。一方、不採算投資への投資は企業規模の拡大・多角化による名声や雇用安定につながり、給与引上げは経営陣に直接利益をもたらします。自社株買い（share repurchase）も配当と同様に現金を払い出すため経営陣は好みませんが、Dは「実施しない」ことなので経営陣にとって望ましい行動です。</div></div><button class="btn" onclick="toggleAns(88)">解答・解説を表示</button></div>
+<div class="q" id="q89"><h3>Q089 · L1-6.4.2-036</h3><div class="body">A convertible bond with a conversion ratio of 14 has a delta of 0.65. The stock underlying the convertible bond is currently trading at $38 per share. A convertible arbitrageur purchases 70 of the convertible bonds. In order to hedge the convertible&#x27;s underlying equity exposure, how many shares of stock should the arbitrageur short?</div><ul class="opts"><li data-letter="A" onclick="pick(this,89)"><b>A.</b> 45.5</li><li data-letter="B" onclick="pick(this,89)"><b>B.</b> 532</li><li data-letter="C" onclick="pick(this,89)"><b>C.</b> 637</li><li data-letter="D" onclick="pick(this,89)"><b>D.</b> 1506</li></ul>
+<div class="ansbox" id="ans89"><div class="corr">正解: C</div><div>転換社債の株式エクスポージャーをヘッジするには、デルタ（delta）×転換比率（conversion ratio）分の株式をショートします。1本あたり＝0.65×14＝9.1株、70本購入なので70×9.1＝637株となりCが正解です。Aはデルタ×本数のみ、Bは転換比率×本数のみの部分的な計算、Dはデルタを反映していない計算ミスです。</div></div><button class="btn" onclick="toggleAns(89)">解答・解説を表示</button></div>
+<div class="q" id="q90"><h3>Q090 · L1-6.2.9-028</h3><div class="body">A managed futures fund has highly concentrated positions in thinly traded futures contracts. If the fund manager adds a significant amount of additional capital to the fund, which results in the fund experiencing considerable alpha erosion, to which of the following risks is the fund exposed?</div><ul class="opts"><li data-letter="A" onclick="pick(this,90)"><b>A.</b> capital risk</li><li data-letter="B" onclick="pick(this,90)"><b>B.</b> liquidity risk</li><li data-letter="C" onclick="pick(this,90)"><b>C.</b> capacity risk</li><li data-letter="D" onclick="pick(this,90)"><b>D.</b> alpha decay risk</li></ul>
+<div class="ansbox" id="ans90"><div class="corr">正解: C</div><div>薄商い（thinly traded）な市場で運用するファンドに大幅な追加資金を投入し、パフォーマンスが低下するリスクはキャパシティ・リスク（capacity risk）で、Cが正解です。流動性リスク（liquidity risk）はポジションを建てられない・解消できないリスク、アルファ減衰リスク（alpha decay risk）は戦略自体の収益性低下、キャピタル・リスクは資金を失う一般的リスクであり、いずれも「資金を追加しすぎて成績が劣化する」現象の定義と合いません。</div></div><button class="btn" onclick="toggleAns(90)">解答・解説を表示</button></div>
+<div class="q" id="q91"><h3>Q091 · L1-6.3.4-006</h3><div class="body">Event risk exposure experienced by traditional merger arbitrage hedge fund strategies results in which of the following return characteristics for these strategies?</div><ul class="opts"><li data-letter="A" onclick="pick(this,91)"><b>A.</b> negative skewness and leptokurtosis</li><li data-letter="B" onclick="pick(this,91)"><b>B.</b> positive skewness and leptokurtosis</li><li data-letter="C" onclick="pick(this,91)"><b>C.</b> negative skewness and platykurtosis</li><li data-letter="D" onclick="pick(this,91)"><b>D.</b> positive skewness and platykurtosis</li></ul>
+<div class="ansbox" id="ans91"><div class="corr">正解: A</div><div>イベント・リスク（event risk）へのポジティブなエクスポージャーは、リターンに負の歪度（negative skewness）とレプトコルシス（leptokurtosis、ファットテール＝尖った分布）をもたらします。マージャー・アービトラージは小型の下落リスクを多く取り、稀な大型損失を被る構造のためAが正解です。正の歪度を示すB・Dや、尖度が低いプラチカーティシス（platykurtosis）を組み合わせたCは誤りです。</div></div><button class="btn" onclick="toggleAns(91)">解答・解説を表示</button></div>
+<div class="q" id="q92"><h3>Q092 · L1-6.1.6-035</h3><div class="body">Which of the following is NOT a bias to which many hedge fund databases are exposed?</div><ul class="opts"><li data-letter="A" onclick="pick(this,92)"><b>A.</b> selection bias</li><li data-letter="B" onclick="pick(this,92)"><b>B.</b> backfill bias</li><li data-letter="C" onclick="pick(this,92)"><b>C.</b> survivorship bias</li><li data-letter="D" onclick="pick(this,92)"><b>D.</b> overconfidence bias</li></ul>
+<div class="ansbox" id="ans92"><div class="corr">正解: D</div><div>ヘッジファンド・データベースに存在するバイアスは、サバイバーシップ・バイアス（survivorship bias）、セレクション・バイアス（selection bias）、バックフィル・バイアス（backfill bias / instant history bias）、清算バイアス（liquidation bias）です。オーバーコンフィデンス・バイアス（overconfidence bias）は自分の判断の正確さを過大評価する認知バイアスで、データベースの問題ではないためDが「当てはまらない」正解です。</div></div><button class="btn" onclick="toggleAns(92)">解答・解説を表示</button></div>
+<div class="q" id="q93"><h3>Q093 · L1-6.2.4-010</h3><div class="body">The price series for stock X for a number of days in June is provided in the table below.  
+
+ 
+
+June
+
+	
+
+12
+
+	
+
+13
+
+	
+
+14
+
+	
+
+15
+
+	
+
+16
+
+	
+
+17
+
+	
+
+18
+
+
+
+
+Price at close
+
+	
+
+$32.02
+
+	
+
+$31.88
+
+	
+
+$32.89
+
+	
+
+$32.12
+
+	
+
+$32.69
+
+	
+
+$33.05
+
+	
+
+$32.89
+
+ 
+
+You are asked to apply a 5-day simple moving average trading strategy to this stock price series. Which of the following statements most accurately describes the trading signal that would be generated by this strategy on June 18?</div><ul class="opts"><li data-letter="A" onclick="pick(this,93)"><b>A.</b> Sell stock X because the 5-day SMA on June 18 is $32.38.</li><li data-letter="B" onclick="pick(this,93)"><b>B.</b> Buy stock X because the 5-day SMA on June 18 is $32.38.</li><li data-letter="C" onclick="pick(this,93)"><b>C.</b> Sell stock X because the 5-day SMA on June 18 is $32.53.</li><li data-letter="D" onclick="pick(this,93)"><b>D.</b> Buy stock X because the 5-day SMA on June 18 is $32.53.</li></ul>
+<div class="ansbox" id="ans93"><div class="corr">正解: D</div><div>6月18日の5日SMA（単純移動平均）は直近5日（13日～18日）の終値の平均で、($31.88＋$32.89＋$32.12＋$32.69＋$33.05)/5＝$162.63/5＝$32.53。終値$32.89がSMA $32.53を上回っているため買い（buy）シグナルとなりDが正解です。なお終値は両候補のSMA（$32.38と$32.53）いずれよりも高いので、計算せずとも「Sell」の選択肢A・Cは排除できます。BはSMAの値が誤りです。</div></div><button class="btn" onclick="toggleAns(93)">解答・解説を表示</button></div>
+<div class="topic">Digital Assets（デジタル資産）</div>
+<div class="q" id="q94"><h3>Q094 · L1-7.1.4-008</h3><div class="body">Which of the following statements regarding gas on the Ethereum network is correct?</div><ul class="opts"><li data-letter=" " onclick="pick(this,94)"><b> .</b> Gas is a fixed fee set by the Ethereum Foundation regardless of network demand.</li><li data-letter=" " onclick="pick(this,94)"><b> .</b> Gas fees tend to rise when network activity and demand for block space increase.</li><li data-letter=" " onclick="pick(this,94)"><b> .</b> Gas is paid in a stablecoin rather than ether.</li><li data-letter=" " onclick="pick(this,94)"><b> .</b> Unused gas from a transaction is returned to the total supply of ether.</li></ul>
+<div class="ansbox" id="ans94"><div class="corr">正解: B</div><div class="trick">🎯 <b>秒殺テク</b><br>- ガス（gas）＝イーサリアムの手数料。相場観は「**混雑・需要増で高騰する**」。この因果関係を含む選択肢が正解。
+- 「固定料金（fixed fee）」「安定コインで支払う」「未使用分を供給に戻す」はすべてガスの常識と矛盾。
+- Aの「fixed regardless of demand」は絶対表現かつ常識外。DはEIP-1559の「焼却（burn）＝供給から取り除く」と正反対なので即消し。</div><div>ガス（gas）はイーサリアム上で取引やスマートコントラクトを実行するための手数料の単位で、ETHで支払われる。ネットワークが混雑してブロックスペースへの需要が高まると手数料は高騰する。なおEIP-1559導入後、基本手数料は焼却（burn）され総供給から取り除かれるため、Dは誤り。</div></div><button class="btn" onclick="toggleAns(94)">解答・解説を表示</button></div>
+<div class="q" id="q95"><h3>Q095 · L1-7.3.2-021</h3><div class="body">Kaoru manages a small fund that holds bitcoin for client portfolios. To protect the assets from theft and hacking, the fund keeps the vast majority of its private keys offline in hardware devices, with only a small &quot;hot&quot; balance maintained on an exchange for trading purposes. Which of the following best describes Kaoru&#x27;s custody strategy?</div><ul class="opts"><li data-letter=" " onclick="pick(this,95)"><b> .</b> Atomic swapping</li><li data-letter=" " onclick="pick(this,95)"><b> .</b> Cold storage custody</li><li data-letter=" " onclick="pick(this,95)"><b> .</b> Token burning</li><li data-letter=" " onclick="pick(this,95)"><b> .</b> Mining pool diversification</li></ul>
+<div class="ansbox" id="ans95"><div class="corr">正解: B</div><div class="trick">🎯 <b>秒殺テク</b><br>- 保管戦略は「**鍵がどこにあるか**」で判別。オフライン（offline）＝コールドストレージ、オンライン＝ホットウォレット。
+- 問題文に「offline in hardware devices」とあれば、選択肢の**cold storage**にそのまま一致＝正解。
+- atomic swapping（異なるチェーン間の取引）・token burning（トークン焼却）・mining pool（採掘）は保管と無関係＝即消し。</div><div>秘密鍵をオフラインのハードウェア機器などに保管する手法はコールドストレージ（冷蔵保管）と呼ばれ、ハッキングや盗難リスクの低減が目的。取引の即時性が必要な一部資金のみオンラインのホットウォレットに置くのは一般的な設計。Aのアトミックスワップは異なるブロックチェーン間の取引手法で、C・Dは保管戦略ではない。</div></div><button class="btn" onclick="toggleAns(95)">解答・解説を表示</button></div>
+<div class="q" id="q96"><h3>Q096 · L1-7.2.1-012</h3><div class="body">A startup issues a digital token on the Ethereum blockchain. Holders of the token can use it to pay for services on the startup&#x27;s platform, and the token also grants holders voting rights over platform governance decisions. This token is best categorized as a:</div><ul class="opts"><li data-letter=" " onclick="pick(this,96)"><b> .</b> Security token that represents an equity share with dividend rights.</li><li data-letter=" " onclick="pick(this,96)"><b> .</b> Utility token that provides access to a product or service.</li><li data-letter=" " onclick="pick(this,96)"><b> .</b> Payment token whose sole purpose is to function as money.</li><li data-letter=" " onclick="pick(this,96)"><b> .</b> Stablecoin pegged to the U.S. dollar.</li></ul>
+<div class="ansbox" id="ans96"><div class="corr">正解: B</div><div class="trick">🎯 <b>秒殺テク</b><br>- トークン分類は「**何に使えるか**」で判別。サービス利用権＝ユーティリティ、配当・利益分配＝セキュリティ、通貨代わり＝ペイメント、ドル連動＝ステーブルコイン。
+- 問題文に「pay for services（サービスの支払いに使える）」とあれば**utility token**に一致＝正解。
+- 投票権（governance）があっても、配当権（dividend rights）がなければセキュリティトークンではない、が引っかけの見抜き方。Aの「dividend rights」を含む選択肢を消す。</div><div>プラットフォーム上のサービスを利用する権利（アクセス権）を与えるトークンはユーティリティトークンに分類される。ガバナンス投票権があっても、配当権や利益分配権を伴わない限りセキュリティトークンとは判断されない。この分類は規制上（ハウィーテストなど）も重要な論点。</div></div><button class="btn" onclick="toggleAns(96)">解答・解説を表示</button></div>
+<div class="q" id="q97"><h3>Q097 · L1-7.2.2-014</h3><div class="body">Ryoichi purchased 2.0 bitcoins at $32,000 each in March 2023 and sold his entire position at $45,000 each in December 2024. Ignoring fees and taxes, what was his total dollar profit on the trade?</div><ul class="opts"><li data-letter=" " onclick="pick(this,97)"><b> .</b> $13,000</li><li data-letter=" " onclick="pick(this,97)"><b> .</b> $19,000</li><li data-letter=" " onclick="pick(this,97)"><b> .</b> $24,000</li><li data-letter=" " onclick="pick(this,97)"><b> .</b> $26,000</li></ul>
+<div class="ansbox" id="ans97"><div class="corr">正解: D</div><div class="trick">🎯 <b>秒殺テク</b><br>- 売買損益は「**（売値 − 買値）× 枚数**」の一本。まず1枚あたり差額: $45,000 − $32,000 = $13,000。
+- 選択肢の$13,000（A）は「1枚あたり利益」の罠、$26,000（D）は2枚分＝正解。**倍数・桁の罠**が引っかけ。
+- 問題文に「2.0 bitcoins」とあるので必ず2倍することを忘れない。
+
+**BA II Plus手順**:
+1. `2nd → CLR TVM`: 前の問題のデータを消して誤計算を防ぐ。
+2. `45000 − 32000 =`: 1枚あたり利益 $13,000。
+3. `× 2 =`: 2.0枚分の総利益 $26,000 → 正解D。
+- 別解（検算用）: `32000 × 2 =`で購入総額$64,000、`45000 × 2 =`で売却総額$90,000、`90000 − 64000 =`で$26,000。同じ答えになることでも確認できる。</div><div>購入総額 = 2 × $32,000 = $64,000、売却総額 = 2 × $45,000 = $90,000。利益 = $90,000 − $64,000 = $26,000。別解として、1枚あたり利益 $13,000 × 2枚 = $26,000。検算済み。スプレッドや取引手数料・税は考慮しない前提。</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `2nd → CLR TVM`: 前の問題のデータを消して誤計算を防ぐ。
+2. `45000 − 32000 =`: 1枚あたり利益 $13,000。
+3. `× 2 =`: 2.0枚分の総利益 $26,000 → 正解D。
+- 別解（検算用）: `32000 × 2 =`で購入総額$64,000、`45000 × 2 =`で売却総額$90,000、`90000 − 64000 =`で$26,000。同じ答えになることでも確認できる。</div></div><button class="btn" onclick="toggleAns(97)">解答・解説を表示</button></div>
+<div class="q" id="q98"><h3>Q098 · L1-7.1.1-010</h3><div class="body">A miner contributes 300 TH/s of hash rate to the Bitcoin network. The network&#x27;s total hash rate is 120,000 TH/s and the average block interval is 10 minutes. If the miner mines alone, which of the following is closest to the expected time to find a block?</div><ul class="opts"><li data-letter=" " onclick="pick(this,98)"><b> .</b> 1.2 days</li><li data-letter=" " onclick="pick(this,98)"><b> .</b> 1.9 days</li><li data-letter=" " onclick="pick(this,98)"><b> .</b> 2.8 days</li><li data-letter=" " onclick="pick(this,98)"><b> .</b> 4.2 days</li></ul>
+<div class="ansbox" id="ans98"><div class="corr">正解: C</div><div class="trick">🎯 <b>秒殺テク</b><br>- 期待出塊時間の公式は「**ネットワーク平均出塊間隔（10分）÷ 自分のハッシュシェア**」。シェア = 自分のハッシュ ÷ 全体ハッシュ。
+- 300 ÷ 120,000 = 0.25%（0.0025）→ 10分 ÷ 0.0025 = 4,000分 = 66.67時間。**÷24で2.78日 ≈ 2.8日**が答え。
+- 単位換算（分→時間→日）を忘れると桁違いになる。1.2日・1.9日・4.2日は計算式ミスの誤答。
+
+**BA II Plus手順**:
+1. `2nd → CLR TVM`: 前の計算値を消して誤計算を防ぐ。
+2. `300 ÷ 120000 =`: マイナーシェア 0.0025（全体の0.25%）。
+3. `10 ÷ 300 × 120000 =`: 期待出塊時間 4,000分（＝10分 ÷ シェア0.0025 と同じ計算）。※`10 ÷ シェア`を直接打つなら `10 ÷ 0.0025 =` でも可。
+4. `÷ 60 =`: 時間に換算 → 66.67時間。
+5. `÷ 24 =`: 日に換算 → 2.78日 ≈ 2.8日 → 正解C。</div><div>マイナーのシェア = 300 / 120,000 = 0.0025（全体の0.25%）。期待出塊時間 = 10分 ÷ 0.0025 = 4,000分 = 66.67時間 ≈ 2.78日 ≈ 2.8日。検算済み。ネットワーク全体の平均出塊間隔（10分）を自分のハッシュパワーシェアで割るのがポイント。</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `2nd → CLR TVM`: 前の計算値を消して誤計算を防ぐ。
+2. `300 ÷ 120000 =`: マイナーシェア 0.0025（全体の0.25%）。
+3. `10 ÷ 300 × 120000 =`: 期待出塊時間 4,000分（＝10分 ÷ シェア0.0025 と同じ計算）。※`10 ÷ シェア`を直接打つなら `10 ÷ 0.0025 =` でも可。
+4. `÷ 60 =`: 時間に換算 → 66.67時間。
+5. `÷ 24 =`: 日に換算 → 2.78日 ≈ 2.8日 → 正解C。</div></div><button class="btn" onclick="toggleAns(98)">解答・解説を表示</button></div>
+<div class="topic">Funds of Funds</div>
+<div class="q" id="q99"><h3>Q099 · L1-8.1.5-002</h3><div class="body">In which of the following ways can a fund of funds (FoF) manager add value for investors? I. By conducting operational and investment due diligence and continuously monitoring the underlying managers. II. By constructing a portfolio of underlying funds with low correlations across strategies in order to reduce drawdowns. III. By providing access to capacity-constrained funds that individual investors could not otherwise access directly.</div><ul class="opts"><li data-letter=" " onclick="pick(this,99)"><b> .</b> I only</li><li data-letter=" " onclick="pick(this,99)"><b> .</b> II and III only</li><li data-letter=" " onclick="pick(this,99)"><b> .</b> I and III only</li><li data-letter=" " onclick="pick(this,99)"><b> .</b> I, II, and III</li></ul>
+<div class="ansbox" id="ans99"><div class="corr">正解: D</div><div class="trick">🎯 <b>秒殺テク</b><br>- FoFマネジャーの付加価値は「調査（デューデリ・モニタリング）＋ポートフォリオ構築（低相関）＋アクセス（キャパシティ制約）」の3本柱。I・II・IIIはどれも当たり前の価値提供で全て正しい。
+- 「I only」とするAは、FoFの価値を「調査だけ」に限定する典型的な引っかけ。正しい記述が3つ見えたら迷わずD。
+- 全記述が正しく見える問題では「1つだけ正しい」という選択肢を疑うのがコツ。</div><div>FoFマネジャーの付加価値は多岐にわたります。Iはデューデリジェンスとモニタリングによる付加価値、IIは戦略間の低相関を活用したポートフォリオ構築によるリスク低減、IIIはキャパシティ制約のある優良ファンドへのアクセス提供です。いずれもFoFマネジャーが投資家に対して価値を付加する方法として正しいため、I・II・IIIすべてに該当し、正解はD。Iのみ正しいとする誤答（A）は、FoFの付加価値を「調査だけ」に限定してしまう典型的な誤解です。</div></div><button class="btn" onclick="toggleAns(99)">解答・解説を表示</button></div>
+<div class="q" id="q100"><h3>Q100 · L1-8.1.4-012</h3><div class="body">A fund of funds invests all of its assets in a single underlying hedge fund. The underlying hedge fund earns a gross return of 18% for the year and charges a management fee of 1.5% and an incentive fee of 20% (the incentive fee is charged on the return net of the management fee). The fund of funds charges a management fee of 1% and an incentive fee of 10% (the incentive fee is charged on the net return received from the underlying hedge fund). What is the investor&#x27;s net return for the year, closest to?</div><ul class="opts"><li data-letter=" " onclick="pick(this,100)"><b> .</b> 10.9%</li><li data-letter=" " onclick="pick(this,100)"><b> .</b> 12.2%</li><li data-letter=" " onclick="pick(this,100)"><b> .</b> 13.2%</li><li data-letter=" " onclick="pick(this,100)"><b> .</b> 11.5%</li></ul>
+<div class="ansbox" id="ans100"><div class="corr">正解: A</div><div class="trick">🎯 <b>秒殺テク</b><br>- 二重手数料は「**下層ファンド → FoF**」の順に階段を降りる。下層ファンドのネットを最初に計算し、その上にFoF手数料を重ねる。
+- 選択肢の数値を先に見て段階を推測。C=13.2%はFoF手数料を全部忘れた「下層のネット」、B=12.2%はFoFインセンティブを忘れた値。これより一段低い10.9%が正解の可能性が高い。
+- 下層ファンドのインセンティブは「管理手数料控除後」、FoFのインセンティブは「下層ネット受け取り額」に対してかかる点が最大の引っかけ。</div><div>二重手数料を段階的に計算する。
+
+① 下層ヘッジファンド:
+- グロスリターン 18% − 管理手数料 1.5% = 16.5%（インセンティブ計算の基準）
+- インセンティブフィー = 20% × 16.5% = 3.3%
+- 下層ファンドのネットリターン = 16.5% − 3.3% = 13.2%
+
+② FoFレベル（下層ファンドからのネット 13.2% に適用）:
+- 管理手数料 = 1% → 13.2% − 1% = 12.2%
+- インセンティブフィー = 10% × 13.2% = 1.32%
+- 投資家の最終ネットリターン = 12.2% − 1.32% = 10.88% ≈ 10.9%
+
+よって正解は A。C（13.2%）はFoFの手数料をすべて無視した場合、B（12.2%）はFoFのインセンティブフィーを忘れた場合の誤答。D（11.5%）はFoFインセンティブを「管理手数料控除後12.2%」にかけた場合の誤答（12.2% − 1.22% = 10.98%≒11.0%に近いが、正しい基準は13.2%）。計算過程は①→②の順で検算済み。
+
+**BA II Plus手順**:
+1. `2nd → CLR TVM`: 前の計算の値をすべてクリア（この問題はTVMではなくパーセント計算だが、誤値を残さないため最初にクリア）。
+2. `18 − 1.5 =`: グロス18%から下層の管理手数料1.5%を控除 → 16.5（インセンティブ計算の基準）。
+3. `× 0.20 =`: 基準16.5%に下層のインセンティブ率20%を乗算 → 3.3（インセンティブ額）。
+4. `18 − 1.5 − 3.3 =`: 下層ファンドのネットリターン → 13.2。
+5. `− 1 =`: FoFの管理手数料1%を控除 → 12.2。
+6. `× 0.10 =`: ここで注意。FoFインセンティブは「下層ネット13.2%」に対してかかる。`13.2 × 0.10 =` → 1.32。
+7. `12.2 − 1.32 =`: 投資家の最終ネット → 10.88 ≈ 10.9%。
+
+※ 手順6で「12.2 × 0.10」とやってしまうのが最大のミス。FoFインセンティブの基準は下層ネット（13.2%）であり、FoF管理手数料控除後（12.2%）ではない点に注意。</div><div class="ba2">🔢 BA II Plus: BA II Plus手順**:
+1. `2nd → CLR TVM`: 前の計算の値をすべてクリア（この問題はTVMではなくパーセント計算だが、誤値を残さないため最初にクリア）。
+2. `18 − 1.5 =`: グロス18%から下層の管理手数料1.5%を控除 → 16.5（インセンティブ計算の基準）。
+3. `× 0.20 =`: 基準16.5%に下層のインセンティブ率20%を乗算 → 3.3（インセンティブ額）。
+4. `18 − 1.5 − 3.3 =`: 下層ファンドのネットリターン → 13.2。
+5. `− 1 =`: FoFの管理手数料1%を控除 → 12.2。
+6. `× 0.10 =`: ここで注意。FoFインセンティブは「下層ネット13.2%」に対してかかる。`13.2 × 0.10 =` → 1.32。
+7. `12.2 − 1.32 =`: 投資家の最終ネット → 10.88 ≈ 10.9%。
+
+※ 手順6で「12.2 × 0.10」とやってしまうのが最大のミス。FoFインセンティブの基準は下層ネット（13.2%）であり、FoF管理手数料控除後（12.2%）ではない点に注意。
+
+- LO: L1-8.1.4-012
+
+---
+
+*作成: 2026-08-30 ・ CAIA Level 1 本番予想問題集 ver3 追加「不動産指数・フルクラム・プライムブローカー・FoF」全7問*
+
+完了: 7問</div></div><button class="btn" onclick="toggleAns(100)">解答・解説を表示</button></div>
+</div>
+<script>
+const ANSWERS = {"1": "D", "2": "D", "3": "D", "4": "C", "5": "C", "6": "C", "7": "A", "8": "A", "9": "B", "10": "C", "11": "D", "12": "B", "13": "C", "14": "A", "15": "B", "16": "C", "17": "B", "18": "D", "19": "C", "20": "B", "21": "C", "22": "A", "23": "C", "24": "A", "25": "B", "26": "D", "27": "B", "28": "B", "29": "A", "30": "D", "31": "B", "32": "A", "33": "A", "34": "A", "35": "A", "36": "A", "37": "D", "38": "D", "39": "C", "40": "C", "41": "C", "42": "B", "43": "D", "44": "B", "45": "B", "46": "D", "47": "B", "48": "C", "49": "A", "50": "C", "51": "C", "52": "B", "53": "B", "54": "B", "55": "A", "56": "A", "57": "A", "58": "D", "59": "A", "60": "C", "61": "C", "62": "D", "63": "B", "64": "A", "65": "B", "66": "C", "67": "C", "68": "A", "69": "A", "70": "D", "71": "A", "72": "D", "73": "B", "74": "C", "75": "C", "76": "A", "77": "A", "78": "B", "79": "D", "80": "C", "81": "A", "82": "B", "83": "C", "84": "B", "85": "B", "86": "A", "87": "D", "88": "A", "89": "C", "90": "C", "91": "A", "92": "D", "93": "D", "94": "B", "95": "B", "96": "B", "97": "D", "98": "C", "99": "D", "100": "A"};
+const picked = {};
+function pick(li, qn){
+  if(picked[qn] !== undefined) return;
+  const box = document.getElementById('q'+qn);
+  const lis = box.querySelectorAll('.opts li');
+  lis.forEach(l => l.classList.remove('sel'));
+  li.classList.add('sel');
+  picked[qn] = li.dataset.letter;
+  judge(qn);
+}
+function toggleAns(qn){
+  const ab = document.getElementById('ans'+qn);
+  ab.classList.toggle('show');
+  if(picked[qn] === undefined){ picked[qn] = '-'; judge(qn, true); }
+}
+function judge(qn, silent){
+  const box = document.getElementById('q'+qn);
+  const lis = box.querySelectorAll('.opts li');
+  const correct = ANSWERS[qn];
+  lis.forEach(l => {
+    if(l.dataset.letter === correct) l.classList.add('correct');
+    else if(l.dataset.letter === picked[qn]) l.classList.add('wrong');
+  });
+  document.getElementById('ans'+qn).classList.add('show');
+  let ok=0, ng=0, skip=0;
+  for(const k in ANSWERS){
+    if(picked[k] === undefined) skip++;
+    else if(picked[k] === ANSWERS[k]) ok++;
+    else ng++;
+  }
+  document.getElementById('ok').textContent = ok;
+  document.getElementById('ng').textContent = ng;
+  document.getElementById('skip').textContent = skip;
+  localStorage.setItem('caia_v4_1', JSON.stringify(picked));
+}
+function resetAll(){
+  if(!confirm('全ての回答をリセットしますか？')) return;
+  Object.keys(picked).forEach(k => delete picked[k]);
+  localStorage.removeItem('caia_v4_1');
+  document.querySelectorAll('.opts li').forEach(l => l.classList.remove('sel','correct','wrong'));
+  document.querySelectorAll('.ansbox').forEach(a => a.classList.remove('show'));
+  document.getElementById('ok').textContent = 0;
+  document.getElementById('ng').textContent = 0;
+  document.getElementById('skip').textContent = Object.keys(ANSWERS).length;
+}
+(function(){
+  const saved = localStorage.getItem('caia_v4_1');
+  if(saved){
+    const p = JSON.parse(saved);
+    for(const k in p){
+      const box = document.getElementById('q'+k);
+      if(!box) continue;
+      if(p[k] === '-'){ picked[k]='-'; document.getElementById('ans'+k).classList.add('show'); continue; }
+      const li = box.querySelector('.opts li[data-letter="'+p[k]+'"]');
+      if(li){ li.classList.add('sel'); picked[k]=p[k]; }
+    }
+    for(const k in ANSWERS){ if(picked[k]!==undefined) judge(+k); }
+  }
+})();
+</script></body></html>
