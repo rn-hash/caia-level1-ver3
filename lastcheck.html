@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>⚡ 休憩30分 最終チェックシート</title>
+<style>
+body{font-family:-apple-system,'Hiragino Sans','Noto Sans JP',sans-serif;max-width:760px;margin:0 auto;padding:12px;background:#fff;color:#111;line-height:1.5;font-size:17px;}
+h1{font-size:22px;background:#1a2f5e;color:#fff;padding:12px 14px;border-radius:10px;margin:0 0 10px;}
+h2{font-size:18px;background:#e8eefc;border-left:5px solid #1a2f5e;padding:6px 10px;margin:18px 0 6px;border-radius:6px;}
+.box{background:#f7f8fa;border:1px solid #ddd;border-radius:8px;padding:8px 12px;margin:6px 0;}
+.f{font-weight:700;}
+.warn{color:#c62828;font-weight:600;}
+ul{margin:4px 0;padding-left:22px;}
+li{margin:4px 0;}
+.b2{font-family:Menlo,monospace;font-size:14px;background:#eef2f7;padding:2px 6px;border-radius:4px;}
+</style></head><body>
+<h1>⚡ CAIA L1 休憩30分 最終チェック</h1>
+
+<h2>🛡️ 本番ひっかけ対策 トップ10</h2>
+<div class="box"><ul>
+<li><b>「always / never / all / must」</b>はほぼ誤答。消去候補の最優先</li>
+<li><b>LEAST / NOT / EXCEPT問題</b>→「明らかに正しい・当たり前」の選択肢が答え</li>
+<li><b>「most likely / best describes」</b>→消去法で2つに絞ったら勘で決めない。用語の定義と合う方</li>
+<li>時間切れは<b>71秒/問</b>（200問・4時間）。1問3分迷ったらマークして飛ばす</li>
+<li>計算問題で選択肢が倍率（10% vs 0.1）なら<b>単位・年複利/期間複利</b>を先に確認</li>
+<li>IRRは<b>符号変化2回以上</b>で複数解。ESG/限定キャッシュフロー問題はBA II Plusで直接解かず式で</li>
+<li><b>分散＝標準偏差の2乗</b>。標準偏差を年換算×√T、分散は×T（季節データ→年次は√4=2倍）</li>
+<li>シャープレシオは分子に<b>無リスク金利を引く</b>。情報レシオは<b>ベンチマークを引く</b>（分母はトラッキングエラー）</li>
+<li>プットコールパリティ: <b>S + P = C + PV(X)</b>。移項して各ポジション（covered call = S−C等）を即合成</li>
+<li>倫理問題は<b>「開示・利益相反の回避」</b>が最善解。贈答品は原則断る</li>
+</ul></div>
+
+<h2>📊 統計</h2>
+<div class="box"><span class="f">歪度 S&gt;0＝右に長い裾（平均＞中央値）</span>｜S=Σ((x−μ)/σ)³/n<div class="warn">⚠️ 右裾＝「大きなプラス外れ値あり」</div></div>
+<div class="box"><span class="f">尖度 K&gt;3＝正規より尖る（裾が厚い）</span>｜超過尖度=K−3</div>
+<div class="box"><span class="f">相関 r = Cov/(σx·σy)</span>｜σx=√Vx<div class="warn">⚠️ 外れ値1つで小サンプルのrは0方向へ崩れる</div></div>
+<div class="box"><span class="f">Spearman順位相関</span>=通常のrを「順位」に適用｜外れ値に強い・非線形単調関係OK</div>
+<div class="box"><span class="f">Durbin-Watson ≈2で自己相関なし</span>｜0に近い=正、4に近い=負の自己相関</div>
+<div class="box"><span class="f">Jarque-Bera: 正規なら JB≈0</span>｜歪度＋尖度の検定。棄却→正規でない</div>
+<div class="box"><span class="f">2資産分散: σp² = w1²σ1² + w2²σ2² + 2w1w2·ρ·σ1σ2</span><div class="warn">⚠️ ρ&lt;1で分散効果。ρ=−1で完全ヘッジ</div></div>
+<div class="box"><span class="f">N資産等分の分散</span>=σ²/N + (N−1)/N·平均共分散｜N→∞で共分散項のみ残る</div>
+
+<h2>💰 PE・ファンド報酬</h2>
+<div class="box"><span class="f">2&20: 総報酬 = 2%×NAV + 20%×(リターン−管理費後利益)</span>｜HWM超えた分のみ</div>
+<div class="box"><span class="f">ハードル: hard＝開始資産にのみ適用 / soft＝運用利益全体に適用</span><div class="warn">⚠️ soft/hardの違いは計算問題の最頻ひっかけ</div></div>
+<div class="box"><span class="f">Full catch-up: ハードル分をGPが全取り</span>→ (利益)×20%でGPが取れる水準までLPに分配後にGPへ</div>
+<div class="box"><span class="f">Clawback: 終了時にLPへ GP報酬返還</span>｜前期で過大配分→後期で調整</div>
+<div class="box"><span class="f">ウォーターフォール: ①リターン・オブ・キャピタル→②優先リターン→③キャッチアップ→④80/20分割</span>の順</div>
+<div class="box"><span class="f">MIRR: プラスCFは再投資率rで終端複利→マイナスCFはrで現在価値→IRR計算</span><div class="b2">BA II: CF登録→NPV(I=r)→終端値→IRR</div></div>
+<div class="box"><span class="f">DPI=実現分配/払込, TVPI=(分配+残存NAV)/払込, RVPI=残存NAV/払込</span></div>
+
+<h2>📈 デリバティブ・金利</h2>
+<div class="box"><span class="f">プットコールパリティ: S + P = C + PV(X)</span>｜covered call = S − C = −P + PV(X)</div>
+<div class="box"><span class="f">コストオブキャリー: F = S·e^((r+u−y)T)</span>｜u=保管費, y=利便収益（コンビニエンス・イールド）</div>
+<div class="box"><span class="f">F &gt; S(期近): コンタンゴ / F &lt; S: バックワーデーション</span><div class="warn">⚠️ ロールリターン: コンタンゴ=マイナス要因</div></div>
+<div class="box"><span class="f">ゼロクーポン債価格 = FV/(1+y)ᵀ</span>｜デュレーション=残存年限（ゼロ債のみ）</div>
+<div class="box"><span class="f">デュレーション: ΔP/P ≈ −D·Δy</span>｜複数債ポートフォリオD=加重平均</div>
+<div class="box"><span class="f">B-S: C = S·N(d1) − X·e^(−rT)·N(d2)</span>｜増加要因=S, σ, T, r（コール）。プットはX, σ, T, r↑で↑・S↓で↑</div>
+
+<h2>🏗️ 不動産・実務</h2>
+<div class="box"><span class="f">Cap rate = NOI / 価値</span>｜リスク高い物件（郊外・テナント不安定）ほどCap rate高い</div>
+<div class="box"><span class="f">ローリング=満期の異なる先物を買い継ぎ</span>｜コンタンゴ市場でのロールは損失要因</div>
+<div class="box"><span class="f">IRRの弱点: 再投資率仮定・複数解・規模無視</span>｜MIRRで改善</div>
+<div class="box"><span class="f">シャープ = (Rp−rf)/σp</span>｜情報レシオ = (Rp−Rb)/σ(Rp−Rb)<div class="warn">⚠️ 分母が違うだけ。IRの方がベンチマーク管理を評価</div></div>
+<div class="box"><span class="f">オプションのデルタヘッジ: ヘッジ枚数 = デルタ×保有株数</span>｜ガンマ&positive;＝変動から利益（デルタヘッジ済みCBarb）</div>
+
+<h2>🧮 BA II Plus 秒殺手順</h2>
+<div class="box"><span class="f">金利計算:</span> <span class="b2">N → I/Y → PV → PMT → FV → CPT（目当ての変数）</span>｜出金は+入金は−符号に注意</div>
+<div class="box"><span class="f">NPV/IRR:</span> <span class="b2">CF → CF0 → ↓CF1 → ↓F01（回数）… → NPV → I → ↓CPT</span></div>
+<div class="box"><span class="f">統計（σ, r）:</span> <span class="b2">2ND DATA → X01,Y01 … → 2ND STAT → LIN → σx σy r</span></div>
+
+<p style="text-align:center;color:#888;font-size:13px;margin:16px 0;">再入室前: 私物はすべてロッカーへ・目視検査あり・30分超過分はS2から減算</p>
+</body></html>
